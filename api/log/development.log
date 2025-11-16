@@ -1,0 +1,535 @@
+  [1m[35m (126.4ms)[0m  [1m[35mCREATE DATABASE "happyhour_api_development" ENCODING = 'unicode' /*application='AppyHourApi'*/[0m
+[dotenv] Set [36mDB_USERNAME[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mDB_USERNAME[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35m (171.2ms)[0m  [1m[35mCREATE DATABASE "happyhour_api_development" ENCODING = 'unicode' /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35m (61.9ms)[0m  [1m[35mCREATE DATABASE "happyhour_api_test" ENCODING = 'unicode' /*application='AppyHourApi'*/[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35m (22.4ms)[0m  [1m[35mCREATE DATABASE "happyhour_api_development" ENCODING = 'unicode' /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35m (71.9ms)[0m  [1m[35mCREATE DATABASE "appyhour_api_test" ENCODING = 'unicode' /*application='AppyHourApi'*/[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='AppyHourApi'*/[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35m (73.2ms)[0m  [1m[35mCREATE DATABASE "happyhour_api_development" ENCODING = 'unicode' /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE DATABASE "appyhour_api_test" ENCODING = 'unicode' /*application='AppyHourApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7316777445542934810) /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-11-09 01:45:37.547194', '2025-11-09 01:45:37.547196') RETURNING "key" /*application='AppyHourApi'*/[0m
+Migrating to DeviseCreateUsers (20251109014536)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='AppyHourApi'*/[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='AppyHourApi'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='AppyHourApi'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token") /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251109014536') RETURNING "version" /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='AppyHourApi'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7316777445542934810) /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='AppyHourApi'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+[dotenv] Set [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7316777445542934810) /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='AppyHourApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7316777445542934810) /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO "$user", public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='AppyHourApi'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7316777445542934810) /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='AppyHourApi'*/[0m
+Migrating to AddDeviseToUsers (20251109015631)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='AppyHourApi'*/[0m
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT '' NOT NULL /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*application='AppyHourApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7316777445542934810) /*application='AppyHourApi'*/[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7316777445542934810) /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='AppyHourApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7316777445542934810) /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='AppyHourApi'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1 /*application='AppyHourApi'*/[0m
+Started POST "/api/v1/users/signup" for 127.0.0.1 at 2025-11-09 12:58:35 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/users/signup"):
+  
+Started POST "/users/signup" for 127.0.0.1 at 2025-11-09 12:58:54 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/users/signup"):
+  
+Started POST "/signup" for 127.0.0.1 at 2025-11-09 12:58:59 -0500
+Processing by Users::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'alice2@example.com' LIMIT 1 /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  [1m[36mUser Create (3.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ('alice2@example.com', '$2a$12$pTji/QIFy4TxUSaAw7/CqubbHzU9I9MQACmR/.rkjWbuc8iXgA0Zm', NULL, NULL, NULL, '2025-11-09 17:59:00.361620', '2025-11-09 17:59:00.361620') RETURNING "id" /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+Completed 500 Internal Server Error in 301ms (ActiveRecord: 23.9ms (2 queries, 0 cached) | GC: 10.6ms)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+actionpack (8.1.1) lib/action_dispatch/request/session.rb:263:in `load_for_write!'
+actionpack (8.1.1) lib/action_dispatch/request/session.rb:155:in `[]='
+warden (1.2.9) lib/warden/session_serializer.rb:27:in `store'
+warden (1.2.9) lib/warden/proxy.rb:187:in `set_user'
+devise (4.9.4) lib/devise/controllers/sign_in_out.rb:53:in `sign_in'
+devise (4.9.4) app/controllers/devise/registrations_controller.rb:106:in `sign_up'
+devise (4.9.4) app/controllers/devise/registrations_controller.rb:24:in `create'
+actionpack (8.1.1) lib/action_controller/metal/basic_implicit_render.rb:8:in `send_action'
+actionpack (8.1.1) lib/abstract_controller/base.rb:221:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/rendering.rb:199:in `process_action'
+actionpack (8.1.1) lib/abstract_controller/callbacks.rb:267:in `block in process_action'
+activesupport (8.1.1) lib/active_support/callbacks.rb:110:in `run_callbacks'
+actionpack (8.1.1) lib/abstract_controller/callbacks.rb:266:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/rescue.rb:36:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.1.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.1.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.1.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.1.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.1.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.1.1) lib/abstract_controller/base.rb:154:in `process'
+actionpack (8.1.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.1.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.1.1) lib/action_dispatch/routing/mapper.rb:32:in `block in <class:Constraints>'
+actionpack (8.1.1) lib/action_dispatch/routing/mapper.rb:62:in `serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.1) lib/rails/engine/lazy_route_set.rb:60:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/token_dispatcher.rb:20:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/revocation_manager.rb:21:in `call'
+rack (3.2.4) lib/rack/builder.rb:283:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware.rb:22:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.2.4) lib/rack/etag.rb:29:in `call'
+rack (3.2.4) lib/rack/conditional_get.rb:44:in `call'
+rack (3.2.4) lib/rack/head.rb:15:in `call'
+activerecord (8.1.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.4) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.4) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.1.1) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1 /*application='AppyHourApi'*/[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:2)
+  [1m[36mUser Load (20.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1 /*application='AppyHourApi'*/[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1 /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='AppyHourApi'*/[0m
+  [1m[36mUser Destroy (3.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = 1 /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*application='AppyHourApi'*/[0m
+Started POST "/api/v1/users" for 127.0.0.1 at 2025-11-09 13:18:41 -0500
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+Processing by Api::V1::Users::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+Completed 422 Unprocessable Content in 33ms (Views: 0.1ms | ActiveRecord: 13.0ms (0 queries, 0 cached) | GC: 0.9ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2025-11-09 13:19:18 -0500
+Processing by Api::V1::Users::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+Completed 422 Unprocessable Content in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mUser Load (24.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1 /*application='AppyHourApi'*/[0m
+Started POST "/api/v1/users" for 127.0.0.1 at 2025-11-09 13:25:47 -0500
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+Processing by Api::V1::Users::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Completed 422 Unprocessable Content in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2025-11-09 13:26:02 -0500
+Processing by Api::V1::Users::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Completed 422 Unprocessable Content in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='AppyHourApi'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+Started POST "/api/v1/users" for 127.0.0.1 at 2025-11-09 13:27:32 -0500
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+Processing by Api::V1::Users::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Completed 422 Unprocessable Content in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+Started POST "/api/v1/users" for 127.0.0.1 at 2025-11-09 13:28:13 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+Processing by Api::V1::Users::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  ↳ app/controllers/api/v1/users/registrations_controller.rb:12:in `create'
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'alice2@example.com' LIMIT 1 /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  ↳ app/controllers/api/v1/users/registrations_controller.rb:12:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ('alice2@example.com', '$2a$12$cRnhBLGPUQ/Ypl/v9QkdUO8KUSZiscptGp4ElM70zgppsCpdk7tCm', NULL, NULL, NULL, '2025-11-09 18:28:14.118955', '2025-11-09 18:28:14.118955') RETURNING "id" /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  ↳ app/controllers/api/v1/users/registrations_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  ↳ app/controllers/api/v1/users/registrations_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 280ms (ActiveRecord: 20.2ms (2 queries, 0 cached) | GC: 8.5ms)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/api/v1/users/registrations_controller.rb:13:in `create'
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1 /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='AppyHourApi'*/[0m
+  [1m[36mUser Destroy (2.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = 2 /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='AppyHourApi'*/[0m
+Started POST "/api/v1/users" for 127.0.0.1 at 2025-11-09 13:46:43 -0500
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+Processing by Api::V1::Users::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  ↳ app/controllers/api/v1/users/registrations_controller.rb:12:in `create'
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'alice2@example.com' LIMIT 1 /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  ↳ app/controllers/api/v1/users/registrations_controller.rb:12:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ('alice2@example.com', '$2a$12$mOblTCQ5ihrxApiP.jGfB.ApiAtVkBzC2XBTlSDat0xNf6lCa1rMa', NULL, NULL, NULL, '2025-11-09 18:46:44.015066', '2025-11-09 18:46:44.015066') RETURNING "id" /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  ↳ app/controllers/api/v1/users/registrations_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  ↳ app/controllers/api/v1/users/registrations_controller.rb:12:in `create'
+Completed 201 Created in 254ms (Views: 0.1ms | ActiveRecord: 6.8ms (2 queries, 0 cached) | GC: 0.4ms)
+
+
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+  [1m[35mSQL (0.4ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35m (143.6ms)[0m  [1m[35mCREATE DATABASE "happyhour_api_development" ENCODING = 'unicode' /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35m (40.1ms)[0m  [1m[35mCREATE DATABASE "appyhour_api_test" ENCODING = 'unicode' /*application='AppyHourApi'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7316777445542934810) /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='AppyHourApi'*/[0m
+Migrating to EnablePostgis (20251110001840)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (1182.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "postgis" /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (178.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "btree_gin" /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (128.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pg_trgm" /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251110001840') RETURNING "version" /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT /*application='AppyHourApi'*/[0m
+Migrating to CreateVenues (20251110001936)
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN /*application='AppyHourApi'*/[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "venues" ("id" bigserial primary key, "name" character varying, "description" text, "website_url" character varying, "social_handles" jsonb, "tz_name" character varying, "address" character varying, "address_2" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "location" geography(POINT,4326), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='AppyHourApi'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_venues_on_location" ON "venues" USING gist ("location") /*application='AppyHourApi'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_venues_on_tz_name" ON "venues" ("tz_name") /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251110001936') RETURNING "version" /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*application='AppyHourApi'*/[0m
+Migrating to CreateMenus (20251110002014)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN /*application='AppyHourApi'*/[0m
+  [1m[35m (15.5ms)[0m  [1m[35mCREATE TABLE "menus" ("id" bigserial primary key, "venue_id" bigint NOT NULL, "name" character varying NOT NULL, "description" text, "active" boolean DEFAULT TRUE NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "effective_from" date, "effective_to" date, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_452aa4a28e"
+FOREIGN KEY ("venue_id")
+  REFERENCES "venues" ("id")
+) /*application='AppyHourApi'*/[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE INDEX "index_menus_on_venue_id" ON "menus" ("venue_id") /*application='AppyHourApi'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE INDEX "index_menus_on_venue_id_and_active_and_priority" ON "menus" ("venue_id", "active", "priority") /*application='AppyHourApi'*/[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE INDEX "index_menus_on_effective_from_and_effective_to" ON "menus" ("effective_from", "effective_to") /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251110002014') RETURNING "version" /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='AppyHourApi'*/[0m
+Migrating to CreateHours (20251110002059)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN /*application='AppyHourApi'*/[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "hours" ("id" bigserial primary key, "schedulable_type" character varying NOT NULL, "schedulable_id" bigint NOT NULL, "kind" integer DEFAULT 0 NOT NULL, "days_of_week" integer[] DEFAULT '{}' NOT NULL, "opens_at" time NOT NULL, "closes_at" time NOT NULL, "overnight" boolean DEFAULT FALSE NOT NULL, "effective_from" date, "effective_to" date, "note" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='AppyHourApi'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_hours_on_schedulable" ON "hours" ("schedulable_type", "schedulable_id") /*application='AppyHourApi'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "idx_hours_sched_kind" ON "hours" ("schedulable_type", "schedulable_id", "kind") /*application='AppyHourApi'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_hours_on_days_of_week" ON "hours" USING gin ("days_of_week") /*application='AppyHourApi'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_hours_on_opens_at" ON "hours" ("opens_at") /*application='AppyHourApi'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_hours_on_closes_at" ON "hours" ("closes_at") /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251110002059') RETURNING "version" /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='AppyHourApi'*/[0m
+Migrating to CreateMenuItems (20251110002132)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='AppyHourApi'*/[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "menu_items" ("id" bigserial primary key, "venue_id" bigint NOT NULL, "name" character varying NOT NULL, "description" text, "item_type" integer DEFAULT 0 NOT NULL, "base_price_cents" integer, "currency" character varying DEFAULT 'USD' NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_3eac5c09d4"
+FOREIGN KEY ("venue_id")
+  REFERENCES "venues" ("id")
+) /*application='AppyHourApi'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_menu_items_on_venue_id" ON "menu_items" ("venue_id") /*application='AppyHourApi'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_menu_items_on_venue_id_and_item_type" ON "menu_items" ("venue_id", "item_type") /*application='AppyHourApi'*/[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_menu_items_on_venue_id_and_name" ON "menu_items" ("venue_id", "name") /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251110002132') RETURNING "version" /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='AppyHourApi'*/[0m
+Migrating to CreateMenuItemDeals (20251110002139)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='AppyHourApi'*/[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "menu_item_deals" ("id" bigserial primary key, "menu_id" bigint NOT NULL, "menu_item_id" bigint NOT NULL, "name" character varying NOT NULL, "deal_type" integer DEFAULT 2 NOT NULL, "price_cents" integer, "amount_off_cents" integer, "percent_off" integer, "bogo_buy_qty" integer, "bogo_get_qty" integer, "min_qty" integer, "base_price_cents" integer, "effective_price_cents" integer, "currency" character varying DEFAULT 'USD' NOT NULL, "tags" jsonb DEFAULT '{}', "active" boolean DEFAULT TRUE NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_2bd54ee231"
+FOREIGN KEY ("menu_id")
+  REFERENCES "menus" ("id")
+, CONSTRAINT "fk_rails_1c237bf2e3"
+FOREIGN KEY ("menu_item_id")
+  REFERENCES "menu_items" ("id")
+) /*application='AppyHourApi'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_menu_item_deals_on_menu_id" ON "menu_item_deals" ("menu_id") /*application='AppyHourApi'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_menu_item_deals_on_menu_item_id" ON "menu_item_deals" ("menu_item_id") /*application='AppyHourApi'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "idx_deals_menu_type_active_prio" ON "menu_item_deals" ("menu_id", "deal_type", "active", "priority") /*application='AppyHourApi'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_menu_item_deals_on_effective_price_cents" ON "menu_item_deals" ("effective_price_cents") /*application='AppyHourApi'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_menu_item_deals_on_tags" ON "menu_item_deals" USING gin ("tags") /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251110002139') RETURNING "version" /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='AppyHourApi'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(7316777445542934810) /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='AppyHourApi'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour_api/config/routes.rb:4)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/config/routes.rb:4)
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
