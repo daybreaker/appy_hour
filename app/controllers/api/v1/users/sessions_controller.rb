@@ -3,32 +3,35 @@ module Api
     module Users
       class SessionsController < Devise::SessionsController
         respond_to :json
-        before_action { request.session_options[:skip] = true }
         wrap_parameters format: []
+        before_action { request.session_options[:skip] = true }
 
+        # POST /api/v1/session
         def create
-          self.resource = warden.authenticate!(auth_options)
-          # ✅ sessionless sign-in
-          sign_in(resource_name, resource, store: false)
+          email = params.dig(:user, :email).to_s
+          password = params.dig(:user, :password).to_s
 
-          # (optional safety net) also set the header yourself
-          token, _ = Warden::JWTAuth::UserEncoder.new.call(resource, :user, nil)
-          response.set_header 'Authorization', "Bearer #{token}"
+          # Devise's DB auth lookup (respects case-insensitive keys)
+          resource = User.find_for_database_authentication(email: email)
 
-          respond_with(resource, {})
+          if resource&.valid_password?(password)
+            # sessionless sign-in to trigger devise-jwt
+            sign_in(:user, resource, store: false)
+
+            token, _payload = Warden::JWTAuth::UserEncoder.new.call(resource, :user, nil)
+            response.set_header('Authorization', "Bearer #{token}")
+
+            render json: {
+              user: { id: resource.id, email: resource.email, admin: resource.try(:admin) }
+            }, status: :ok
+          else
+            render json: { error: 'Invalid email or password' }, status: :unauthorized
+          end
         end
 
-        private
-
-        def sign_in_params
-          params.require(:user).permit(:email, :password)
-        end
-
-        def respond_with(resource, _opts = {})
-          render json: { user: { id: resource.id, email: resource.email } }, status: :ok
-        end
-
-        def respond_to_on_destroy
+        # DELETE /api/v1/session
+        def destroy
+          sign_out(resource_name)
           head :no_content
         end
       end

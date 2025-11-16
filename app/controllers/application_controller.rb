@@ -1,8 +1,5 @@
 class ApplicationController < ActionController::API
-  before_action :authenticate_user!
-
   after_action :refresh_jwt_if_authenticated
-
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private

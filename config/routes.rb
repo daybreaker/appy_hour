@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
-  namespace :api do
+  namespace :api,  defaults: { format: :json } do
     namespace :v1 do
       devise_for :users,
         defaults: { format: :json },
-        path: '', # keep clean URLs under /api/v1
+        path: "", # keep clean URLs under /api/v1
         path_names: {
-          sign_in:  'session',   # POST   /api/v1/session
-          sign_out: 'session',   # DELETE /api/v1/session
-          registration: 'users'  # POST   /api/v1/users
+          sign_in:  "session",   # POST   /api/v1/session
+          sign_out: "session",   # DELETE /api/v1/session
+          registration: "users"  # POST   /api/v1/users
         },
         controllers: {
-          sessions:       'api/v1/users/sessions',
-          registrations:  'api/v1/users/registrations'
+          sessions:       "api/v1/users/sessions",
+          registrations:  "api/v1/users/registrations"
         }
 
       # Example protected endpoint to test
