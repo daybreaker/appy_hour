@@ -15,9 +15,9 @@ Devise.setup do |config|
 
 
   config.jwt do |jwt|
-    jwt.secret = Rails.application.credentials.dig(:jwt, :secret) || ENV['JWT_SECRET']
+    jwt.secret = Rails.application.secret_key_base
     jwt.dispatch_requests = [
-        ['POST', %r{\A/api/v1/session\z}], # login
+      ['POST', %r{\A/api/v1/session\z}], # login
       ['POST', %r{\A/api/v1/users\z}]    # signup
     ]
     # No revocation requests; we're stateless and use Null strategy

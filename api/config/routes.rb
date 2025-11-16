@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   namespace :api do
     namespace :v1 do
       devise_for :users,
@@ -13,6 +15,13 @@ Rails.application.routes.draw do
           sessions:       'api/v1/users/sessions',
           registrations:  'api/v1/users/registrations'
         }
+
+      # React-Admin friendly CRUD (flat resources)
+      resources :venues
+      resources :menus
+      resources :hours
+      resources :menu_items
+      resources :menu_item_deals
 
       # Example protected endpoint to test
       get "up" => "rails/health#show", as: :rails_health_check

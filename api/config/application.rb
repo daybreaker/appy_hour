@@ -46,7 +46,7 @@ module AppyHourApi
         origins '*'
         resource '*',
           headers: :any,
-          expose: %w[Authorization],
+          expose: %w[Authorization Content-Range],
           methods: %i[get post put patch delete options head]
       end
     end

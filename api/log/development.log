@@ -548,3 +548,1399 @@ DEPRECATION WARNING: resource received a hash argument path. Please use a keywor
 DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
 DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
   [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1 /*application='AppyHourApi'*/[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1 /*application='AppyHourApi'*/[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 20:36:36 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/venues"):
+  
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 20:36:49 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/venues"):
+  
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 20:37:26 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/venues"):
+  
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 20:38:26 -0500
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+  
+ActionDispatch::MissingController (uninitialized constant Api::V1::VenuesController)
+Caused by: NameError (uninitialized constant Api::V1::VenuesController)
+
+Information for: ActionDispatch::MissingController (uninitialized constant Api::V1::VenuesController):
+  
+actionpack (8.1.1) lib/action_dispatch/http/request.rb:101:in `rescue in controller_class_for'
+actionpack (8.1.1) lib/action_dispatch/http/request.rb:97:in `controller_class_for'
+actionpack (8.1.1) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.1) lib/rails/engine/lazy_route_set.rb:60:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/token_dispatcher.rb:20:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/revocation_manager.rb:21:in `call'
+rack (3.2.4) lib/rack/builder.rb:283:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware.rb:22:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.2.4) lib/rack/etag.rb:29:in `call'
+rack (3.2.4) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.4) lib/rack/head.rb:15:in `call'
+activerecord (8.1.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.4) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.4) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.1.1) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant Api::V1::VenuesController):
+  
+activesupport (8.1.1) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.1.1) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.1.1) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.1.1) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.1) lib/rails/engine/lazy_route_set.rb:60:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/token_dispatcher.rb:20:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/revocation_manager.rb:21:in `call'
+rack (3.2.4) lib/rack/builder.rb:283:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware.rb:22:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.2.4) lib/rack/etag.rb:29:in `call'
+rack (3.2.4) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.4) lib/rack/head.rb:15:in `call'
+activerecord (8.1.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.4) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.4) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.1.1) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 20:38:27 -0500
+  
+ActionDispatch::MissingController (uninitialized constant Api::V1::VenuesController)
+Caused by: NameError (uninitialized constant Api::V1::VenuesController)
+
+Information for: ActionDispatch::MissingController (uninitialized constant Api::V1::VenuesController):
+  
+actionpack (8.1.1) lib/action_dispatch/http/request.rb:101:in `rescue in controller_class_for'
+actionpack (8.1.1) lib/action_dispatch/http/request.rb:97:in `controller_class_for'
+actionpack (8.1.1) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.1) lib/rails/engine/lazy_route_set.rb:60:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/token_dispatcher.rb:20:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/revocation_manager.rb:21:in `call'
+rack (3.2.4) lib/rack/builder.rb:283:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware.rb:22:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.2.4) lib/rack/etag.rb:29:in `call'
+rack (3.2.4) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.4) lib/rack/head.rb:15:in `call'
+activerecord (8.1.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.4) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.4) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.1.1) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant Api::V1::VenuesController):
+  
+activesupport (8.1.1) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.1.1) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.1.1) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.1.1) lib/action_dispatch/http/request.rb:90:in `controller_class'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.1) lib/rails/engine/lazy_route_set.rb:60:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/token_dispatcher.rb:20:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/revocation_manager.rb:21:in `call'
+rack (3.2.4) lib/rack/builder.rb:283:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware.rb:22:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.2.4) lib/rack/etag.rb:29:in `call'
+rack (3.2.4) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.4) lib/rack/head.rb:15:in `call'
+activerecord (8.1.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.4) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.4) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.1.1) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 20:41:36 -0500
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+  
+ArgumentError (Reported error must be an Exception, got: #<SyntaxError:"/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected `rescue' modifier, expecting ':'\n...esent? ? JSON.parse(raw) rescue {} : {}\n...                         ^~~~~~\n/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected ':', expecting `end' or dummy end\n...? ? JSON.parse(raw) rescue {} : {}\n...                              ^\n">)
+Caused by: SyntaxError (/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected `rescue' modifier, expecting ':'
+...esent? ? JSON.parse(raw) rescue {} : {}
+...                         ^~~~~~
+/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected ':', expecting `end' or dummy end
+...? ? JSON.parse(raw) rescue {} : {}
+...                              ^
+)
+
+Information for: ArgumentError (Reported error must be an Exception, got: #<SyntaxError:"/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected `rescue' modifier, expecting ':'\n...esent? ? JSON.parse(raw) rescue {} : {}\n...                         ^~~~~~\n/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected ':', expecting `end' or dummy end\n...? ? JSON.parse(raw) rescue {} : {}\n...                              ^\n">):
+  
+activesupport (8.1.1) lib/active_support/error_reporter.rb:235:in `report'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:36:in `rescue in call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:32:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.4) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.4) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.1.1) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+
+Information for cause: SyntaxError (/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected `rescue' modifier, expecting ':'
+...esent? ? JSON.parse(raw) rescue {} : {}
+...                         ^~~~~~
+/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected ':', expecting `end' or dummy end
+...? ? JSON.parse(raw) rescue {} : {}
+...                              ^
+):
+  
+app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected `rescue' modifier, expecting ':'
+app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected ':', expecting `end' or dummy end
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 20:41:37 -0500
+  
+ArgumentError (Reported error must be an Exception, got: #<SyntaxError:"/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected `rescue' modifier, expecting ':'\n...esent? ? JSON.parse(raw) rescue {} : {}\n...                         ^~~~~~\n/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected ':', expecting `end' or dummy end\n...? ? JSON.parse(raw) rescue {} : {}\n...                              ^\n">)
+Caused by: SyntaxError (/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected `rescue' modifier, expecting ':'
+...esent? ? JSON.parse(raw) rescue {} : {}
+...                         ^~~~~~
+/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected ':', expecting `end' or dummy end
+...? ? JSON.parse(raw) rescue {} : {}
+...                              ^
+)
+
+Information for: ArgumentError (Reported error must be an Exception, got: #<SyntaxError:"/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected `rescue' modifier, expecting ':'\n...esent? ? JSON.parse(raw) rescue {} : {}\n...                         ^~~~~~\n/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected ':', expecting `end' or dummy end\n...? ? JSON.parse(raw) rescue {} : {}\n...                              ^\n">):
+  
+activesupport (8.1.1) lib/active_support/error_reporter.rb:235:in `report'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:36:in `rescue in call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:32:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.4) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.4) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.1.1) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+
+Information for cause: SyntaxError (/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected `rescue' modifier, expecting ':'
+...esent? ? JSON.parse(raw) rescue {} : {}
+...                         ^~~~~~
+/Users/daybreaker/dev/appy_hour/api/app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected ':', expecting `end' or dummy end
+...? ? JSON.parse(raw) rescue {} : {}
+...                              ^
+):
+  
+app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected `rescue' modifier, expecting ':'
+app/controllers/api/v1/venues_controller.rb:86: syntax error, unexpected ':', expecting `end' or dummy end
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 20:42:05 -0500
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method `authenticate_user!' for an instance of Api::V1::VenuesController):
+  
+railties (8.1.1) lib/rails/engine/lazy_route_set.rb:96:in `method_missing'
+activesupport (8.1.1) lib/active_support/callbacks.rb:362:in `block in make_lambda'
+activesupport (8.1.1) lib/active_support/callbacks.rb:179:in `block in call'
+actionpack (8.1.1) lib/abstract_controller/callbacks.rb:36:in `block (2 levels) in <module:Callbacks>'
+activesupport (8.1.1) lib/active_support/callbacks.rb:180:in `call'
+activesupport (8.1.1) lib/active_support/callbacks.rb:560:in `block in invoke_before'
+activesupport (8.1.1) lib/active_support/callbacks.rb:560:in `each'
+activesupport (8.1.1) lib/active_support/callbacks.rb:560:in `invoke_before'
+activesupport (8.1.1) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (8.1.1) lib/abstract_controller/callbacks.rb:266:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/rescue.rb:36:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.1.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.1.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.1.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.1.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.1.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.1.1) lib/abstract_controller/base.rb:154:in `process'
+actionpack (8.1.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.1.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.1) lib/rails/engine/lazy_route_set.rb:60:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/token_dispatcher.rb:20:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/revocation_manager.rb:21:in `call'
+rack (3.2.4) lib/rack/builder.rb:283:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware.rb:22:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.2.4) lib/rack/etag.rb:29:in `call'
+rack (3.2.4) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.4) lib/rack/head.rb:15:in `call'
+activerecord (8.1.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.4) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.4) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.1.1) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 20:42:33 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method `authenticate_user!' for an instance of Api::V1::VenuesController):
+  
+railties (8.1.1) lib/rails/engine/lazy_route_set.rb:96:in `method_missing'
+activesupport (8.1.1) lib/active_support/callbacks.rb:362:in `block in make_lambda'
+activesupport (8.1.1) lib/active_support/callbacks.rb:179:in `block in call'
+actionpack (8.1.1) lib/abstract_controller/callbacks.rb:36:in `block (2 levels) in <module:Callbacks>'
+activesupport (8.1.1) lib/active_support/callbacks.rb:180:in `call'
+activesupport (8.1.1) lib/active_support/callbacks.rb:560:in `block in invoke_before'
+activesupport (8.1.1) lib/active_support/callbacks.rb:560:in `each'
+activesupport (8.1.1) lib/active_support/callbacks.rb:560:in `invoke_before'
+activesupport (8.1.1) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (8.1.1) lib/abstract_controller/callbacks.rb:266:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/rescue.rb:36:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.1.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.1.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.1.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.1.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.1.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.1.1) lib/abstract_controller/base.rb:154:in `process'
+actionpack (8.1.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.1.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.1) lib/rails/engine/lazy_route_set.rb:60:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/token_dispatcher.rb:20:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/revocation_manager.rb:21:in `call'
+rack (3.2.4) lib/rack/builder.rb:283:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware.rb:22:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.2.4) lib/rack/etag.rb:29:in `call'
+rack (3.2.4) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.4) lib/rack/head.rb:15:in `call'
+activerecord (8.1.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.4) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.4) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.1.1) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 20:43:47 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:4)
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method `authenticate_user!' for an instance of Api::V1::VenuesController):
+  
+railties (8.1.1) lib/rails/engine/lazy_route_set.rb:96:in `method_missing'
+activesupport (8.1.1) lib/active_support/callbacks.rb:362:in `block in make_lambda'
+activesupport (8.1.1) lib/active_support/callbacks.rb:179:in `block in call'
+actionpack (8.1.1) lib/abstract_controller/callbacks.rb:36:in `block (2 levels) in <module:Callbacks>'
+activesupport (8.1.1) lib/active_support/callbacks.rb:180:in `call'
+activesupport (8.1.1) lib/active_support/callbacks.rb:560:in `block in invoke_before'
+activesupport (8.1.1) lib/active_support/callbacks.rb:560:in `each'
+activesupport (8.1.1) lib/active_support/callbacks.rb:560:in `invoke_before'
+activesupport (8.1.1) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (8.1.1) lib/abstract_controller/callbacks.rb:266:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/rescue.rb:36:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.1.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.1.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.1.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.1.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.1.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.1.1) lib/abstract_controller/base.rb:154:in `process'
+actionpack (8.1.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.1.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.1) lib/rails/engine/lazy_route_set.rb:60:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/token_dispatcher.rb:20:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/revocation_manager.rb:21:in `call'
+rack (3.2.4) lib/rack/builder.rb:283:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware.rb:22:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.2.4) lib/rack/etag.rb:29:in `call'
+rack (3.2.4) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.4) lib/rack/head.rb:15:in `call'
+activerecord (8.1.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.4) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.4) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.1.1) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 20:43:48 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method `authenticate_user!' for an instance of Api::V1::VenuesController):
+  
+railties (8.1.1) lib/rails/engine/lazy_route_set.rb:96:in `method_missing'
+activesupport (8.1.1) lib/active_support/callbacks.rb:362:in `block in make_lambda'
+activesupport (8.1.1) lib/active_support/callbacks.rb:179:in `block in call'
+actionpack (8.1.1) lib/abstract_controller/callbacks.rb:36:in `block (2 levels) in <module:Callbacks>'
+activesupport (8.1.1) lib/active_support/callbacks.rb:180:in `call'
+activesupport (8.1.1) lib/active_support/callbacks.rb:560:in `block in invoke_before'
+activesupport (8.1.1) lib/active_support/callbacks.rb:560:in `each'
+activesupport (8.1.1) lib/active_support/callbacks.rb:560:in `invoke_before'
+activesupport (8.1.1) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (8.1.1) lib/abstract_controller/callbacks.rb:266:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/rescue.rb:36:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.1.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.1.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.1.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.1.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.1.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.1.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.1.1) lib/abstract_controller/base.rb:154:in `process'
+actionpack (8.1.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.1.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `each'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:66:in `recognize'
+actionpack (8.1.1) lib/action_dispatch/journey/router.rb:31:in `serve'
+actionpack (8.1.1) lib/action_dispatch/routing/route_set.rb:906:in `call'
+railties (8.1.1) lib/rails/engine/lazy_route_set.rb:60:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/token_dispatcher.rb:20:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware/revocation_manager.rb:21:in `call'
+rack (3.2.4) lib/rack/builder.rb:283:in `call'
+warden-jwt_auth (0.12.0) lib/warden/jwt_auth/middleware.rb:22:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.2.4) lib/rack/etag.rb:29:in `call'
+rack (3.2.4) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.4) lib/rack/head.rb:15:in `call'
+activerecord (8.1.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (8.1.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.1.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.1.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.4) lib/rack/runtime.rb:24:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.1.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.4) lib/rack/sendfile.rb:131:in `call'
+actionpack (8.1.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in `call'
+railties (8.1.1) lib/rails/engine.rb:534:in `call'
+puma (7.1.0) lib/puma/configuration.rb:300:in `call'
+puma (7.1.0) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.1.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.1.0) lib/puma/request.rb:100:in `handle_request'
+puma (7.1.0) lib/puma/server.rb:503:in `process_client'
+puma (7.1.0) lib/puma/server.rb:262:in `block in run'
+puma (7.1.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 20:46:24 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 20:46:25 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7316777445542934810) /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='AppyHourApi'*/[0m
+Migrating to AddAdminToUsers (20251116014717)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='AppyHourApi'*/[0m
+  [1m[35m (6.2ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean DEFAULT FALSE NOT NULL /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251116014717') RETURNING "version" /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT /*application='AppyHourApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7316777445542934810) /*application='AppyHourApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='AppyHourApi'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='AppyHourApi'*/[0m
+Started POST "/api/v1/users" for 127.0.0.1 at 2025-11-15 22:17:46 -0500
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+Processing by Api::V1::Users::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "admin"=>true}}
+[31mUnpermitted parameter: :admin. Context: { controller: Api::V1::Users::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000000012d6fbd68>, params: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "admin"=>true}, "format"=>:json, "controller"=>"api/v1/users/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  ↳ app/controllers/api/v1/users/registrations_controller.rb:12:in `create'
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'daybreaker@gmail.com' LIMIT 1 /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  ↳ app/controllers/api/v1/users/registrations_controller.rb:12:in `create'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "admin") VALUES ('daybreaker@gmail.com', '$2a$12$9t9Qim7VtorfRlG1z/IUNO.jFSC42DpJQzKbEk/sJZiZxvmUVVaDW', NULL, NULL, NULL, '2025-11-16 03:17:46.810204', '2025-11-16 03:17:46.810204', FALSE) RETURNING "id" /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  ↳ app/controllers/api/v1/users/registrations_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*action='create',application='AppyHourApi',controller='registrations'*/[0m
+  ↳ app/controllers/api/v1/users/registrations_controller.rb:12:in `create'
+Completed 201 Created in 280ms (Views: 0.1ms | ActiveRecord: 37.3ms (2 queries, 0 cached) | GC: 0.1ms)
+
+
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1 /*application='AppyHourApi'*/[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1 /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='AppyHourApi'*/[0m
+  [1m[36mUser Update (6.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-11-16 03:18:33.708420', "admin" = TRUE WHERE "users"."id" = 4 /*application='AppyHourApi'*/[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT /*application='AppyHourApi'*/[0m
+Started POST "/api/v1/session" for ::1 at 2025-11-15 22:18:42 -0500
+Processing by Api::V1::Users::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/sessions" for 127.0.0.1 at 2025-11-15 22:20:07 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/sessions"):
+  
+Started POST "/api/v1/sessions" for 127.0.0.1 at 2025-11-15 22:20:07 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/sessions"):
+  
+Started POST "/api/v1/session" for 127.0.0.1 at 2025-11-15 22:20:26 -0500
+Processing by Api::V1::Users::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'daybreaker@gmail.com' LIMIT 1 /*application='AppyHourApi'*/[0m
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+Started POST "/api/v1/session" for ::1 at 2025-11-15 22:32:18 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+Processing by Api::V1::Users::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/api/v1/session" for ::1 at 2025-11-15 22:35:22 -0500
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+Processing by Api::V1::Users::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'daybreaker@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='AppyHourApi',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/users/sessions_controller.rb:15:in `create'
+Completed 200 OK in 283ms (Views: 0.1ms | ActiveRecord: 22.9ms (1 query, 0 cached) | GC: 14.4ms)
+
+
+Started POST "/api/v1/session" for ::1 at 2025-11-15 22:35:33 -0500
+Processing by Api::V1::Users::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'daybreaker@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='AppyHourApi',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/users/sessions_controller.rb:15:in `create'
+Completed 200 OK in 233ms (Views: 0.1ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 2.7ms)
+
+
+Started POST "/api/v1/session" for ::1 at 2025-11-15 22:36:24 -0500
+Processing by Api::V1::Users::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'daybreaker@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='AppyHourApi',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/users/sessions_controller.rb:15:in `create'
+Completed 200 OK in 235ms (Views: 0.1ms | ActiveRecord: 1.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/session" for ::1 at 2025-11-15 22:55:23 -0500
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+Processing by Api::V1::Users::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'daybreaker@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='AppyHourApi',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/users/sessions_controller.rb:15:in `create'
+Completed 200 OK in 242ms (Views: 0.1ms | ActiveRecord: 6.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/session" for ::1 at 2025-11-15 22:59:45 -0500
+Processing by Api::V1::Users::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'daybreaker@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='AppyHourApi',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/users/sessions_controller.rb:15:in `create'
+Completed 200 OK in 243ms (Views: 0.1ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:11 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:11 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:11 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:11 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 27ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 18.3ms)
+
+
+Started POST "/api/v1/session" for ::1 at 2025-11-15 23:03:26 -0500
+Processing by Api::V1::Users::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'daybreaker@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='AppyHourApi',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/users/sessions_controller.rb:15:in `create'
+Completed 200 OK in 244ms (Views: 0.1ms | ActiveRecord: 1.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:26 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:26 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:26 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:26 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:26 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:26 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:26 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:26 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:26 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:26 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:26 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:03:26 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/session" for ::1 at 2025-11-15 23:04:21 -0500
+Processing by Api::V1::Users::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'daybreaker@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='AppyHourApi',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/users/sessions_controller.rb:15:in `create'
+Completed 200 OK in 259ms (Views: 0.1ms | ActiveRecord: 1.9ms (1 query, 0 cached) | GC: 3.1ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:04:22 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:04:22 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:04:22 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:04:22 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:04:22 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:04:22 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:04:22 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:04:22 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:04:22 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:04:22 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:04:22 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:04:22 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:04:22 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:04:22 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/session" for ::1 at 2025-11-15 23:09:38 -0500
+Processing by Api::V1::Users::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'daybreaker@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='AppyHourApi',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/users/sessions_controller.rb:15:in `create'
+Completed 200 OK in 269ms (Views: 0.1ms | ActiveRecord: 2.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:09:38 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:10:33 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:10:35 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/session" for ::1 at 2025-11-15 23:10:47 -0500
+Processing by Api::V1::Users::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'daybreaker@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='AppyHourApi',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/users/sessions_controller.rb:15:in `create'
+Completed 200 OK in 246ms (Views: 0.1ms | ActiveRecord: 4.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:10:48 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:11:47 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:12:12 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 32ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 27.5ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:12:48 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:12:50 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/session" for ::1 at 2025-11-15 23:13:32 -0500
+Processing by Api::V1::Users::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'daybreaker@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='AppyHourApi',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/users/sessions_controller.rb:15:in `create'
+Completed 401 Unauthorized in 245ms (Views: 0.1ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/session" for ::1 at 2025-11-15 23:13:39 -0500
+Processing by Api::V1::Users::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'daybreaker@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='AppyHourApi',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/users/sessions_controller.rb:15:in `create'
+Completed 200 OK in 236ms (Views: 0.1ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:13:39 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:16:35 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:16:36 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+[dotenv] Set [36mDB_USERNAME[0m and [36mDB_NAME[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:16:48 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='AppyHourApi'*/[0m
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:18:12 -0500
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+  [1m[36mVenue Count (23.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues" /*action='index',application='AppyHourApi',controller='venues'*/[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:12:in `index'
+  [1m[36mCACHE Venue Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues"[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:71:in `apply_pagination'
+Completed 500 Internal Server Error in 160ms (ActiveRecord: 137.5ms (2 queries, 0 cached) | GC: 16.9ms)
+
+
+  
+NoMethodError (undefined method `map' for an instance of String):
+  
+app/controllers/api/v1/venues_controller.rb:17:in `index'
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:18:13 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+  [1m[36mVenue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues" /*action='index',application='AppyHourApi',controller='venues'*/[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:12:in `index'
+  [1m[36mCACHE Venue Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues"[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:71:in `apply_pagination'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 2.3ms)
+
+
+  
+NoMethodError (undefined method `map' for an instance of String):
+  
+app/controllers/api/v1/venues_controller.rb:17:in `index'
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:18:50 -0500
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+  [1m[36mVenue Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues" /*action='index',application='AppyHourApi',controller='venues'*/[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:12:in `index'
+  [1m[36mCACHE Venue Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues"[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:71:in `apply_pagination'
+  [1m[36mVenue Load (0.4ms)[0m  [1m[34mSELECT "venues".* FROM "venues" ORDER BY "venues"."name" ASC /*action='index',application='AppyHourApi',controller='venues'*/[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:17:in `map'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:19:28 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+  [1m[36mVenue Count (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues" /*action='index',application='AppyHourApi',controller='venues'*/[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:12:in `index'
+  [1m[36mCACHE Venue Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues"[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:71:in `apply_pagination'
+  [1m[36mVenue Load (0.4ms)[0m  [1m[34mSELECT "venues".* FROM "venues" ORDER BY "venues"."name" ASC /*action='index',application='AppyHourApi',controller='venues'*/[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:17:in `map'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:25:01 -0500
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:2)
+DEPRECATION WARNING: resource received a hash argument only. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument path_names. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+DEPRECATION WARNING: resource received a hash argument controller. Please use a keyword instead. Support to hash argument will be removed in Rails 8.2. (called from block (3 levels) in <main> at /Users/daybreaker/dev/appy_hour/api/config/routes.rb:6)
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+  [1m[36mVenue Count (14.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues" /*action='index',application='AppyHourApi',controller='venues'*/[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:12:in `index'
+  [1m[36mCACHE Venue Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues"[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:71:in `apply_pagination'
+  [1m[36mVenue Load (0.3ms)[0m  [1m[34mSELECT "venues".* FROM "venues" ORDER BY "venues"."name" ASC /*action='index',application='AppyHourApi',controller='venues'*/[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:17:in `map'
+Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 22.2ms (3 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:25:02 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+  [1m[36mVenue Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues" /*action='index',application='AppyHourApi',controller='venues'*/[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:12:in `index'
+  [1m[36mCACHE Venue Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues"[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:71:in `apply_pagination'
+  [1m[36mVenue Load (0.4ms)[0m  [1m[34mSELECT "venues".* FROM "venues" ORDER BY "venues"."name" ASC /*action='index',application='AppyHourApi',controller='venues'*/[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:17:in `map'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.0ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:25:09 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+  [1m[36mVenue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues" /*action='index',application='AppyHourApi',controller='venues'*/[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:12:in `index'
+  [1m[36mCACHE Venue Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues"[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:71:in `apply_pagination'
+  [1m[36mVenue Load (0.4ms)[0m  [1m[34mSELECT "venues".* FROM "venues" ORDER BY "venues"."name" ASC /*action='index',application='AppyHourApi',controller='venues'*/[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:17:in `map'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.8ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/venues?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22ASC%22%5D" for ::1 at 2025-11-15 23:26:27 -0500
+Processing by Api::V1::VenuesController#index as */*
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"ASC\"]"}
+  [1m[36mVenue Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues" /*action='index',application='AppyHourApi',controller='venues'*/[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:12:in `index'
+  [1m[36mCACHE Venue Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "venues"[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:71:in `apply_pagination'
+  [1m[36mVenue Load (0.4ms)[0m  [1m[34mSELECT "venues".* FROM "venues" ORDER BY "venues"."name" ASC /*action='index',application='AppyHourApi',controller='venues'*/[0m
+  ↳ app/controllers/api/v1/venues_controller.rb:17:in `map'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.8ms (3 queries, 0 cached) | GC: 0.3ms)
+
+
