@@ -1,11 +1,11 @@
 GIT
   remote: https://github.com/StreetIQ/activerecord-postgis-adapter.git
-  revision: 4a4faf56967250d87cd3ca8606b9c84030a2e428
+  revision: de40243abe5f3a10bf637914c382097c9cfdaaf2
   branch: allow_rails81
   specs:
     activerecord-postgis-adapter (11.0.0)
       activerecord (~> 8.1.0)
-      rgeo-activerecord
+      rgeo-activerecord (~> 8.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -178,7 +178,7 @@ GEM
     mini_magick (5.3.1)
       logger
     mini_mime (1.1.5)
-    minitest (5.26.1)
+    minitest (5.26.2)
     msgpack (1.8.0)
     net-imap (0.5.12)
       date
