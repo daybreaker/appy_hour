@@ -158,19 +158,35 @@ Do not wrap simple CRUD in service objects. Use them when:
 
 ## Scraper Architecture
 
+All scraper classes live under `lib/scrapers/` in the `Scrapers::` namespace
+(autoloaded via `config.autoload_lib`). They are built from small, injectable
+collaborators so each is unit-testable with fakes / WebMock — no real API calls
+in the test suite.
+
+### Collaborators
+- **`Scrapers::GooglePlacesClient`** — Google Places API (New) `searchNearby`; returns normalized `Place` structs. Key: `credentials.google.places_api_key` or `GOOGLE_PLACES_API_KEY`.
+- **`Scrapers::WebsiteFetcher`** — Faraday + Nokogiri; returns a `Result` with extracted text and candidate menu/happy-hour links. Failures return `Result#failed?`, never raise.
+- **`Scrapers::ClaudeClient`** — thin wrapper over the Anthropic SDK. `#complete(prompt:, system:)` uses `claude-opus-4-8`, adaptive thinking, streaming (`messages.stream(...).accumulated_text`). Key: `ANTHROPIC_API_KEY`.
+- **`Scrapers::HappyHourExtractor`** — sends page text to Claude, parses the JSON response (tolerant of prose/fences), returns a normalized Hash or nil.
+- **`Scrapers::HappyHourPersister`** — turns extracted data into a `HappyHour` + days + deals, all `status: :pending`.
+
 ### VenueDiscoveryScraper (`lib/scrapers/venue_discovery_scraper.rb`)
-Queries Google Places API for bars and restaurants in a given area. Creates `Venue` records (or updates existing ones). Logs each run to `ScraperRun`.
+`call(lat:, lng:, radius:, neighborhood:)` — queries `GooglePlacesClient`, upserts `Venue` records deduped on `google_place_id` (unique column), stores PostGIS location, returns only the newly created venues.
 
 ### HappyHourScraper (`lib/scrapers/happy_hour_scraper.rb`)
-1. Fetches the venue's website (Faraday)
-2. Parses HTML for happy hour mentions (Nokogiri)
-3. If found, passes structured text to Claude (Anthropic SDK) for extraction
-4. Creates `HappyHour` / `HappyHourDay` / deal records with `status: pending` for admin review
-5. If parsing fails: sets `venue.needs_investigation = true`. No `HappyHour` record is created.
+`HappyHourScraper.new(venue).call` orchestrates:
+1. Fetch website (`WebsiteFetcher`) — no website / fetch error → `ScraperRun(fetch_failed)`, venue `scrape_failed` + `needs_investigation`.
+2. Extract with Claude (`HappyHourExtractor`).
+3. Found → `HappyHourPersister` creates pending records, `ScraperRun(happy_hour_found)`, venue `scraped_found`, clears investigation.
+4. Not found / unparseable → `ScraperRun(happy_hour_not_found)`, venue `scraped_not_found` + `needs_investigation`. No `HappyHour` created.
 
-The LLM step uses `claude-opus-4-8` with streaming for long menu content.
+Every run logs a `ScraperRun` with `raw_data: jsonb`.
 
-Scraper runs are triggered via `sidekiq-cron` and logged to `ScraperRun` with `raw_data: jsonb`.
+### Jobs (ActiveJob on Sidekiq, queue `:scrapers`)
+- **`VenueDiscoveryJob`** `perform(lat:, lng:, radius:, neighborhood_id:)` → runs discovery, enqueues a `HappyHourScrapeJob` per new venue.
+- **`HappyHourScrapeJob`** `perform(venue_id)` → runs `HappyHourScraper` for one venue.
+
+Scheduling is via `sidekiq-cron` in `config/sidekiq_schedule.yml` — **all entries ship commented out**, so starting Sidekiq never auto-runs a scrape. The LLM step uses `claude-opus-4-8` with streaming for long menu content.
 
 ---
 

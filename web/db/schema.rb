@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_03_171302) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_03_173309) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "postgis"
@@ -193,6 +193,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_171302) do
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "discarded_at"
+    t.string "google_place_id"
     t.geography "lonlat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.string "name", null: false
     t.boolean "needs_investigation", default: false, null: false
@@ -204,6 +205,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_171302) do
     t.string "zip_code"
     t.index ["city"], name: "index_venues_on_city"
     t.index ["discarded_at"], name: "index_venues_on_discarded_at"
+    t.index ["google_place_id"], name: "index_venues_on_google_place_id", unique: true
     t.index ["lonlat"], name: "index_venues_on_lonlat", using: :gist
     t.index ["needs_investigation"], name: "index_venues_on_needs_investigation"
     t.index ["neighborhood_id"], name: "index_venues_on_neighborhood_id"

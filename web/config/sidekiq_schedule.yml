@@ -1,0 +1,27 @@
+# Sidekiq-cron schedule for scraper jobs.
+#
+# All entries are COMMENTED OUT so that starting a Sidekiq server does not
+# trigger any scraping automatically. Enable a job by uncommenting it and
+# setting real coordinates. Cron syntax: "min hour day month weekday".
+#
+# Requires a running Redis + Sidekiq server. See config/initializers/sidekiq.rb.
+#
+# Example — rescrape all known venues' happy hours weekly (Mondays 3am):
+#
+# rescrape_happy_hours:
+#   cron: "0 3 * * 1"
+#   class: "HappyHourRescrapeJob"   # (not yet implemented — see note below)
+#
+# Example — discover new venues in downtown Cleveland monthly (1st, 4am):
+#
+# discover_downtown_cleveland:
+#   cron: "0 4 1 * *"
+#   class: "VenueDiscoveryJob"
+#   args:
+#     lat: 41.4993
+#     lng: -81.6944
+#     radius: 3000
+#
+# NOTE: VenueDiscoveryJob uses keyword args (lat:/lng:), which sidekiq-cron
+# passes positionally. When enabling scheduled discovery, add a thin wrapper
+# job that accepts positional args, or invoke the scraper directly.
