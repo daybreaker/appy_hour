@@ -6,6 +6,13 @@ module Scrapers
   # Every run is logged to a ScraperRun. When nothing can be fetched or parsed,
   # the venue is flagged with needs_investigation for a human to look at.
   class HappyHourScraper
+    # Cheap keyword pre-filter: only escalate to the (paid) AI parse when a page
+    # actually mentions happy hour. Matches "happy hour", "happyhour", "happy-hour".
+    HAPPY_HOUR_HINT = /happy\s*-?\s*hour/i
+
+    # Cap how many menu/happy-hour links we'll follow looking for the details.
+    MAX_LINKS_TO_FOLLOW = 3
+
     def initialize(venue, fetcher: WebsiteFetcher.new, extractor: HappyHourExtractor.new, persister: nil)
       @venue = venue
       @fetcher = fetcher
@@ -19,7 +26,11 @@ module Scrapers
       result = @fetcher.fetch(@venue.website_url)
       return record_fetch_failure(result.error) if result.failed?
 
-      extracted = @extractor.extract(result.text)
+      # Pre-filter with Nokogiri-extracted text before spending an AI call.
+      candidate_text = happy_hour_candidate_text(result)
+      return record_not_found(result) if candidate_text.blank?
+
+      extracted = @extractor.extract(candidate_text)
 
       if extracted
         persist_and_record(extracted, result)
@@ -29,6 +40,27 @@ module Scrapers
     end
 
     private
+
+    # Returns the combined text of pages that mention happy hour (the homepage
+    # and/or a few followed menu links), or nil if none do — in which case the
+    # AI is never called.
+    def happy_hour_candidate_text(result)
+      texts = []
+      texts << result.text if mentions_happy_hour?(result.text)
+
+      result.menu_links.first(MAX_LINKS_TO_FOLLOW).each do |link|
+        page = @fetcher.fetch(link)
+        next if page.failed?
+
+        texts << page.text if mentions_happy_hour?(page.text)
+      end
+
+      texts.presence&.join("\n\n")
+    end
+
+    def mentions_happy_hour?(text)
+      text.to_s.match?(HAPPY_HOUR_HINT)
+    end
 
     def persist_and_record(extracted, result)
       happy_hour = @persister.persist(extracted)

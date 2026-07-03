@@ -176,9 +176,10 @@ in the test suite.
 ### HappyHourScraper (`lib/scrapers/happy_hour_scraper.rb`)
 `HappyHourScraper.new(venue).call` orchestrates:
 1. Fetch website (`WebsiteFetcher`) — no website / fetch error → `ScraperRun(fetch_failed)`, venue `scrape_failed` + `needs_investigation`.
-2. Extract with Claude (`HappyHourExtractor`).
-3. Found → `HappyHourPersister` creates pending records, `ScraperRun(happy_hour_found)`, venue `scraped_found`, clears investigation.
-4. Not found / unparseable → `ScraperRun(happy_hour_not_found)`, venue `scraped_not_found` + `needs_investigation`. No `HappyHour` created.
+2. **Keyword pre-filter (no AI cost):** scan the Nokogiri-extracted text for `HAPPY_HOUR_HINT` (`/happy\s*-?\s*hour/i`). If the homepage doesn't mention it, follow up to `MAX_LINKS_TO_FOLLOW` (3) menu links to find a page that does. If *no* page mentions happy hour → `ScraperRun(happy_hour_not_found)`, flag for investigation, **Claude is never called**.
+3. Only pages that mention happy hour are sent to Claude (`HappyHourExtractor`).
+4. Found → `HappyHourPersister` creates pending records, `ScraperRun(happy_hour_found)`, venue `scraped_found`, clears investigation.
+5. Mentioned but unparseable → `ScraperRun(happy_hour_not_found)`, venue `scraped_not_found` + `needs_investigation`. No `HappyHour` created.
 
 Every run logs a `ScraperRun` with `raw_data: jsonb`.
 
