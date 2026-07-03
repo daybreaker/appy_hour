@@ -167,7 +167,7 @@ in the test suite.
 - **`Scrapers::GooglePlacesClient`** — Google Places API (New) `searchNearby`; returns normalized `Place` structs. Key: `credentials.google.places_api_key` or `GOOGLE_PLACES_API_KEY`.
 - **`Scrapers::WebsiteFetcher`** — Faraday + Nokogiri; returns a `Result` with extracted text, candidate menu/happy-hour links, and detected `social_links`. Failures return `Result#failed?`, never raise.
 - **`Scrapers::SocialLinkDetector`** — pure Nokogiri URL recognition (NO AI). Matches link hostnames to platforms (instagram/twitter+x/facebook/tiktok/youtube/yelp/linkedin), skips share/intent widgets and bare domains, one per platform. `HappyHourScraper` upserts these to `venue.social_links` on every successful fetch so admins can investigate when no on-site menu is found.
-- **`Scrapers::ClaudeClient`** — thin wrapper over the Anthropic SDK. `#complete(prompt:, system:)` uses `claude-opus-4-8`, adaptive thinking, streaming (`messages.stream(...).accumulated_text`). Key: `ANTHROPIC_API_KEY`.
+- **`Scrapers::ClaudeClient`** — thin wrapper over the Anthropic SDK. `#complete(prompt:, system:)` uses `claude-haiku-4-5` (cheap; structured extraction doesn't need Opus), no extended thinking, streaming (`messages.stream(...).accumulated_text`). Model is the `MODEL` constant — bump to `claude-opus-4-8` if extraction quality needs it. Key: `ANTHROPIC_API_KEY`.
 - **`Scrapers::HappyHourExtractor`** — sends page text to Claude, parses the JSON response (tolerant of prose/fences), returns a normalized Hash or nil.
 - **`Scrapers::HappyHourPersister`** — turns extracted data into a `HappyHour` + days + deals, all `status: :pending`.
 
@@ -188,7 +188,7 @@ Every run logs a `ScraperRun` with `raw_data: jsonb`.
 - **`VenueDiscoveryJob`** `perform(lat:, lng:, radius:, neighborhood_id:)` → runs discovery, enqueues a `HappyHourScrapeJob` per new venue.
 - **`HappyHourScrapeJob`** `perform(venue_id)` → runs `HappyHourScraper` for one venue.
 
-Scheduling is via `sidekiq-cron` in `config/sidekiq_schedule.yml` — **all entries ship commented out**, so starting Sidekiq never auto-runs a scrape. The LLM step uses `claude-opus-4-8` with streaming for long menu content.
+Scheduling is via `sidekiq-cron` in `config/sidekiq_schedule.yml` — **all entries ship commented out**, so starting Sidekiq never auto-runs a scrape. The LLM step uses `claude-haiku-4-5` with streaming for long menu content.
 
 ---
 

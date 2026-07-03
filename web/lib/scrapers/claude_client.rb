@@ -3,7 +3,10 @@ module Scrapers
   # scraper pipeline can depend on a simple #complete(prompt:) seam that is
   # trivial to fake in tests.
   class ClaudeClient
-    MODEL = "claude-opus-4-8"
+    # Haiku 4.5 handles this structured extraction well at a fraction of Opus
+    # cost. Menu parsing to JSON doesn't need extended thinking, so it's omitted
+    # (also keeps us compatible with pre-4.6 models, which reject adaptive).
+    MODEL = "claude-haiku-4-5"
     DEFAULT_MAX_TOKENS = 4096
 
     def initialize(client: default_client, model: MODEL)
@@ -18,7 +21,6 @@ module Scrapers
       params = {
         model: @model,
         max_tokens: max_tokens,
-        thinking: { type: "adaptive" },
         messages: [ { role: "user", content: prompt } ]
       }
       params[:system] = system if system.present?
