@@ -21,7 +21,20 @@ Rails.application.routes.draw do
   # REST API for Expo mobile app
   namespace :api do
     namespace :v1 do
-      # (controllers added as features are built)
+      post   "sessions", to: "sessions#create"      # login
+      delete "sessions", to: "sessions#destroy"     # logout
+      post   "registrations", to: "registrations#create" # sign up
+
+      get "me", to: "users#show"
+
+      resources :neighborhoods, only: [ :index ]
+
+      resources :venues, only: [ :index, :show ] do
+        resources :happy_hours, only: [ :create ], module: :venues
+        resource :favorite, only: [ :create, :destroy ], module: :venues
+      end
+
+      resources :favorites, only: [ :index ]
     end
   end
 
