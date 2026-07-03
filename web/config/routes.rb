@@ -32,6 +32,7 @@ Rails.application.routes.draw do
         patch :clear_investigation
       end
     end
+    resources :neighborhoods, only: [ :index, :new, :create, :edit, :update, :destroy ]
     resources :comments, only: [ :index, :show, :update ]
     resources :reports, only: [ :index, :show, :update ]
   end

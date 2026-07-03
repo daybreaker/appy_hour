@@ -1,0 +1,42 @@
+<div class="flex items-center justify-between mb-6">
+  <div>
+    <h1 class="text-2xl font-bold">Neighborhoods</h1>
+    <span class="text-sm text-gray-500"><%= @pagy.count %> neighborhood<%= "s" unless @pagy.count == 1 %></span>
+  </div>
+  <%= link_to "+ New neighborhood", new_admin_neighborhood_path,
+        class: "px-4 py-2 bg-amber-500 text-white text-sm rounded hover:bg-amber-600" %>
+</div>
+
+<%= form_with url: admin_neighborhoods_path, method: :get, class: "mb-6 flex items-center gap-2" do |f| %>
+  <%= f.search_field :q, value: params[:q], placeholder: "Search by name…",
+        class: "border border-gray-300 rounded px-3 py-2 text-sm w-64" %>
+  <%= f.submit "Search", class: "px-3 py-2 bg-gray-800 text-white text-sm rounded hover:bg-gray-900 cursor-pointer" %>
+<% end %>
+
+<% if @neighborhoods.empty? %>
+  <div class="bg-white rounded-lg border border-gray-200 p-12 text-center text-gray-400">
+    <p class="text-lg">No neighborhoods found.</p>
+  </div>
+<% else %>
+  <div class="bg-white rounded-lg border border-gray-200 divide-y divide-gray-100">
+    <% @neighborhoods.each do |neighborhood| %>
+      <div id="<%= dom_id(neighborhood) %>" class="flex items-center justify-between gap-4 px-5 py-3">
+        <div class="min-w-0">
+          <span class="font-medium text-gray-900"><%= neighborhood.name %></span>
+          <span class="text-sm text-gray-500 ml-2"><%= neighborhood.city %></span>
+          <p class="text-xs text-gray-400 truncate">
+            <%= neighborhood.slug %> · <%= pluralize(neighborhood.venues.count, "venue") %>
+          </p>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0 text-sm">
+          <%= link_to "Edit", edit_admin_neighborhood_path(neighborhood),
+                class: "px-3 py-1.5 bg-gray-100 text-gray-700 rounded hover:bg-gray-200" %>
+          <%= button_to "Delete", admin_neighborhood_path(neighborhood), method: :delete,
+                form: { data: { turbo_confirm: "Remove this neighborhood? Its venues will be unassigned." } },
+                class: "px-3 py-1.5 bg-red-100 text-red-700 rounded hover:bg-red-200" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="mt-6 pagy"><%== @pagy.series_nav %></div>
+<% end %>

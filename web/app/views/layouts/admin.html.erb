@@ -25,6 +25,8 @@
                 class: "flex items-center px-3 py-2 rounded text-sm hover:bg-gray-700 #{"bg-gray-700" if request.path.start_with?(admin_happy_hours_path)}" %>
           <%= link_to "Venues", admin_venues_path,
                 class: "flex items-center px-3 py-2 rounded text-sm hover:bg-gray-700 #{"bg-gray-700" if request.path.start_with?(admin_venues_path)}" %>
+          <%= link_to "Neighborhoods", admin_neighborhoods_path,
+                class: "flex items-center px-3 py-2 rounded text-sm hover:bg-gray-700 #{"bg-gray-700" if request.path.start_with?(admin_neighborhoods_path)}" %>
           <%= link_to "Comments", admin_comments_path,
                 class: "flex items-center px-3 py-2 rounded text-sm hover:bg-gray-700 #{"bg-gray-700" if request.path.start_with?(admin_comments_path)}" %>
           <%= link_to "Reports", admin_reports_path,

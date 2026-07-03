@@ -1,0 +1,7 @@
+<div class="max-w-xl">
+  <div class="mb-6">
+    <%= link_to "← Back to neighborhoods", admin_neighborhoods_path, class: "text-sm text-gray-400 hover:text-gray-600" %>
+  </div>
+  <h1 class="text-2xl font-bold mb-6">New Neighborhood</h1>
+  <%= render "admin/neighborhoods/form", neighborhood: @neighborhood, url: admin_neighborhoods_path, method: :post %>
+</div>
