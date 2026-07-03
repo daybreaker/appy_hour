@@ -26,6 +26,10 @@ module Scrapers
       result = @fetcher.fetch(@venue.website_url)
       return record_fetch_failure(result.error) if result.failed?
 
+      # Capture social links regardless of happy hour outcome — they help an
+      # admin investigate when no menu is found on the site.
+      save_social_links(result.social_links)
+
       # Pre-filter with Nokogiri-extracted text before spending an AI call.
       candidate_text = happy_hour_candidate_text(result)
       return record_not_found(result) if candidate_text.blank?
@@ -60,6 +64,14 @@ module Scrapers
 
     def mentions_happy_hour?(text)
       text.to_s.match?(HAPPY_HOUR_HINT)
+    end
+
+    def save_social_links(links)
+      Array(links).each do |link|
+        record = @venue.social_links.find_or_initialize_by(url: link.url)
+        record.platform = link.platform
+        record.save
+      end
     end
 
     def persist_and_record(extracted, result)

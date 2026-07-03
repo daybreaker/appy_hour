@@ -18,6 +18,7 @@ module Api
         association :happy_hours, blueprint: HappyHourSerializer do |venue|
           venue.happy_hours.approved
         end
+        association :social_links, blueprint: SocialLinkSerializer
       end
     end
   end

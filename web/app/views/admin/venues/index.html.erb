@@ -29,6 +29,15 @@
           <% else %>
             <p class="text-xs text-gray-400 mt-1">Never scraped</p>
           <% end %>
+
+          <% if venue.social_links.any? %>
+            <div class="flex flex-wrap gap-2 mt-2">
+              <% venue.social_links.each do |social| %>
+                <%= link_to social.platform_label, social.url, target: "_blank", rel: "noopener",
+                      class: "inline-flex items-center text-xs px-2 py-0.5 rounded bg-gray-100 text-gray-700 hover:bg-gray-200" %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
         <div>
           <%= button_to "Mark Reviewed", admin_venue_path(venue),

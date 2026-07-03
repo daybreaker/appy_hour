@@ -66,6 +66,15 @@ RSpec.describe "Api::V1::Venues", type: :request do
       expect(day_json["generic_deals"].first["applies_to"]).to eq("drafts")
     end
 
+    it "includes the venue's social links in the detail view" do
+      venue = create(:venue)
+      create(:social_link, venue: venue, platform: :instagram, url: "https://instagram.com/detailbar")
+
+      get "/api/v1/venues/#{venue.id}"
+
+      expect(json["social_links"].first).to include("platform" => "instagram", "url" => "https://instagram.com/detailbar")
+    end
+
     it "omits non-approved happy hours" do
       venue = create(:venue)
       create(:happy_hour, status: :pending, venue: venue, notes: "Hidden")

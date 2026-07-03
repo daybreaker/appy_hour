@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_03_173309) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_03_175115) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "postgis"
@@ -173,6 +173,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_173309) do
     t.index ["venue_id"], name: "index_scraper_runs_on_venue_id"
   end
 
+  create_table "social_links", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.integer "platform", default: 7, null: false
+    t.datetime "updated_at", null: false
+    t.string "url", null: false
+    t.bigint "venue_id", null: false
+    t.index ["venue_id", "url"], name: "index_social_links_on_venue_id_and_url", unique: true
+    t.index ["venue_id"], name: "index_social_links_on_venue_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "api_token"
     t.datetime "created_at", null: false
@@ -225,5 +235,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_173309) do
   add_foreign_key "ratings", "users"
   add_foreign_key "reports", "users"
   add_foreign_key "scraper_runs", "venues"
+  add_foreign_key "social_links", "venues"
   add_foreign_key "venues", "neighborhoods"
 end

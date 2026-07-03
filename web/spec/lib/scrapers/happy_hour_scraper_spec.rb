@@ -64,6 +64,39 @@ RSpec.describe Scrapers::HappyHourScraper do
     end
   end
 
+  describe "social link capture" do
+    def social(platform, url)
+      Scrapers::SocialLinkDetector::Detected.new(platform: platform, url: url)
+    end
+
+    it "stores detected social links on the venue" do
+      allow(fetcher).to receive(:fetch).and_return(
+        fetch_result(text: "Dinner menu", menu_links: [], social_links: [
+          social(:instagram, "https://instagram.com/joesbar"),
+          social(:facebook, "https://facebook.com/joesbar")
+        ])
+      )
+      allow(extractor).to receive(:extract)
+
+      scraper.call
+
+      expect(venue.social_links.pluck(:platform)).to contain_exactly("instagram", "facebook")
+    end
+
+    it "is idempotent — re-running does not duplicate links" do
+      result = fetch_result(text: "Dinner menu", menu_links: [], social_links: [
+        social(:instagram, "https://instagram.com/joesbar")
+      ])
+      allow(fetcher).to receive(:fetch).and_return(result)
+      allow(extractor).to receive(:extract)
+
+      scraper.call
+      described_class.new(venue, fetcher: fetcher, extractor: extractor).call
+
+      expect(venue.social_links.count).to eq(1)
+    end
+  end
+
   describe "keyword pre-filter (avoids wasteful AI calls)" do
     it "does not call the AI when no page mentions happy hour" do
       allow(fetcher).to receive(:fetch).and_return(

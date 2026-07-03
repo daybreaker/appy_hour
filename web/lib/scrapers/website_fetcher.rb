@@ -8,7 +8,7 @@ module Scrapers
     MENU_KEYWORDS = /happy\s*hour|menu|specials|drinks?|deals?/i
     MAX_TEXT_LENGTH = 20_000
 
-    Result = Struct.new(:html, :text, :menu_links, :error, keyword_init: true) do
+    Result = Struct.new(:html, :text, :menu_links, :social_links, :error, keyword_init: true) do
       def failed? = error.present?
     end
 
@@ -28,7 +28,8 @@ module Scrapers
       Result.new(
         html: html,
         text: extract_text(doc),
-        menu_links: menu_links(doc, url)
+        menu_links: menu_links(doc, url),
+        social_links: SocialLinkDetector.detect(doc)
       )
     rescue Faraday::Error => e
       Result.new(error: "faraday: #{e.message}")

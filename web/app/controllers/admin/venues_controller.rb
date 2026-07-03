@@ -5,7 +5,7 @@ module Admin
     def index
       @pagy, @venues = pagy(
         Venue.needs_investigation.kept
-          .includes(:neighborhood, :scraper_runs)
+          .includes(:neighborhood, :scraper_runs, :social_links)
           .order(updated_at: :asc),
         limit: 25
       )

@@ -4,6 +4,7 @@ class Venue < ApplicationRecord
   belongs_to :neighborhood, optional: true
 
   has_many :happy_hours, dependent: :destroy
+  has_many :social_links, dependent: :destroy
   has_many :favorite_venues, dependent: :destroy
   has_many :favorited_by, through: :favorite_venues, source: :user
   has_many :ratings, as: :rateable, dependent: :destroy

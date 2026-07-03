@@ -165,7 +165,8 @@ in the test suite.
 
 ### Collaborators
 - **`Scrapers::GooglePlacesClient`** — Google Places API (New) `searchNearby`; returns normalized `Place` structs. Key: `credentials.google.places_api_key` or `GOOGLE_PLACES_API_KEY`.
-- **`Scrapers::WebsiteFetcher`** — Faraday + Nokogiri; returns a `Result` with extracted text and candidate menu/happy-hour links. Failures return `Result#failed?`, never raise.
+- **`Scrapers::WebsiteFetcher`** — Faraday + Nokogiri; returns a `Result` with extracted text, candidate menu/happy-hour links, and detected `social_links`. Failures return `Result#failed?`, never raise.
+- **`Scrapers::SocialLinkDetector`** — pure Nokogiri URL recognition (NO AI). Matches link hostnames to platforms (instagram/twitter+x/facebook/tiktok/youtube/yelp/linkedin), skips share/intent widgets and bare domains, one per platform. `HappyHourScraper` upserts these to `venue.social_links` on every successful fetch so admins can investigate when no on-site menu is found.
 - **`Scrapers::ClaudeClient`** — thin wrapper over the Anthropic SDK. `#complete(prompt:, system:)` uses `claude-opus-4-8`, adaptive thinking, streaming (`messages.stream(...).accumulated_text`). Key: `ANTHROPIC_API_KEY`.
 - **`Scrapers::HappyHourExtractor`** — sends page text to Claude, parses the JSON response (tolerant of prose/fences), returns a normalized Hash or nil.
 - **`Scrapers::HappyHourPersister`** — turns extracted data into a `HappyHour` + days + deals, all `status: :pending`.

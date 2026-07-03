@@ -39,6 +39,20 @@ RSpec.describe Scrapers::WebsiteFetcher do
       expect(result.menu_links).not_to include(a_string_matching(/about/))
     end
 
+    it "detects social links on the page" do
+      social_html = <<~HTML
+        <html><body>
+          <a href="https://instagram.com/joesbar">IG</a>
+          <a href="https://facebook.com/joesbar">FB</a>
+        </body></html>
+      HTML
+      stub_request(:get, "https://joesbar.com/").to_return(status: 200, body: social_html)
+
+      result = fetcher.fetch("https://joesbar.com/")
+
+      expect(result.social_links.map(&:platform)).to contain_exactly(:instagram, :facebook)
+    end
+
     it "returns a failed result on HTTP error" do
       stub_request(:get, "https://joesbar.com/").to_return(status: 500, body: "err")
       result = fetcher.fetch("https://joesbar.com/")
