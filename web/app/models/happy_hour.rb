@@ -9,7 +9,10 @@ class HappyHour < ApplicationRecord
   has_many :reports, as: :reportable, dependent: :destroy
 
   accepts_nested_attributes_for :happy_hour_days, allow_destroy: true,
-    reject_if: ->(attrs) { attrs[:start_time].blank? || attrs[:end_time].blank? }
+    reject_if: ->(attrs) {
+      all_day = ActiveModel::Type::Boolean.new.cast(attrs[:all_day])
+      !all_day && (attrs[:start_time].blank? || attrs[:end_time].blank?)
+    }
 
   enum :status, {
     pending: 0,

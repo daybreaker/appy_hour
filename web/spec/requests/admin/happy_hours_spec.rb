@@ -81,6 +81,16 @@ RSpec.describe "Admin::HappyHours", type: :request do
       expect(response).to have_http_status(:unprocessable_content)
       expect(HappyHour.count).to eq(0)
     end
+
+    it "accepts an all-day day with no times" do
+      post admin_happy_hours_path, params: { happy_hour: {
+        venue_id: venue.id,
+        happy_hour_days_attributes: { "0" => { day_of_week: "3", all_day: "1", start_time: "", end_time: "" } }
+      } }
+      day = HappyHour.last.happy_hour_days.first
+      expect(day.all_day).to be true
+      expect(day.start_time).to be_nil
+    end
   end
 
   describe "PATCH /admin/happy_hours/:id (edit attributes)" do

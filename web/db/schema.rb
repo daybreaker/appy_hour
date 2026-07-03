@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_03_211225) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_03_222320) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "postgis"
@@ -52,6 +52,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_211225) do
   end
 
   create_table "happy_hour_days", force: :cascade do |t|
+    t.boolean "all_day", default: false, null: false
     t.datetime "created_at", null: false
     t.integer "day_of_week"
     t.time "end_time"

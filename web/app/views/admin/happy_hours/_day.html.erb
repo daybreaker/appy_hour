@@ -3,7 +3,7 @@
   <div class="flex items-center justify-between mb-3">
     <h3 class="font-semibold text-gray-900">
       <%= day.day_name %>
-      <span class="font-normal text-sm text-amber-700 ml-1"><%= format_time_range(day.start_time, day.end_time) %></span>
+      <span class="font-normal text-sm text-amber-700 ml-1"><%= day.hours_label %></span>
     </h3>
     <%= button_to admin_happy_hour_day_path(day), method: :delete,
           form: { data: { turbo_confirm: "Remove this day and its deals?" } },

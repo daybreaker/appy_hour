@@ -8,7 +8,7 @@
     <div class="mb-4 last:mb-0">
       <div class="flex items-baseline gap-2 mb-2">
         <span class="font-semibold text-gray-900"><%= day.day_name %></span>
-        <span class="text-sm text-amber-700 font-medium"><%= format_time_range(day.start_time, day.end_time) %></span>
+        <span class="text-sm text-amber-700 font-medium"><%= day.hours_label %></span>
       </div>
 
       <% deals = day.happy_hour_generics.select { |d| d.status == "approved" } +

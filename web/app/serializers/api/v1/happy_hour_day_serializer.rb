@@ -2,7 +2,7 @@ module Api
   module V1
     class HappyHourDaySerializer < Blueprinter::Base
       identifier :id
-      fields :day_of_week, :specific_date
+      fields :day_of_week, :specific_date, :all_day
 
       field :day_name do |day|
         day.day_name

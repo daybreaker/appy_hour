@@ -25,7 +25,7 @@
             <div class="text-sm text-gray-600">
               <span class="font-medium"><%= day.day_name %></span>
               <span class="text-gray-400 mx-1">·</span>
-              <%= day.start_time.strftime("%-I:%M %p") %> – <%= day.end_time.strftime("%-I:%M %p") %>
+              <%= day.hours_label %>
               <span class="text-gray-400 ml-2">
                 <%= day.happy_hour_generics.count + day.happy_hour_items.count + day.happy_hour_bogos.count %> deal(s)
               </span>
