@@ -1,0 +1,13 @@
+<div class="flex items-center justify-between mb-6">
+  <h1 class="text-2xl font-bold">Happy Hour Approval Queue</h1>
+  <span class="text-sm text-gray-500"><%= @pagy.count %> awaiting review</span>
+</div>
+
+<% if @happy_hours.empty? %>
+  <div class="bg-white rounded-lg shadow p-12 text-center text-gray-400">
+    <p class="text-lg">Nothing awaiting review.</p>
+  </div>
+<% else %>
+  <%= render @happy_hours %>
+  <div class="mt-6 pagy"><%== @pagy.series_nav %></div>
+<% end %>

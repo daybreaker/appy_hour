@@ -1,0 +1,72 @@
+<div id="<%= dom_id(happy_hour) %>" class="bg-white rounded-lg shadow mb-4 p-5">
+  <div class="flex items-start justify-between gap-4">
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium
+          <%= happy_hour.pending? ? "bg-yellow-100 text-yellow-800" :
+              happy_hour.pending_deletion? ? "bg-red-100 text-red-800" :
+              "bg-gray-100 text-gray-700" %>">
+          <%= happy_hour.status.humanize %>
+        </span>
+        <span class="text-xs text-gray-400">submitted <%= time_ago_in_words(happy_hour.created_at) %> ago</span>
+        <% if happy_hour.submitted_by %>
+          <span class="text-xs text-gray-400">by <%= happy_hour.submitted_by.email %></span>
+        <% end %>
+      </div>
+
+      <h3 class="font-semibold text-gray-900">
+        <%= happy_hour.venue.name %>
+        <span class="font-normal text-gray-500 text-sm ml-1"><%= happy_hour.venue.address %>, <%= happy_hour.venue.city %></span>
+      </h3>
+
+      <% if happy_hour.happy_hour_days.any? %>
+        <div class="mt-2 space-y-1">
+          <% happy_hour.happy_hour_days.each do |day| %>
+            <div class="text-sm text-gray-600">
+              <span class="font-medium"><%= day.day_name %></span>
+              <span class="text-gray-400 mx-1">·</span>
+              <%= day.start_time.strftime("%-I:%M %p") %> – <%= day.end_time.strftime("%-I:%M %p") %>
+              <span class="text-gray-400 ml-2">
+                <%= day.happy_hour_generics.count + day.happy_hour_items.count + day.happy_hour_bogos.count %> deal(s)
+              </span>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p class="text-sm text-gray-400 mt-1 italic">No days/deals defined yet</p>
+      <% end %>
+
+      <% if happy_hour.notes.present? %>
+        <p class="text-sm text-gray-500 mt-2 bg-gray-50 rounded px-3 py-1.5 italic"><%= happy_hour.notes %></p>
+      <% end %>
+    </div>
+
+    <%# Action buttons %>
+    <div class="flex flex-col gap-2 flex-shrink-0">
+      <% if happy_hour.pending_deletion? %>
+        <%= button_to "Approve Deletion", admin_happy_hour_path(happy_hour),
+              method: :patch,
+              params: { approve: "1" },
+              class: "px-3 py-1.5 bg-red-600 text-white text-sm rounded hover:bg-red-700",
+              form: { data: { turbo_confirm: "Delete this happy hour permanently?" } } %>
+        <%= button_to "Keep (Reject Deletion)", admin_happy_hour_path(happy_hour),
+              method: :patch,
+              params: { reject: "1" },
+              class: "px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded hover:bg-gray-200" %>
+      <% else %>
+        <%= button_to "Approve", admin_happy_hour_path(happy_hour),
+              method: :patch,
+              params: { approve: "1" },
+              class: "px-3 py-1.5 bg-green-600 text-white text-sm rounded hover:bg-green-700" %>
+
+        <%= form_with url: admin_happy_hour_path(happy_hour), method: :patch do |f| %>
+          <%= f.hidden_field :reject, value: "1" %>
+          <%= f.fields_for :happy_hour do |hf| %>
+            <%= hf.text_field :notes, placeholder: "Reason (optional)", class: "block w-full text-sm border rounded px-2 py-1 mb-1" %>
+          <% end %>
+          <%= f.submit "Reject", class: "w-full px-3 py-1.5 bg-red-100 text-red-700 text-sm rounded hover:bg-red-200 cursor-pointer" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

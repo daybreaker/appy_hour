@@ -1,0 +1,43 @@
+<div class="flex items-center justify-between mb-6">
+  <h1 class="text-2xl font-bold">Comments Pending Review</h1>
+  <span class="text-sm text-gray-500"><%= @pagy.count %> comments</span>
+</div>
+
+<% if @comments.empty? %>
+  <div class="bg-white rounded-lg shadow p-12 text-center text-gray-400">
+    <p class="text-lg">No comments awaiting review.</p>
+  </div>
+<% else %>
+  <div class="space-y-4">
+    <% @comments.each do |comment| %>
+      <div id="<%= dom_id(comment) %>" class="bg-white rounded-lg shadow p-5 flex items-start justify-between gap-4">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium
+              <%= comment.flagged? ? "bg-red-100 text-red-700" : "bg-yellow-100 text-yellow-800" %>">
+              <%= comment.status.humanize %>
+            </span>
+            <span class="text-xs text-gray-400">by <%= comment.user.email %> · <%= time_ago_in_words(comment.created_at) %> ago</span>
+          </div>
+          <p class="text-gray-700 text-sm mt-1"><%= comment.body %></p>
+          <% if comment.commentable.present? %>
+            <p class="text-xs text-gray-400 mt-1">
+              On: <%= comment.commentable_type %> #<%= comment.commentable_id %>
+            </p>
+          <% end %>
+        </div>
+        <div class="flex gap-2 flex-shrink-0">
+          <%= button_to "Approve", admin_comment_path(comment),
+                method: :patch,
+                params: { approve: "1" },
+                class: "px-3 py-1.5 bg-green-600 text-white text-sm rounded hover:bg-green-700" %>
+          <%= button_to "Reject", admin_comment_path(comment),
+                method: :patch,
+                params: { reject: "1" },
+                class: "px-3 py-1.5 bg-red-100 text-red-700 text-sm rounded hover:bg-red-200" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="mt-6 pagy"><%== @pagy.series_nav %></div>
+<% end %>
