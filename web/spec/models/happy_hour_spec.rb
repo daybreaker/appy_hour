@@ -34,6 +34,47 @@ RSpec.describe HappyHour, type: :model do
     end
   end
 
+  describe "source_url validation" do
+    it "allows a blank source_url" do
+      expect(build(:happy_hour, source_url: nil)).to be_valid
+    end
+
+    it "accepts a valid http(s) url" do
+      expect(build(:happy_hour, source_url: "https://bar.com/happy-hour")).to be_valid
+    end
+
+    it "rejects a non-url string" do
+      expect(build(:happy_hour, source_url: "not a url")).not_to be_valid
+    end
+  end
+
+  describe "#link" do
+    it "returns the source_url when present" do
+      venue = build(:venue, website_url: "https://venue.com")
+      happy_hour = build(:happy_hour, venue: venue, source_url: "https://venue.com/hh-menu")
+      expect(happy_hour.link).to eq("https://venue.com/hh-menu")
+    end
+
+    it "falls back to the venue website when source_url is blank" do
+      venue = build(:venue, website_url: "https://venue.com")
+      happy_hour = build(:happy_hour, venue: venue, source_url: nil)
+      expect(happy_hour.link).to eq("https://venue.com")
+    end
+
+    it "returns nil when neither is present" do
+      venue = build(:venue, website_url: nil)
+      happy_hour = build(:happy_hour, venue: venue, source_url: nil)
+      expect(happy_hour.link).to be_nil
+    end
+  end
+
+  describe "#specific_source?" do
+    it "is true only when source_url is set" do
+      expect(build(:happy_hour, source_url: "https://x.com/hh").specific_source?).to be true
+      expect(build(:happy_hour, source_url: nil).specific_source?).to be false
+    end
+  end
+
   describe "#auto_approve!" do
     it "sets status to approved and records the approver" do
       approver = create(:user, role: :admin)

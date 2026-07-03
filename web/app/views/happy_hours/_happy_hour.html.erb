@@ -45,4 +45,13 @@
       <% end %>
     </div>
   <% end %>
+
+  <% if happy_hour.link.present? %>
+    <div class="mt-4 pt-3 border-t border-gray-100">
+      <%= link_to happy_hour.link, target: "_blank", rel: "noopener",
+            class: "inline-flex items-center gap-1 text-sm text-amber-600 hover:text-amber-700 font-medium" do %>
+        <%= happy_hour.specific_source? ? "View happy hour menu" : "Visit website" %> ↗
+      <% end %>
+    </div>
+  <% end %>
 </div>

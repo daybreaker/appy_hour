@@ -39,6 +39,13 @@
       <% if happy_hour.notes.present? %>
         <p class="text-sm text-gray-500 mt-2 bg-gray-50 rounded px-3 py-1.5 italic"><%= happy_hour.notes %></p>
       <% end %>
+
+      <% if happy_hour.link.present? %>
+        <%= link_to happy_hour.link, target: "_blank", rel: "noopener",
+              class: "inline-block mt-2 text-xs text-amber-600 hover:underline" do %>
+          <%= happy_hour.specific_source? ? "Source menu" : "Venue website" %> ↗
+        <% end %>
+      <% end %>
     </div>
 
     <%# Action buttons %>

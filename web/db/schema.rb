@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_03_153656) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_03_171302) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "postgis"
@@ -92,6 +92,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_153656) do
     t.bigint "approved_by_id"
     t.datetime "created_at", null: false
     t.text "notes"
+    t.string "source_url"
     t.integer "status", default: 0, null: false
     t.bigint "submitted_by_id"
     t.datetime "updated_at", null: false

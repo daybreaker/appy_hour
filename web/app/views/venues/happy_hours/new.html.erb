@@ -32,6 +32,15 @@
     </div>
 
     <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">
+        Link to menu <span class="font-normal text-gray-400">(optional)</span>
+      </label>
+      <%= f.url_field :source_url, placeholder: "https://… menu page, Instagram post, etc.",
+            class: "w-full border border-gray-300 rounded px-3 py-2 text-sm" %>
+      <p class="text-xs text-gray-400 mt-1">If left blank, we'll link to the venue's website.</p>
+    </div>
+
+    <div>
       <div class="flex items-center justify-between mb-2">
         <label class="block text-sm font-medium text-gray-700">Days &amp; Times</label>
       </div>

@@ -58,6 +58,8 @@ RSpec.describe "Api::V1::Venues", type: :request do
       expect(response).to have_http_status(:ok)
       expect(json["name"]).to eq("Detail Bar")
       expect(json["happy_hours"].first["notes"]).to eq("Cheap beer")
+      expect(json["happy_hours"].first).to have_key("source_url")
+      expect(json["happy_hours"].first).to have_key("link")
       day_json = json["happy_hours"].first["days"].first
       expect(day_json["day_name"]).to eq("Friday")
       expect(day_json["start_time"]).to eq("16:00")

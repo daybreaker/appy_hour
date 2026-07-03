@@ -22,6 +22,8 @@ class HappyHour < ApplicationRecord
 
   validates :venue, presence: true
   validates :status, presence: true
+  validates :source_url, format: { with: URI::DEFAULT_PARSER.make_regexp(%w[http https]),
+                                   message: "must be a valid http(s) URL" }, allow_blank: true
 
   # Only enforced for user/staff submissions via the web form; the scraper
   # builds happy hours incrementally and may persist before days exist.
@@ -38,6 +40,18 @@ class HappyHour < ApplicationRecord
 
   def auto_approve!(approver)
     update!(status: :approved, approved_by: approver, approved_at: Time.current)
+  end
+
+  # Link to the actual happy hour menu (a page, IG post, etc.).
+  # Falls back to the venue's main website when no specific source is set.
+  def link
+    source_url.presence || venue.website_url.presence
+  end
+
+  # True when the link points to the specific happy hour source rather than
+  # just the venue's homepage — lets the UI label it accordingly.
+  def specific_source?
+    source_url.present?
   end
 
   private

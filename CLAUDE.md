@@ -51,7 +51,8 @@ Neighborhood        name, city, slug
 Venue               name, address, city, zip_code, phone, website_url,
                     neighborhood_id, lonlat geography(Point,4326),
                     needs_investigation:bool, scraper_status:enum
-HappyHour           venue_id, status:enum, submitted_by_id, approved_by_id, approved_at, notes
+HappyHour           venue_id, status:enum, submitted_by_id, approved_by_id, approved_at, notes,
+                    source_url (link to actual menu/IG post; falls back to venue.website_url via #link)
 HappyHourDay        happy_hour_id, day_of_week:int(0-6), start_time, end_time, specific_date(nullable)
 HappyHourGeneric    happy_hour_day_id, applies_to, discount_type:enum, discount_value, description, status:enum
 HappyHourItem       happy_hour_day_id, name, category, original_price, happy_hour_price, description, status:enum
