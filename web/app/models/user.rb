@@ -16,7 +16,26 @@ class User < ApplicationRecord
   has_many :noticed_notifications, as: :recipient, dependent: :destroy,
            class_name: "Noticed::Notification"
 
+  before_create :generate_api_token
+
   def staff?
     editor? || admin?
+  end
+
+  def regenerate_api_token!
+    update!(api_token: generate_token)
+  end
+
+  private
+
+  def generate_api_token
+    self.api_token = generate_token
+  end
+
+  def generate_token
+    loop do
+      token = SecureRandom.urlsafe_base64(32)
+      break token unless User.exists?(api_token: token)
+    end
   end
 end

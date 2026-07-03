@@ -17,6 +17,26 @@ RSpec.describe User, type: :model do
     it { is_expected.to define_enum_for(:role).with_values(user: 0, editor: 1, admin: 2) }
   end
 
+  describe "api_token" do
+    it "is generated automatically on create" do
+      user = create(:user)
+      expect(user.api_token).to be_present
+    end
+
+    it "is unique per user" do
+      user1 = create(:user)
+      user2 = create(:user)
+      expect(user1.api_token).not_to eq(user2.api_token)
+    end
+
+    it "can be regenerated" do
+      user = create(:user)
+      old_token = user.api_token
+      user.regenerate_api_token!
+      expect(user.api_token).not_to eq(old_token)
+    end
+  end
+
   describe "#staff?" do
     it "returns false for user role" do
       expect(build(:user, role: :user).staff?).to be false
