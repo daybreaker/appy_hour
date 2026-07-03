@@ -1,0 +1,21 @@
+<%# locals: venues %>
+<% if venues.any? %>
+  <ul class="bg-white border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-100 max-h-64 overflow-auto">
+    <% venues.each do |venue| %>
+      <li>
+        <button type="button"
+                data-action="venue-search#select"
+                data-venue-search-id-param="<%= venue.id %>"
+                data-venue-search-name-param="<%= venue.name %>"
+                class="w-full text-left px-3 py-2 text-sm hover:bg-amber-50">
+          <span class="font-medium text-gray-900"><%= venue.name %></span>
+          <span class="text-gray-400 ml-1">
+            <%= [ venue.city, venue.state ].compact_blank.join(", ") %>
+          </span>
+        </button>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-400">No matches</p>
+<% end %>

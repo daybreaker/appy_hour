@@ -33,10 +33,17 @@ RSpec.describe "Admin::HappyHours", type: :request do
   end
 
   describe "GET /admin/happy_hours/new and :id/edit" do
-    it "renders the new form" do
+    it "renders the new form with the venue search widget" do
       get new_admin_happy_hour_path
       expect(response).to have_http_status(:ok)
       expect(response.body).to include("nested-form")
+      expect(response.body).to include("venue-search")
+    end
+
+    it "prefills the venue when venue_id is passed" do
+      venue = create(:venue, name: "Prefilled Bar")
+      get new_admin_happy_hour_path(venue_id: venue.id)
+      expect(response.body).to include("Prefilled Bar")
     end
 
     it "renders the edit form" do

@@ -18,6 +18,16 @@ module Admin
       @recent_runs = @venue.scraper_runs.order(run_at: :desc).limit(5)
     end
 
+    # Autocomplete for the "Add happy hour" venue picker. Returns an HTML fragment.
+    def search
+      @venues = if params[:q].present?
+        Venue.kept.where("name ILIKE ?", "%#{params[:q]}%").order(:name).limit(10)
+      else
+        Venue.none
+      end
+      render partial: "admin/venues/search_results", locals: { venues: @venues }, layout: false
+    end
+
     def new
       @venue = Venue.new
     end
@@ -68,7 +78,8 @@ module Admin
 
     def venue_params
       params.require(:venue).permit(
-        :name, :address, :city, :state, :zip_code, :phone, :website_url, :neighborhood_id
+        :name, :address, :city, :state, :zip_code, :phone, :website_url, :neighborhood_id,
+        social_links_attributes: [ :id, :platform, :url, :_destroy ]
       )
     end
 

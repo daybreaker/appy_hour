@@ -1,0 +1,10 @@
+<%# locals: f (fields_for builder) %>
+<div class="flex items-center gap-2" data-nested-form-target="row">
+  <%= f.select :platform, SocialLink.platforms.keys.map { |k| [ SocialLink.new(platform: k).platform_label, k ] },
+        {}, class: "border border-gray-300 rounded px-3 py-2 text-sm" %>
+  <%= f.url_field :url, placeholder: "https://…",
+        class: "flex-1 border border-gray-300 rounded px-3 py-2 text-sm" %>
+  <%= f.hidden_field :_destroy, data: { nested_form_target: "destroyFlag" } %>
+  <button type="button" data-action="nested-form#remove"
+          class="px-2 py-2 text-sm text-red-500 hover:text-red-700">Remove</button>
+</div>

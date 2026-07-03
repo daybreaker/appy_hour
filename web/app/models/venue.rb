@@ -12,6 +12,9 @@ class Venue < ApplicationRecord
   has_many :reports, as: :reportable, dependent: :destroy
   has_many :scraper_runs, dependent: :destroy
 
+  accepts_nested_attributes_for :social_links, allow_destroy: true,
+    reject_if: ->(attrs) { attrs[:url].blank? }
+
   enum :scraper_status, {
     not_scraped: 0,
     scraped_found: 1,

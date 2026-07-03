@@ -41,10 +41,29 @@ RSpec.describe "Admin::Venues", type: :request do
     end
   end
 
+  describe "GET /admin/venues/search" do
+    it "returns matching venues as an HTML fragment" do
+      create(:venue, name: "Taco Spot")
+      create(:venue, name: "Burger Joint")
+      get search_admin_venues_path, params: { q: "Taco" }
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("Taco Spot")
+      expect(response.body).not_to include("Burger Joint")
+    end
+
+    it "returns nothing for a blank query" do
+      create(:venue, name: "Taco Spot")
+      get search_admin_venues_path, params: { q: "" }
+      expect(response.body).not_to include("Taco Spot")
+    end
+  end
+
   describe "GET new and edit forms" do
-    it "renders the new form" do
+    it "renders the new form with the social links section" do
       get new_admin_venue_path
       expect(response).to have_http_status(:ok)
+      expect(response.body).to include("Add social link")
+      expect(response.body).to include("nested-form")
     end
 
     it "renders the edit form" do
@@ -81,6 +100,26 @@ RSpec.describe "Admin::Venues", type: :request do
       expect(response).to have_http_status(:unprocessable_content)
       expect(Venue.count).to eq(0)
     end
+
+    it "creates nested social links" do
+      post admin_venues_path, params: { venue: {
+        name: "Social Bar",
+        social_links_attributes: {
+          "0" => { platform: "instagram", url: "https://instagram.com/socialbar" },
+          "1" => { platform: "facebook", url: "https://facebook.com/socialbar" }
+        }
+      } }
+      venue = Venue.last
+      expect(venue.social_links.pluck(:platform)).to contain_exactly("instagram", "facebook")
+    end
+
+    it "ignores blank social link rows" do
+      post admin_venues_path, params: { venue: {
+        name: "Sparse Bar",
+        social_links_attributes: { "0" => { platform: "instagram", url: "" } }
+      } }
+      expect(Venue.last.social_links).to be_empty
+    end
   end
 
   describe "PATCH /admin/venues/:id" do
@@ -91,6 +130,17 @@ RSpec.describe "Admin::Venues", type: :request do
       expect(venue.reload.name).to eq("New Name")
       expect(venue.phone).to eq("216-555-0000")
       expect(response).to redirect_to(admin_venue_path(venue))
+    end
+
+    it "adds and removes social links via nested attributes" do
+      existing = create(:social_link, venue: venue, platform: :instagram, url: "https://instagram.com/old")
+
+      patch admin_venue_path(venue), params: { venue: { social_links_attributes: {
+        "0" => { id: existing.id, _destroy: "1" },
+        "1" => { platform: "twitter", url: "https://x.com/new" }
+      } } }
+
+      expect(venue.reload.social_links.pluck(:platform)).to contain_exactly("twitter")
     end
   end
 

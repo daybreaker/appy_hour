@@ -28,6 +28,9 @@ Rails.application.routes.draw do
     end
 
     resources :venues, only: [ :index, :show, :new, :create, :edit, :update, :destroy ] do
+      collection do
+        get :search
+      end
       member do
         patch :clear_investigation
       end
