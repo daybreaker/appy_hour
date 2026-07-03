@@ -1,6 +1,10 @@
 <div class="flex items-center justify-between mb-6">
-  <h1 class="text-2xl font-bold">Happy Hour Approval Queue</h1>
-  <span class="text-sm text-gray-500"><%= @pagy.count %> awaiting review</span>
+  <div>
+    <h1 class="text-2xl font-bold">Happy Hour Approval Queue</h1>
+    <span class="text-sm text-gray-500"><%= @pagy.count %> awaiting review</span>
+  </div>
+  <%= link_to "+ New happy hour", new_admin_happy_hour_path,
+        class: "px-4 py-2 bg-amber-500 text-white text-sm rounded hover:bg-amber-600" %>
 </div>
 
 <% if @happy_hours.empty? %>

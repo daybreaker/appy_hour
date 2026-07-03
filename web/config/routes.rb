@@ -12,7 +12,21 @@ Rails.application.routes.draw do
   # Admin dashboard
   namespace :admin do
     root to: "dashboard#index"
-    resources :happy_hours, only: [ :index, :show, :update ]
+
+    resources :happy_hours, only: [ :index, :show, :new, :create, :edit, :update, :destroy ] do
+      member do
+        patch :approve
+        patch :reject
+      end
+    end
+
+    # Per-day deal management (dynamic add/remove via Turbo Streams)
+    resources :happy_hour_days, only: [ :destroy ] do
+      resources :generic_deals, only: [ :create, :destroy ]
+      resources :item_deals, only: [ :create, :destroy ]
+      resources :bogo_deals, only: [ :create, :destroy ]
+    end
+
     resources :venues, only: [ :index, :show, :update ]
     resources :comments, only: [ :index, :show, :update ]
     resources :reports, only: [ :index, :show, :update ]

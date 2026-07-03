@@ -15,54 +15,115 @@ RSpec.describe "Admin::HappyHours", type: :request do
 
       expect(response).to have_http_status(:ok)
       expect(response.body).to include(venue.name)
-      expect(response.body).not_to include(approved_hh.id.to_s)
+      expect(response.body).to include("happy_hour_#{pending_hh.id}\"")
+      expect(response.body).not_to include("happy_hour_#{approved_hh.id}\"")
     end
   end
 
-  describe "PATCH /admin/happy_hours/:id" do
+  describe "GET /admin/happy_hours/:id (editor)" do
+    it "renders the editor with days and the deal picker" do
+      happy_hour = create(:happy_hour, status: :pending, venue: venue)
+      day = create(:happy_hour_day, happy_hour: happy_hour, day_of_week: 3)
+      create(:happy_hour_generic, happy_hour_day: day, applies_to: "drafts")
+      get admin_happy_hour_path(happy_hour)
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("day_#{day.id}_deals")
+      expect(response.body).to include("deal-picker")
+    end
+  end
+
+  describe "GET /admin/happy_hours/new and :id/edit" do
+    it "renders the new form" do
+      get new_admin_happy_hour_path
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("nested-form")
+    end
+
+    it "renders the edit form" do
+      happy_hour = create(:happy_hour, :approved, venue: venue)
+      create(:happy_hour_day, happy_hour: happy_hour, day_of_week: 3)
+      get edit_admin_happy_hour_path(happy_hour)
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe "POST /admin/happy_hours" do
+    let(:valid_params) do
+      {
+        happy_hour: {
+          venue_id: venue.id,
+          notes: "House specials",
+          happy_hour_days_attributes: { "0" => { day_of_week: "3", start_time: "16:00", end_time: "18:00" } }
+        }
+      }
+    end
+
+    it "creates a happy hour, auto-approved for admin" do
+      expect {
+        post admin_happy_hours_path, params: valid_params
+      }.to change(HappyHour, :count).by(1)
+
+      hh = HappyHour.last
+      expect(hh.status).to eq("approved")
+      expect(hh.venue).to eq(venue)
+      expect(response).to redirect_to(admin_happy_hour_path(hh))
+    end
+
+    it "re-renders on invalid input" do
+      post admin_happy_hours_path, params: { happy_hour: { venue_id: venue.id, happy_hour_days_attributes: {} } }
+      expect(response).to have_http_status(:unprocessable_content)
+      expect(HappyHour.count).to eq(0)
+    end
+  end
+
+  describe "PATCH /admin/happy_hours/:id (edit attributes)" do
+    let!(:happy_hour) { create(:happy_hour, :approved, venue: venue) }
+
+    it "updates notes and source_url" do
+      patch admin_happy_hour_path(happy_hour), params: { happy_hour: { notes: "Updated", source_url: "https://x.com/hh" } }
+      expect(happy_hour.reload.notes).to eq("Updated")
+      expect(happy_hour.source_url).to eq("https://x.com/hh")
+    end
+  end
+
+  describe "DELETE /admin/happy_hours/:id" do
+    it "deletes the happy hour" do
+      happy_hour = create(:happy_hour, venue: venue)
+      expect {
+        delete admin_happy_hour_path(happy_hour)
+      }.to change(HappyHour, :count).by(-1)
+    end
+  end
+
+  describe "PATCH /admin/happy_hours/:id/approve" do
     let!(:happy_hour) { create(:happy_hour, status: :pending, venue: venue) }
 
-    context "when approving" do
-      it "sets status to approved" do
-        patch admin_happy_hour_path(happy_hour), params: { approve: "1" }
-        expect(happy_hour.reload.status).to eq("approved")
-      end
-
-      it "records the approver" do
-        patch admin_happy_hour_path(happy_hour), params: { approve: "1" }
-        expect(happy_hour.reload.approved_by).to eq(admin)
-      end
-
-      it "sets approved_at" do
-        patch admin_happy_hour_path(happy_hour), params: { approve: "1" }
-        expect(happy_hour.reload.approved_at).to be_present
-      end
-
-      it "redirects back to the queue on HTML request" do
-        patch admin_happy_hour_path(happy_hour), params: { approve: "1" }
-        expect(response).to redirect_to(admin_happy_hours_path)
-      end
+    it "approves and records the approver" do
+      patch approve_admin_happy_hour_path(happy_hour)
+      expect(happy_hour.reload.status).to eq("approved")
+      expect(happy_hour.approved_by).to eq(admin)
+      expect(happy_hour.approved_at).to be_present
     end
 
-    context "when rejecting" do
-      it "sets status to rejected" do
-        patch admin_happy_hour_path(happy_hour), params: { reject: "1", happy_hour: { notes: "Inaccurate info" } }
-        expect(happy_hour.reload.status).to eq("rejected")
-      end
-
-      it "saves the rejection notes" do
-        patch admin_happy_hour_path(happy_hour), params: { reject: "1", happy_hour: { notes: "Inaccurate info" } }
-        expect(happy_hour.reload.notes).to eq("Inaccurate info")
-      end
+    it "turns a pending_deletion into deleted" do
+      happy_hour.update!(status: :pending_deletion)
+      patch approve_admin_happy_hour_path(happy_hour)
+      expect(happy_hour.reload.status).to eq("deleted")
     end
 
-    context "when approving a pending_deletion" do
-      let!(:happy_hour) { create(:happy_hour, status: :pending_deletion, venue: venue) }
+    it "redirects to the queue on HTML" do
+      patch approve_admin_happy_hour_path(happy_hour)
+      expect(response).to redirect_to(admin_happy_hours_path)
+    end
+  end
 
-      it "sets status to deleted" do
-        patch admin_happy_hour_path(happy_hour), params: { approve: "1" }
-        expect(happy_hour.reload.status).to eq("deleted")
-      end
+  describe "PATCH /admin/happy_hours/:id/reject" do
+    let!(:happy_hour) { create(:happy_hour, status: :pending, venue: venue) }
+
+    it "rejects with a reason" do
+      patch reject_admin_happy_hour_path(happy_hour), params: { happy_hour: { notes: "Inaccurate" } }
+      expect(happy_hour.reload.status).to eq("rejected")
+      expect(happy_hour.notes).to eq("Inaccurate")
     end
   end
 end

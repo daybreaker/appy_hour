@@ -23,6 +23,27 @@ module ApplicationHelper
     end
   end
 
+  # Admin destroy path for a deal, resolved by its type.
+  def admin_deal_path(day, deal)
+    case deal
+    when HappyHourGeneric then admin_happy_hour_day_generic_deal_path(day, deal)
+    when HappyHourItem then admin_happy_hour_day_item_deal_path(day, deal)
+    when HappyHourBogo then admin_happy_hour_day_bogo_deal_path(day, deal)
+    end
+  end
+
+  # One-line human summary for any deal type.
+  def deal_summary(deal)
+    case deal
+    when HappyHourGeneric then generic_deal_label(deal)
+    when HappyHourBogo then bogo_deal_label(deal)
+    when HappyHourItem
+      price = "$#{deal.happy_hour_price.to_f.round(2)}"
+      orig = deal.original_price.present? ? " (was $#{deal.original_price.to_f.round(2)})" : ""
+      "#{deal.name} — #{price}#{orig}"
+    end
+  end
+
   def bogo_deal_label(deal)
     get = case deal.get_discount_type
           when "free" then "get #{deal.get_quantity} free"

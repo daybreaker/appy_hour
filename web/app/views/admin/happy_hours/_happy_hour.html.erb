@@ -49,25 +49,21 @@
     </div>
 
     <%# Action buttons %>
-    <div class="flex flex-col gap-2 flex-shrink-0">
+    <div class="flex flex-col gap-2 flex-shrink-0 w-44">
+      <%= link_to "Review / edit deals", admin_happy_hour_path(happy_hour),
+            class: "px-3 py-1.5 bg-gray-800 text-white text-sm rounded hover:bg-gray-900 text-center" %>
+
       <% if happy_hour.pending_deletion? %>
-        <%= button_to "Approve Deletion", admin_happy_hour_path(happy_hour),
-              method: :patch,
-              params: { approve: "1" },
+        <%= button_to "Approve Deletion", approve_admin_happy_hour_path(happy_hour), method: :patch,
               class: "px-3 py-1.5 bg-red-600 text-white text-sm rounded hover:bg-red-700",
               form: { data: { turbo_confirm: "Delete this happy hour permanently?" } } %>
-        <%= button_to "Keep (Reject Deletion)", admin_happy_hour_path(happy_hour),
-              method: :patch,
-              params: { reject: "1" },
+        <%= button_to "Keep (Reject Deletion)", reject_admin_happy_hour_path(happy_hour), method: :patch,
               class: "px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded hover:bg-gray-200" %>
       <% else %>
-        <%= button_to "Approve", admin_happy_hour_path(happy_hour),
-              method: :patch,
-              params: { approve: "1" },
+        <%= button_to "Approve", approve_admin_happy_hour_path(happy_hour), method: :patch,
               class: "px-3 py-1.5 bg-green-600 text-white text-sm rounded hover:bg-green-700" %>
 
-        <%= form_with url: admin_happy_hour_path(happy_hour), method: :patch do |f| %>
-          <%= f.hidden_field :reject, value: "1" %>
+        <%= form_with url: reject_admin_happy_hour_path(happy_hour), method: :patch do |f| %>
           <%= f.fields_for :happy_hour do |hf| %>
             <%= hf.text_field :notes, placeholder: "Reason (optional)", class: "block w-full text-sm border rounded px-2 py-1 mb-1" %>
           <% end %>
