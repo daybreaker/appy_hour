@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_03_175115) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_03_211225) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "postgis"
@@ -108,9 +108,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_175115) do
     t.datetime "created_at", null: false
     t.string "name", null: false
     t.string "slug", null: false
+    t.string "state"
     t.datetime "updated_at", null: false
-    t.index ["city", "name"], name: "index_neighborhoods_on_city_and_name", unique: true
     t.index ["slug"], name: "index_neighborhoods_on_slug", unique: true
+    t.index ["state", "city", "name"], name: "index_neighborhoods_on_state_and_city_and_name", unique: true
   end
 
   create_table "noticed_events", force: :cascade do |t|
@@ -210,6 +211,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_175115) do
     t.bigint "neighborhood_id"
     t.string "phone"
     t.integer "scraper_status", default: 0, null: false
+    t.string "state"
     t.datetime "updated_at", null: false
     t.string "website_url"
     t.string "zip_code"

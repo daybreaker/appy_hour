@@ -12,7 +12,8 @@
         <% end %>
       </h1>
       <p class="text-gray-500 mt-1">
-        <%= @venue.address %><%= ", #{@venue.city}" if @venue.city.present? %> <%= @venue.zip_code %>
+        <%= @venue.address %><%= ", #{@venue.city}" if @venue.city.present? %>
+        <%= @venue.state %> <%= @venue.zip_code %>
       </p>
       <div class="flex flex-wrap gap-3 mt-2 text-sm text-gray-500">
         <% if @venue.neighborhood %><span><%= @venue.neighborhood.name %></span><% end %>

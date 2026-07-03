@@ -8,6 +8,11 @@ RSpec.describe Scrapers::GooglePlacesClient do
           "id" => "PLACE123",
           "displayName" => { "text" => "Great Lakes Brewing" },
           "formattedAddress" => "2516 Market Ave, Cleveland, OH 44113",
+          "addressComponents" => [
+            { "longText" => "Cleveland", "shortText" => "Cleveland", "types" => [ "locality", "political" ] },
+            { "longText" => "Ohio", "shortText" => "OH", "types" => [ "administrative_area_level_1", "political" ] },
+            { "longText" => "44113", "shortText" => "44113", "types" => [ "postal_code" ] }
+          ],
           "nationalPhoneNumber" => "(216) 771-4404",
           "websiteUri" => "https://greatlakesbrewing.com",
           "location" => { "latitude" => 41.4846, "longitude" => -81.7027 }
@@ -32,6 +37,9 @@ RSpec.describe Scrapers::GooglePlacesClient do
       expect(place.name).to eq("Great Lakes Brewing")
       expect(place.website_url).to eq("https://greatlakesbrewing.com")
       expect(place.latitude).to eq(41.4846)
+      expect(place.city).to eq("Cleveland")
+      expect(place.state).to eq("OH")
+      expect(place.zip_code).to eq("44113")
     end
 
     it "raises on a non-success response" do

@@ -7,7 +7,8 @@
     <div>
       <h1 class="text-2xl font-bold"><%= @venue.name %></h1>
       <p class="text-gray-500 mt-1">
-        <%= @venue.address %><%= ", #{@venue.city}" if @venue.city.present? %> <%= @venue.zip_code %>
+        <%= @venue.address %><%= ", #{@venue.city}" if @venue.city.present? %>
+        <%= @venue.state %> <%= @venue.zip_code %>
       </p>
       <% if @venue.neighborhood %>
         <span class="inline-block mt-2 text-xs px-2 py-0.5 bg-gray-100 rounded text-gray-600"><%= @venue.neighborhood.name %></span>

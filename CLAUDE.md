@@ -47,8 +47,8 @@ Business logic lives in service objects (`app/services/`), not in controllers. T
 ## Full Model Map
 
 ```
-Neighborhood        name, city, slug
-Venue               name, address, city, zip_code, phone, website_url,
+Neighborhood        name, city, state, slug (auto: [state]-city-name), unique [state,city,name]
+Venue               name, address, city, state, zip_code, phone, website_url,
                     neighborhood_id, lonlat geography(Point,4326),
                     needs_investigation:bool, scraper_status:enum, google_place_id
 SocialLink          venue_id, platform:enum(instagram/twitter/facebook/tiktok/

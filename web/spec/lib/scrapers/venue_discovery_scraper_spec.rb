@@ -7,7 +7,9 @@ RSpec.describe Scrapers::VenueDiscoveryScraper do
   def place(id:, name:, **attrs)
     Scrapers::GooglePlacesClient::Place.new(
       google_place_id: id, name: name,
-      address: attrs[:address] || "123 St", phone: attrs[:phone],
+      address: attrs[:address] || "123 St",
+      city: attrs[:city], state: attrs[:state], zip_code: attrs[:zip_code],
+      phone: attrs[:phone],
       website_url: attrs[:website_url], latitude: attrs[:lat] || 41.5, longitude: attrs[:lng] || -81.7
     )
   end
@@ -66,6 +68,18 @@ RSpec.describe Scrapers::VenueDiscoveryScraper do
       venue = Venue.find_by(google_place_id: "A1")
       expect(venue.latitude).to be_within(0.001).of(41.4993)
       expect(venue.longitude).to be_within(0.001).of(-81.6944)
+    end
+
+    it "stores parsed city/state/zip from the place" do
+      allow(client).to receive(:search_bars_and_restaurants).and_return([
+        place(id: "A1", name: "Alpha Bar", city: "Cleveland", state: "OH", zip_code: "44113")
+      ])
+
+      scraper.call(lat: 41.5, lng: -81.7)
+      venue = Venue.find_by(google_place_id: "A1")
+      expect(venue.city).to eq("Cleveland")
+      expect(venue.state).to eq("OH")
+      expect(venue.zip_code).to eq("44113")
     end
   end
 end

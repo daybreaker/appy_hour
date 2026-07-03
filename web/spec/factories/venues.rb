@@ -3,6 +3,7 @@ FactoryBot.define do
     sequence(:name) { |n| "Venue #{n}" }
     address { "123 Main St" }
     city { "Cleveland" }
+    state { "OH" }
     zip_code { "44113" }
     phone { "216-555-0100" }
     website_url { "https://example.com" }

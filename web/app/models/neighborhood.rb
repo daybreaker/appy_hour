@@ -13,6 +13,6 @@ class Neighborhood < ApplicationRecord
   private
 
   def generate_slug
-    self.slug = "#{city}-#{name}".parameterize
+    self.slug = [ state, city, name ].compact_blank.join(" ").parameterize
   end
 end

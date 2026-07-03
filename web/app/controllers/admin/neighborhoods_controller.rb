@@ -47,7 +47,7 @@ module Admin
     end
 
     def neighborhood_params
-      params.require(:neighborhood).permit(:name, :city, :slug)
+      params.require(:neighborhood).permit(:name, :city, :state, :slug)
     end
   end
 end

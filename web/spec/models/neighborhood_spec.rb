@@ -25,6 +25,12 @@ RSpec.describe Neighborhood, type: :model do
       neighborhood.valid?
       expect(neighborhood.slug).to eq("custom-slug")
     end
+
+    it "includes the state in the slug when present" do
+      neighborhood = build(:neighborhood, name: "Ohio City", city: "Cleveland", state: "OH", slug: nil)
+      neighborhood.valid?
+      expect(neighborhood.slug).to eq("oh-cleveland-ohio-city")
+    end
   end
 
   describe ".for_city" do

@@ -25,6 +25,9 @@ module Scrapers
       venue.assign_attributes(
         name: place.name,
         address: place.address,
+        city: place.city.presence || venue.city,
+        state: place.state.presence || venue.state,
+        zip_code: place.zip_code.presence || venue.zip_code,
         phone: place.phone.presence || venue.phone,
         website_url: place.website_url.presence || venue.website_url
       )

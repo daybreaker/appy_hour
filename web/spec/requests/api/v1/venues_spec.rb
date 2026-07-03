@@ -11,6 +11,12 @@ RSpec.describe "Api::V1::Venues", type: :request do
       expect(json["meta"]).to include("page", "total_pages", "count")
     end
 
+    it "includes the state field" do
+      create(:venue, name: "Alpha", state: "OH")
+      get "/api/v1/venues"
+      expect(json["data"].first["state"]).to eq("OH")
+    end
+
     it "excludes discarded venues" do
       create(:venue, name: "Gone", discarded_at: Time.current)
       get "/api/v1/venues"

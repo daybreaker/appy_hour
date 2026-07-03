@@ -9,13 +9,15 @@ module Scrapers
       "places.id",
       "places.displayName",
       "places.formattedAddress",
+      "places.addressComponents",
       "places.location",
       "places.nationalPhoneNumber",
       "places.websiteUri"
     ].join(",").freeze
 
     Place = Struct.new(
-      :google_place_id, :name, :address, :phone, :website_url, :latitude, :longitude,
+      :google_place_id, :name, :address, :city, :state, :zip_code,
+      :phone, :website_url, :latitude, :longitude,
       keyword_init: true
     )
 
@@ -62,16 +64,29 @@ module Scrapers
     def parse_places(body)
       data = body.is_a?(String) ? JSON.parse(body) : body
       Array(data["places"]).map do |place|
+        components = Array(place["addressComponents"])
         Place.new(
           google_place_id: place["id"],
           name: place.dig("displayName", "text"),
           address: place["formattedAddress"],
+          city: address_component(components, "locality"),
+          state: address_component(components, "administrative_area_level_1", short: true),
+          zip_code: address_component(components, "postal_code"),
           phone: place["nationalPhoneNumber"],
           website_url: place["websiteUri"],
           latitude: place.dig("location", "latitude"),
           longitude: place.dig("location", "longitude")
         )
       end
+    end
+
+    # Pulls a value out of Google's addressComponents by type. State uses the
+    # short name (e.g. "OH") rather than the long name ("Ohio").
+    def address_component(components, type, short: false)
+      component = components.find { |c| Array(c["types"]).include?(type) }
+      return nil unless component
+
+      short ? component["shortText"] : component["longText"]
     end
 
     def build_connection

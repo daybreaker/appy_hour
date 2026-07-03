@@ -2,7 +2,7 @@ module Api
   module V1
     class VenueSerializer < Blueprinter::Base
       identifier :id
-      fields :name, :address, :city, :zip_code, :phone, :website_url
+      fields :name, :address, :city, :state, :zip_code, :phone, :website_url
 
       field :latitude do |venue|
         venue.latitude

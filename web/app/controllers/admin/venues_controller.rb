@@ -68,7 +68,7 @@ module Admin
 
     def venue_params
       params.require(:venue).permit(
-        :name, :address, :city, :zip_code, :phone, :website_url, :neighborhood_id
+        :name, :address, :city, :state, :zip_code, :phone, :website_url, :neighborhood_id
       )
     end
 
