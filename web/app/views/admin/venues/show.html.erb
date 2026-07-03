@@ -1,0 +1,91 @@
+<div class="mb-6">
+  <%= link_to "← Back to venues", admin_venues_path, class: "text-sm text-gray-400 hover:text-gray-600" %>
+</div>
+
+<div class="bg-white rounded-lg shadow p-6 mb-6">
+  <div class="flex items-start justify-between gap-4">
+    <div>
+      <h1 class="text-2xl font-bold">
+        <%= @venue.name %>
+        <% if @venue.needs_investigation? %>
+          <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs bg-orange-100 text-orange-700 align-middle">needs investigation</span>
+        <% end %>
+      </h1>
+      <p class="text-gray-500 mt-1">
+        <%= @venue.address %><%= ", #{@venue.city}" if @venue.city.present? %> <%= @venue.zip_code %>
+      </p>
+      <div class="flex flex-wrap gap-3 mt-2 text-sm text-gray-500">
+        <% if @venue.neighborhood %><span><%= @venue.neighborhood.name %></span><% end %>
+        <% if @venue.phone.present? %><span><%= @venue.phone %></span><% end %>
+        <% if @venue.website_url.present? %>
+          <%= link_to "Website ↗", @venue.website_url, target: "_blank", rel: "noopener", class: "text-amber-600 hover:underline" %>
+        <% end %>
+        <% if @venue.latitude %><span class="text-gray-400"><%= @venue.latitude.round(4) %>, <%= @venue.longitude.round(4) %></span><% end %>
+      </div>
+
+      <% if @venue.social_links.any? %>
+        <div class="flex flex-wrap gap-2 mt-3">
+          <% @venue.social_links.each do |social| %>
+            <%= link_to social.platform_label, social.url, target: "_blank", rel: "noopener",
+                  class: "inline-flex items-center text-xs px-2 py-0.5 rounded bg-gray-100 text-gray-700 hover:bg-gray-200" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="flex flex-col gap-2 flex-shrink-0">
+      <%= link_to "Edit", edit_admin_venue_path(@venue),
+            class: "px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded hover:bg-gray-200 text-center" %>
+      <% if @venue.needs_investigation? %>
+        <%= button_to "Mark reviewed", clear_investigation_admin_venue_path(@venue), method: :patch,
+              class: "px-3 py-1.5 bg-green-600 text-white text-sm rounded hover:bg-green-700" %>
+      <% end %>
+      <%= button_to "Delete", admin_venue_path(@venue), method: :delete,
+            form: { data: { turbo_confirm: "Remove this venue?" } },
+            class: "px-3 py-1.5 bg-red-100 text-red-700 text-sm rounded hover:bg-red-200" %>
+    </div>
+  </div>
+</div>
+
+<%# Happy hours %>
+<div class="flex items-center justify-between mb-3">
+  <h2 class="text-lg font-semibold">Happy Hours</h2>
+  <%= link_to "+ Add happy hour", new_admin_happy_hour_path(venue_id: @venue.id),
+        class: "text-sm px-3 py-1.5 bg-amber-500 text-white rounded hover:bg-amber-600" %>
+</div>
+
+<% if @happy_hours.any? %>
+  <div class="bg-white rounded-lg border border-gray-200 divide-y divide-gray-100 mb-6">
+    <% @happy_hours.each do |hh| %>
+      <div class="flex items-center justify-between px-5 py-3">
+        <div>
+          <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium
+            <%= hh.approved? ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800" %>">
+            <%= hh.status.humanize %>
+          </span>
+          <span class="text-sm text-gray-600 ml-2">
+            <%= hh.happy_hour_days.map(&:day_name).join(", ").presence || "no days yet" %>
+          </span>
+        </div>
+        <%= link_to "Edit deals →", admin_happy_hour_path(hh), class: "text-sm text-amber-600 hover:underline" %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="text-gray-400 text-sm mb-6">No happy hours yet.</p>
+<% end %>
+
+<%# Scraper history %>
+<% if @recent_runs.any? %>
+  <h2 class="text-lg font-semibold mb-3">Recent Scraper Runs</h2>
+  <div class="bg-white rounded-lg border border-gray-200 divide-y divide-gray-100">
+    <% @recent_runs.each do |run| %>
+      <div class="flex items-center justify-between px-5 py-2 text-sm">
+        <span class="<%= run.parse_failed? || run.fetch_failed? ? "text-red-600" : "text-gray-600" %>">
+          <%= run.result.humanize %>
+        </span>
+        <span class="text-gray-400"><%= time_ago_in_words(run.run_at) %> ago</span>
+      </div>
+    <% end %>
+  </div>
+<% end %>

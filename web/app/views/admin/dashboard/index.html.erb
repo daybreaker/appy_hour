@@ -8,7 +8,7 @@
     </div>
   <% end %>
 
-  <%= link_to admin_venues_path do %>
+  <%= link_to admin_venues_path(filter: "investigation") do %>
     <div class="bg-white rounded-lg shadow p-6">
       <p class="text-3xl font-bold text-orange-600"><%= @needs_investigation_count %></p>
       <p class="text-sm text-gray-500 mt-1">Venues Need Investigation</p>

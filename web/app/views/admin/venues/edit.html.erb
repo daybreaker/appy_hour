@@ -1,0 +1,7 @@
+<div class="max-w-2xl">
+  <div class="mb-6">
+    <%= link_to "← Back to venue", admin_venue_path(@venue), class: "text-sm text-gray-400 hover:text-gray-600" %>
+  </div>
+  <h1 class="text-2xl font-bold mb-6">Edit Venue</h1>
+  <%= render "admin/venues/form", venue: @venue, url: admin_venue_path(@venue), method: :patch %>
+</div>

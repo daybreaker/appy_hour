@@ -27,7 +27,11 @@ Rails.application.routes.draw do
       resources :bogo_deals, only: [ :create, :destroy ]
     end
 
-    resources :venues, only: [ :index, :show, :update ]
+    resources :venues, only: [ :index, :show, :new, :create, :edit, :update, :destroy ] do
+      member do
+        patch :clear_investigation
+      end
+    end
     resources :comments, only: [ :index, :show, :update ]
     resources :reports, only: [ :index, :show, :update ]
   end

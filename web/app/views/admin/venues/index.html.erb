@@ -1,49 +1,51 @@
 <div class="flex items-center justify-between mb-6">
-  <h1 class="text-2xl font-bold">Venues Needing Investigation</h1>
-  <span class="text-sm text-gray-500"><%= @pagy.count %> venues</span>
+  <div>
+    <h1 class="text-2xl font-bold"><%= @investigation ? "Venues Needing Investigation" : "Venues" %></h1>
+    <span class="text-sm text-gray-500"><%= @pagy.count %> venue<%= "s" unless @pagy.count == 1 %></span>
+  </div>
+  <%= link_to "+ New venue", new_admin_venue_path,
+        class: "px-4 py-2 bg-amber-500 text-white text-sm rounded hover:bg-amber-600" %>
+</div>
+
+<div class="flex items-center gap-2 mb-6">
+  <%= form_with url: admin_venues_path, method: :get, class: "flex items-center gap-2" do |f| %>
+    <%= f.hidden_field :filter, value: params[:filter] %>
+    <%= f.search_field :q, value: params[:q], placeholder: "Search by name…",
+          class: "border border-gray-300 rounded px-3 py-2 text-sm w-64" %>
+    <%= f.submit "Search", class: "px-3 py-2 bg-gray-800 text-white text-sm rounded hover:bg-gray-900 cursor-pointer" %>
+  <% end %>
+  <div class="ml-auto flex gap-1 text-sm">
+    <%= link_to "All", admin_venues_path,
+          class: "px-3 py-2 rounded #{@investigation ? "text-gray-500 hover:bg-gray-100" : "bg-gray-800 text-white"}" %>
+    <%= link_to "Needs investigation", admin_venues_path(filter: "investigation"),
+          class: "px-3 py-2 rounded #{@investigation ? "bg-gray-800 text-white" : "text-gray-500 hover:bg-gray-100"}" %>
+  </div>
 </div>
 
 <% if @venues.empty? %>
-  <div class="bg-white rounded-lg shadow p-12 text-center text-gray-400">
-    <p class="text-lg">No venues flagged for investigation.</p>
+  <div class="bg-white rounded-lg border border-gray-200 p-12 text-center text-gray-400">
+    <p class="text-lg">No venues found.</p>
   </div>
 <% else %>
-  <div class="space-y-4">
+  <div class="bg-white rounded-lg border border-gray-200 divide-y divide-gray-100">
     <% @venues.each do |venue| %>
-      <div id="<%= dom_id(venue) %>" class="bg-white rounded-lg shadow p-5 flex items-start justify-between gap-4">
-        <div class="flex-1 min-w-0">
-          <h3 class="font-semibold text-gray-900"><%= venue.name %></h3>
-          <p class="text-sm text-gray-500"><%= venue.address %>, <%= venue.city %> <%= venue.zip_code %></p>
-          <% if venue.website_url.present? %>
-            <%= link_to venue.website_url, venue.website_url, target: "_blank", rel: "noopener",
-                  class: "text-sm text-blue-600 hover:underline" %>
+      <div id="<%= dom_id(venue) %>" class="flex items-center justify-between gap-4 px-5 py-3">
+        <div class="min-w-0">
+          <%= link_to venue.name, admin_venue_path(venue), class: "font-medium text-gray-900 hover:text-amber-600" %>
+          <% if venue.needs_investigation? %>
+            <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs bg-orange-100 text-orange-700">needs investigation</span>
           <% end %>
-          <% last_run = venue.scraper_runs.order(run_at: :desc).first %>
-          <% if last_run %>
-            <p class="text-xs text-gray-400 mt-1">
-              Last scraped <%= time_ago_in_words(last_run.run_at) %> ago —
-              <span class="<%= last_run.parse_failed? || last_run.fetch_failed? ? "text-red-500" : "text-gray-400" %>">
-                <%= last_run.result.humanize %>
-              </span>
-            </p>
-          <% else %>
-            <p class="text-xs text-gray-400 mt-1">Never scraped</p>
-          <% end %>
-
-          <% if venue.social_links.any? %>
-            <div class="flex flex-wrap gap-2 mt-2">
-              <% venue.social_links.each do |social| %>
-                <%= link_to social.platform_label, social.url, target: "_blank", rel: "noopener",
-                      class: "inline-flex items-center text-xs px-2 py-0.5 rounded bg-gray-100 text-gray-700 hover:bg-gray-200" %>
-              <% end %>
-            </div>
-          <% end %>
+          <p class="text-sm text-gray-500 truncate">
+            <%= venue.address %><%= " · #{venue.neighborhood.name}" if venue.neighborhood %>
+          </p>
         </div>
-        <div>
-          <%= button_to "Mark Reviewed", admin_venue_path(venue),
-                method: :patch,
-                params: { clear_investigation: "1" },
-                class: "px-3 py-1.5 bg-green-600 text-white text-sm rounded hover:bg-green-700" %>
+        <div class="flex items-center gap-2 flex-shrink-0 text-sm">
+          <% if venue.needs_investigation? %>
+            <%= button_to "Mark reviewed", clear_investigation_admin_venue_path(venue), method: :patch,
+                  class: "px-3 py-1.5 bg-green-600 text-white rounded hover:bg-green-700" %>
+          <% end %>
+          <%= link_to "Edit", edit_admin_venue_path(venue),
+                class: "px-3 py-1.5 bg-gray-100 text-gray-700 rounded hover:bg-gray-200" %>
         </div>
       </div>
     <% end %>
