@@ -1,0 +1,21 @@
+<%# locals: f (fields_for builder) %>
+<div class="day-fields border border-gray-200 rounded-lg p-4 flex flex-wrap items-end gap-3" data-nested-form-target="row">
+  <div>
+    <label class="block text-xs font-medium text-gray-500 mb-1">Day</label>
+    <%= f.select :day_of_week,
+          options_for_select((0..6).map { |d| [ Date::DAYNAMES[d], d ] }, f.object.day_of_week),
+          {},
+          class: "border border-gray-300 rounded px-3 py-2 text-sm" %>
+  </div>
+  <div>
+    <label class="block text-xs font-medium text-gray-500 mb-1">Start</label>
+    <%= f.time_field :start_time, class: "border border-gray-300 rounded px-3 py-2 text-sm" %>
+  </div>
+  <div>
+    <label class="block text-xs font-medium text-gray-500 mb-1">End</label>
+    <%= f.time_field :end_time, class: "border border-gray-300 rounded px-3 py-2 text-sm" %>
+  </div>
+  <%= f.hidden_field :_destroy, data: { nested_form_target: "destroyFlag" } %>
+  <button type="button" data-action="nested-form#remove"
+          class="px-2 py-2 text-sm text-red-500 hover:text-red-700">Remove</button>
+</div>

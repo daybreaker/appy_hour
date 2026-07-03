@@ -1,0 +1,44 @@
+<div class="mb-8">
+  <h1 class="text-3xl font-bold mb-1">Happy Hours</h1>
+  <p class="text-gray-500">Find a deal near you in Cleveland.</p>
+</div>
+
+<%# Day selector %>
+<div class="flex flex-wrap gap-2 mb-6">
+  <% (0..6).each do |dow| %>
+    <%= link_to day_abbr(dow),
+          root_path(day: dow, neighborhood_id: params[:neighborhood_id]),
+          class: "px-4 py-2 rounded-full text-sm font-medium #{dow == @day_of_week ? "bg-amber-500 text-white" : "bg-white border border-gray-200 text-gray-600 hover:bg-gray-100"}" %>
+  <% end %>
+</div>
+
+<%# Neighborhood filter %>
+<%= form_with url: root_path, method: :get, data: { turbo_frame: "_top" }, class: "mb-8 flex items-center gap-2" do |f| %>
+  <%= f.hidden_field :day, value: @day_of_week %>
+  <%= f.select :neighborhood_id,
+        options_from_collection_for_select(@neighborhoods, :id, :name, params[:neighborhood_id]),
+        { include_blank: "All neighborhoods" },
+        onchange: "this.form.requestSubmit()",
+        class: "border border-gray-300 rounded px-3 py-2 text-sm" %>
+  <% if params[:neighborhood_id].present? %>
+    <%= link_to "Clear", root_path(day: @day_of_week), class: "text-sm text-gray-500 hover:text-gray-700" %>
+  <% end %>
+<% end %>
+
+<h2 class="text-lg font-semibold mb-4 text-gray-700">
+  <%= day_name(@day_of_week) %>
+  <span class="text-gray-400 font-normal">· <%= @venues.size %> venue<%= "s" unless @venues.size == 1 %></span>
+</h2>
+
+<% if @venues.empty? %>
+  <div class="bg-white rounded-lg border border-gray-200 p-12 text-center text-gray-400">
+    <p class="text-lg">No happy hours found for <%= day_name(@day_of_week) %>.</p>
+    <p class="text-sm mt-1">Try another day or neighborhood.</p>
+  </div>
+<% else %>
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <% @venues.each do |venue| %>
+      <%= render "venues/card", venue: venue, day_of_week: @day_of_week %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,3 @@
+<%= turbo_stream.replace dom_id(@venue, :favorite) do %>
+  <%= render "venues/favorite_button", venue: @venue, favorited: true %>
+<% end %>

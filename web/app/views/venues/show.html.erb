@@ -1,0 +1,74 @@
+<div class="mb-6">
+  <%= link_to "← Back", :back, class: "text-sm text-gray-400 hover:text-gray-600" %>
+</div>
+
+<div class="bg-white rounded-lg border border-gray-200 p-6 mb-6">
+  <div class="flex items-start justify-between gap-4">
+    <div>
+      <h1 class="text-2xl font-bold"><%= @venue.name %></h1>
+      <p class="text-gray-500 mt-1">
+        <%= @venue.address %><%= ", #{@venue.city}" if @venue.city.present? %> <%= @venue.zip_code %>
+      </p>
+      <% if @venue.neighborhood %>
+        <span class="inline-block mt-2 text-xs px-2 py-0.5 bg-gray-100 rounded text-gray-600"><%= @venue.neighborhood.name %></span>
+      <% end %>
+      <div class="flex gap-3 mt-3 text-sm">
+        <% if @venue.phone.present? %>
+          <span class="text-gray-500"><%= @venue.phone %></span>
+        <% end %>
+        <% if @venue.website_url.present? %>
+          <%= link_to "Website", @venue.website_url, target: "_blank", rel: "noopener",
+                class: "text-amber-600 hover:underline" %>
+        <% end %>
+      </div>
+    </div>
+
+    <% if user_signed_in? %>
+      <%= render "venues/favorite_button", venue: @venue, favorited: @favorited %>
+    <% end %>
+  </div>
+</div>
+
+<%# Happy hours %>
+<div class="flex items-center justify-between mb-4">
+  <h2 class="text-xl font-semibold">Happy Hours</h2>
+  <% if user_signed_in? %>
+    <%= link_to "+ Add a happy hour", new_venue_happy_hour_path(@venue),
+          class: "text-sm px-3 py-1.5 bg-amber-500 text-white rounded hover:bg-amber-600" %>
+  <% end %>
+</div>
+
+<% if @happy_hours.empty? %>
+  <div class="bg-white rounded-lg border border-gray-200 p-8 text-center text-gray-400 mb-8">
+    <p>No happy hours listed yet.</p>
+    <% if user_signed_in? %>
+      <%= link_to "Be the first to add one", new_venue_happy_hour_path(@venue),
+            class: "text-amber-600 hover:underline text-sm" %>
+    <% else %>
+      <%= link_to "Sign in to add one", new_user_session_path, class: "text-amber-600 hover:underline text-sm" %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="space-y-4 mb-8">
+    <%= render @happy_hours %>
+  </div>
+<% end %>
+
+<%# Comments %>
+<h2 class="text-xl font-semibold mb-4">Comments</h2>
+<% if @comments.empty? %>
+  <p class="text-gray-400 text-sm">No comments yet.</p>
+<% else %>
+  <div class="space-y-3">
+    <% @comments.each do |comment| %>
+      <div class="bg-white rounded-lg border border-gray-200 p-4">
+        <div class="flex items-center gap-2 text-xs text-gray-400 mb-1">
+          <span><%= comment.user.email %></span>
+          <span>·</span>
+          <span><%= time_ago_in_words(comment.created_at) %> ago</span>
+        </div>
+        <p class="text-sm text-gray-700"><%= comment.body %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>

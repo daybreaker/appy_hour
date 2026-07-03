@@ -28,5 +28,10 @@ Rails.application.routes.draw do
   # Web UI (Hotwire)
   root to: "home#index"
 
+  resources :venues, only: [ :index, :show ] do
+    resources :happy_hours, only: [ :new, :create ], module: :venues
+    resource :favorite, only: [ :create, :destroy ], module: :venues
+  end
+
   get "up" => "rails/health#show", as: :rails_health_check
 end

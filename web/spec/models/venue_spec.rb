@@ -37,6 +37,50 @@ RSpec.describe Venue, type: :model do
     end
   end
 
+  describe ".with_happy_hours_on" do
+    it "returns venues with an approved happy hour on the given day of week" do
+      venue = create(:venue)
+      happy_hour = create(:happy_hour, :approved, venue: venue)
+      create(:happy_hour_day, happy_hour: happy_hour, day_of_week: 3) # Wednesday
+
+      expect(Venue.with_happy_hours_on(3)).to contain_exactly(venue)
+    end
+
+    it "excludes venues whose happy hour is on a different day" do
+      venue = create(:venue)
+      happy_hour = create(:happy_hour, :approved, venue: venue)
+      create(:happy_hour_day, happy_hour: happy_hour, day_of_week: 1) # Monday
+
+      expect(Venue.with_happy_hours_on(3)).to be_empty
+    end
+
+    it "excludes venues whose happy hour is not approved" do
+      venue = create(:venue)
+      happy_hour = create(:happy_hour, status: :pending, venue: venue)
+      create(:happy_hour_day, happy_hour: happy_hour, day_of_week: 3)
+
+      expect(Venue.with_happy_hours_on(3)).to be_empty
+    end
+
+    it "excludes discarded venues" do
+      venue = create(:venue, discarded_at: Time.current)
+      happy_hour = create(:happy_hour, :approved, venue: venue)
+      create(:happy_hour_day, happy_hour: happy_hour, day_of_week: 3)
+
+      expect(Venue.with_happy_hours_on(3)).to be_empty
+    end
+
+    it "returns a venue only once even with multiple matching days" do
+      venue = create(:venue)
+      happy_hour = create(:happy_hour, :approved, venue: venue)
+      create(:happy_hour_day, happy_hour: happy_hour, day_of_week: 3, start_time: "16:00", end_time: "18:00")
+      hh2 = create(:happy_hour, :approved, venue: venue)
+      create(:happy_hour_day, happy_hour: hh2, day_of_week: 3, start_time: "20:00", end_time: "22:00")
+
+      expect(Venue.with_happy_hours_on(3).count).to eq(1)
+    end
+  end
+
   describe "#latitude and #longitude" do
     it "returns nil when lonlat is not set" do
       venue = build(:venue)

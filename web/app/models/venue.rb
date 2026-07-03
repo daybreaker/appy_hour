@@ -22,6 +22,13 @@ class Venue < ApplicationRecord
 
   scope :needs_investigation, -> { where(needs_investigation: true) }
   scope :with_happy_hours, -> { joins(:happy_hours).where(happy_hours: { status: :approved }).distinct }
+  scope :with_happy_hours_on, ->(day_of_week) {
+    kept.joins(happy_hours: :happy_hour_days)
+      .where(happy_hours: { status: :approved })
+      .where(happy_hour_days: { day_of_week: day_of_week })
+      .distinct
+  }
+  scope :in_neighborhood, ->(neighborhood_id) { where(neighborhood_id: neighborhood_id) }
   scope :near, ->(lat, lng, radius_meters) {
     where("ST_DWithin(lonlat, ST_MakePoint(?, ?)::geography, ?)", lng, lat, radius_meters)
       .order(Arel.sql("ST_Distance(lonlat, ST_MakePoint(#{lng.to_f}, #{lat.to_f})::geography)"))

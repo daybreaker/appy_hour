@@ -8,6 +8,9 @@ class HappyHour < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :reports, as: :reportable, dependent: :destroy
 
+  accepts_nested_attributes_for :happy_hour_days, allow_destroy: true,
+    reject_if: ->(attrs) { attrs[:start_time].blank? || attrs[:end_time].blank? }
+
   enum :status, {
     pending: 0,
     approved: 1,
@@ -20,13 +23,28 @@ class HappyHour < ApplicationRecord
   validates :venue, presence: true
   validates :status, presence: true
 
+  # Only enforced for user/staff submissions via the web form; the scraper
+  # builds happy hours incrementally and may persist before days exist.
+  validate :must_have_at_least_one_day, on: :submission
+
   scope :approved, -> { where(status: :approved) }
   scope :pending, -> { where(status: :pending) }
   scope :pending_deletion, -> { where(status: :pending_deletion) }
   scope :needs_review, -> { where(status: [ :pending, :pending_deletion, :flagged ]) }
   scope :visible, -> { where(status: :approved) }
+  scope :on_day, ->(day_of_week) {
+    joins(:happy_hour_days).where(happy_hour_days: { day_of_week: day_of_week }).distinct
+  }
 
   def auto_approve!(approver)
     update!(status: :approved, approved_by: approver, approved_at: Time.current)
+  end
+
+  private
+
+  def must_have_at_least_one_day
+    if happy_hour_days.reject(&:marked_for_destruction?).empty?
+      errors.add(:base, "Add at least one day with a start and end time")
+    end
   end
 end

@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :comment do
-    user { nil }
-    body { "MyText" }
-    status { 1 }
-    commentable { nil }
+    association :user
+    body { "Great happy hour, cheap drinks!" }
+    status { :approved }
+    association :commentable, factory: :venue
   end
 end

@@ -1,0 +1,14 @@
+<%# locals: venue, favorited %>
+<div id="<%= dom_id(venue, :favorite) %>">
+  <% if favorited %>
+    <%= button_to venue_favorite_path(venue), method: :delete,
+          class: "inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-amber-300 bg-amber-50 text-amber-700 text-sm font-medium hover:bg-amber-100" do %>
+      ★ Favorited
+    <% end %>
+  <% else %>
+    <%= button_to venue_favorite_path(venue), method: :post,
+          class: "inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-gray-300 text-gray-600 text-sm font-medium hover:bg-gray-50" do %>
+      ☆ Favorite
+    <% end %>
+  <% end %>
+</div>

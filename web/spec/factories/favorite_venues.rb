@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :favorite_venue do
-    user { nil }
-    venue { nil }
+    association :user
+    association :venue
   end
 end

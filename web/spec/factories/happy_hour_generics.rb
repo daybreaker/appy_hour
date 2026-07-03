@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :happy_hour_generic do
-    happy_hour_day { nil }
-    applies_to { "MyString" }
-    discount_type { 1 }
-    discount_value { "9.99" }
-    description { "MyText" }
-    status { 1 }
+    association :happy_hour_day
+    applies_to { "drinks" }
+    discount_type { :percentage }
+    discount_value { "25.0" }
+    description { "25% off all drafts" }
+    status { :approved }
   end
 end

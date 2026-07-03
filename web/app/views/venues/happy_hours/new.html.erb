@@ -1,0 +1,60 @@
+<div class="max-w-2xl mx-auto">
+  <div class="mb-6">
+    <%= link_to "← Back to #{@venue.name}", venue_path(@venue), class: "text-sm text-gray-400 hover:text-gray-600" %>
+  </div>
+
+  <h1 class="text-2xl font-bold mb-1">Add a Happy Hour</h1>
+  <p class="text-gray-500 mb-6">for <span class="font-medium"><%= @venue.name %></span></p>
+
+  <% unless current_user.staff? %>
+    <div class="bg-blue-50 border border-blue-200 text-blue-800 rounded px-4 py-3 text-sm mb-6">
+      Submissions are reviewed by our team before appearing on the site.
+    </div>
+  <% end %>
+
+  <%= form_with model: @happy_hour, url: venue_happy_hours_path(@venue), method: :post,
+        data: { controller: "nested-form" }, class: "space-y-6" do |f| %>
+
+    <% if @happy_hour.errors.any? %>
+      <div class="bg-red-50 border border-red-200 text-red-800 rounded px-4 py-3 text-sm">
+        <ul class="list-disc list-inside">
+          <% @happy_hour.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+      <%= f.text_area :notes, rows: 3, placeholder: "e.g. Half-off appetizers and $5 drafts",
+            class: "w-full border border-gray-300 rounded px-3 py-2 text-sm" %>
+    </div>
+
+    <div>
+      <div class="flex items-center justify-between mb-2">
+        <label class="block text-sm font-medium text-gray-700">Days &amp; Times</label>
+      </div>
+
+      <div class="space-y-3" data-nested-form-target="rows">
+        <%= f.fields_for :happy_hour_days do |day_fields| %>
+          <%= render "day_fields", f: day_fields %>
+        <% end %>
+      </div>
+
+      <template data-nested-form-target="template">
+        <%= f.fields_for :happy_hour_days, HappyHourDay.new, child_index: "NEW_RECORD" do |day_fields| %>
+          <%= render "day_fields", f: day_fields %>
+        <% end %>
+      </template>
+
+      <button type="button" data-action="nested-form#add"
+              class="mt-3 text-sm text-amber-600 hover:text-amber-700 font-medium">+ Add another day</button>
+    </div>
+
+    <div class="flex gap-3">
+      <%= f.submit "Submit", class: "px-5 py-2.5 bg-amber-500 text-white rounded-lg hover:bg-amber-600 cursor-pointer" %>
+      <%= link_to "Cancel", venue_path(@venue), class: "px-5 py-2.5 text-gray-600 hover:text-gray-900" %>
+    </div>
+  <% end %>
+</div>
