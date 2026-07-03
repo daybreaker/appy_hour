@@ -13,7 +13,7 @@ class Venue < ApplicationRecord
   has_many :scraper_runs, dependent: :destroy
 
   accepts_nested_attributes_for :social_links, allow_destroy: true,
-    reject_if: ->(attrs) { attrs[:url].blank? }
+    reject_if: ->(attrs) { attrs[:handle].blank? }
 
   enum :scraper_status, {
     not_scraped: 0,

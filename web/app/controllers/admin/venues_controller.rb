@@ -79,7 +79,7 @@ module Admin
     def venue_params
       params.require(:venue).permit(
         :name, :address, :city, :state, :zip_code, :phone, :website_url, :neighborhood_id,
-        social_links_attributes: [ :id, :platform, :url, :_destroy ]
+        social_links_attributes: [ :id, :platform, :handle, :_destroy ]
       )
     end
 

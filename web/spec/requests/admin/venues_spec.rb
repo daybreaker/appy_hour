@@ -101,22 +101,23 @@ RSpec.describe "Admin::Venues", type: :request do
       expect(Venue.count).to eq(0)
     end
 
-    it "creates nested social links" do
+    it "creates nested social links from handles" do
       post admin_venues_path, params: { venue: {
         name: "Social Bar",
         social_links_attributes: {
-          "0" => { platform: "instagram", url: "https://instagram.com/socialbar" },
-          "1" => { platform: "facebook", url: "https://facebook.com/socialbar" }
+          "0" => { platform: "instagram", handle: "socialbar" },
+          "1" => { platform: "facebook", handle: "socialbar" }
         }
       } }
       venue = Venue.last
       expect(venue.social_links.pluck(:platform)).to contain_exactly("instagram", "facebook")
+      expect(venue.social_links.find_by(platform: :instagram).url).to eq("https://instagram.com/socialbar")
     end
 
     it "ignores blank social link rows" do
       post admin_venues_path, params: { venue: {
         name: "Sparse Bar",
-        social_links_attributes: { "0" => { platform: "instagram", url: "" } }
+        social_links_attributes: { "0" => { platform: "instagram", handle: "" } }
       } }
       expect(Venue.last.social_links).to be_empty
     end
@@ -137,10 +138,11 @@ RSpec.describe "Admin::Venues", type: :request do
 
       patch admin_venue_path(venue), params: { venue: { social_links_attributes: {
         "0" => { id: existing.id, _destroy: "1" },
-        "1" => { platform: "twitter", url: "https://x.com/new" }
+        "1" => { platform: "twitter", handle: "new" }
       } } }
 
       expect(venue.reload.social_links.pluck(:platform)).to contain_exactly("twitter")
+      expect(venue.social_links.first.url).to eq("https://x.com/new")
     end
   end
 

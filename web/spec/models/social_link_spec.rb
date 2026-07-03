@@ -32,4 +32,40 @@ RSpec.describe SocialLink, type: :model do
       expect(build(:social_link, platform: :instagram).platform_label).to eq("Instagram")
     end
   end
+
+  describe "handle → url" do
+    it "builds the url from a handle for instagram" do
+      link = SocialLink.new(venue: create(:venue), platform: :instagram, handle: "joesbar")
+      link.valid?
+      expect(link.url).to eq("https://instagram.com/joesbar")
+    end
+
+    it "strips a leading @ from the handle" do
+      link = SocialLink.new(venue: create(:venue), platform: :twitter, handle: "@joesbar")
+      link.valid?
+      expect(link.url).to eq("https://x.com/joesbar")
+    end
+
+    it "prepends @ for tiktok handles" do
+      link = SocialLink.new(venue: create(:venue), platform: :tiktok, handle: "joesbar")
+      link.valid?
+      expect(link.url).to eq("https://tiktok.com/@joesbar")
+    end
+
+    it "uses biz/ for yelp" do
+      link = SocialLink.new(venue: create(:venue), platform: :yelp, handle: "joes-bar")
+      link.valid?
+      expect(link.url).to eq("https://yelp.com/biz/joes-bar")
+    end
+
+    it "derives the handle back from a stored url" do
+      link = create(:social_link, platform: :instagram, url: "https://instagram.com/joesbar")
+      expect(link.handle).to eq("joesbar")
+    end
+
+    it "derives the handle from a tiktok url (strips @)" do
+      link = create(:social_link, platform: :tiktok, url: "https://tiktok.com/@joesbar")
+      expect(link.handle).to eq("joesbar")
+    end
+  end
 end
