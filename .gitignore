@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+*.swp
+
+# Rails (web/)
+web/.env*
+web/config/master.key
+web/config/credentials/*.key
+web/log/*.log
+web/tmp/
+web/storage/
+web/.byebug_history
+
+# Expo (mobile/)
+mobile/node_modules/
+mobile/.expo/
+mobile/dist/
+mobile/.env*
+
+# Monorepo root
+node_modules/
