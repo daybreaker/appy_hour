@@ -125,6 +125,32 @@ RSpec.describe "Admin deal management", type: :request do
         delete admin_happy_hour_happy_hour_day_path(happy_hour, day), as: :turbo_stream
       }.to change { happy_hour.happy_hour_days.count }.by(-1)
     end
+
+    describe "inline edit" do
+      let!(:day) { create(:happy_hour_day, happy_hour: happy_hour, day_of_week: 1, start_time: "16:00", end_time: "18:00") }
+
+      it "renders the edit form in the day's frame" do
+        get edit_admin_happy_hour_happy_hour_day_path(happy_hour, day)
+        expect(response).to have_http_status(:ok)
+        expect(response.body).to include(ActionView::RecordIdentifier.dom_id(day))
+      end
+
+      it "updates the day (e.g. switch to all-day with a note)" do
+        patch admin_happy_hour_happy_hour_day_path(happy_hour, day),
+          params: { happy_hour_day: { all_day: "1", note: "Industry night" } }
+        expect(response).to have_http_status(:ok)
+        day.reload
+        expect(day.all_day).to be true
+        expect(day.start_time).to be_nil
+        expect(day.note).to eq("Industry night")
+      end
+
+      it "re-renders the form on invalid input" do
+        patch admin_happy_hour_happy_hour_day_path(happy_hour, day),
+          params: { happy_hour_day: { all_day: "0", start_time: "18:00", end_time: "16:00" } }
+        expect(response).to have_http_status(:unprocessable_content)
+      end
+    end
   end
 
   describe "authorization" do

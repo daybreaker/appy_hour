@@ -1,6 +1,6 @@
 module Admin
   class HappyHourDaysController < BaseController
-    before_action :set_happy_hour, only: [ :create ]
+    before_action :set_happy_hour
 
     def create
       @day = @happy_hour.happy_hour_days.new(day_params)
@@ -19,8 +19,29 @@ module Admin
       end
     end
 
+    # Renders the read-only day row back into its frame (used to cancel an edit).
+    def show
+      render partial: "admin/happy_hours/day", locals: { day: find_day }
+    end
+
+    # Swaps the day row for an inline edit form (same frame).
+    def edit
+      render partial: "admin/happy_hours/day_edit_form", locals: { happy_hour: @happy_hour, day: find_day }
+    end
+
+    def update
+      @day = find_day
+
+      if @day.update(day_params)
+        render partial: "admin/happy_hours/day", locals: { day: @day }
+      else
+        render partial: "admin/happy_hours/day_edit_form", locals: { happy_hour: @happy_hour, day: @day },
+               status: :unprocessable_entity
+      end
+    end
+
     def destroy
-      day = HappyHourDay.find(params[:id])
+      day = find_day
       dom_id = ActionView::RecordIdentifier.dom_id(day)
       day.destroy
       render turbo_stream: turbo_stream.remove(dom_id)
@@ -30,6 +51,10 @@ module Admin
 
     def set_happy_hour
       @happy_hour = HappyHour.find(params[:happy_hour_id])
+    end
+
+    def find_day
+      @happy_hour.happy_hour_days.find(params[:id])
     end
 
     def day_params

@@ -1,15 +1,21 @@
 <%# locals: day %>
-<div id="<%= dom_id(day) %>" class="flex items-center justify-between gap-3 py-2 px-3 rounded bg-gray-50">
-  <div class="text-sm">
-    <span class="font-semibold text-gray-900"><%= day.day_name %></span>
-    <span class="text-amber-700 ml-2"><%= day.hours_label %></span>
-    <% if day.note.present? %>
-      <span class="text-gray-500 ml-2 italic">— <%= day.note %></span>
-    <% end %>
+<%= turbo_frame_tag dom_id(day) do %>
+  <div class="flex items-center justify-between gap-3 py-2 px-3 rounded bg-gray-50">
+    <div class="text-sm">
+      <span class="font-semibold text-gray-900"><%= day.day_name %></span>
+      <span class="text-amber-700 ml-2"><%= day.hours_label %></span>
+      <% if day.note.present? %>
+        <span class="text-gray-500 ml-2 italic">— <%= day.note %></span>
+      <% end %>
+    </div>
+    <div class="flex items-center gap-2 flex-shrink-0">
+      <%= link_to "Edit", edit_admin_happy_hour_happy_hour_day_path(day.happy_hour, day),
+            class: "text-amber-600 hover:text-amber-700 text-xs" %>
+      <%= button_to admin_happy_hour_happy_hour_day_path(day.happy_hour, day), method: :delete,
+            form: { data: { turbo_confirm: "Remove this day?" } },
+            class: "text-red-500 hover:text-red-700 text-xs" do %>
+        Remove
+      <% end %>
+    </div>
   </div>
-  <%= button_to admin_happy_hour_happy_hour_day_path(day.happy_hour, day), method: :delete,
-        form: { data: { turbo_confirm: "Remove this day?" } },
-        class: "text-red-500 hover:text-red-700 text-xs" do %>
-    Remove
-  <% end %>
-</div>
+<% end %>

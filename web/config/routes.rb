@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       resources :generic_deals, only: [ :create, :show, :edit, :update, :destroy ]
       resources :item_deals, only: [ :create, :show, :edit, :update, :destroy ]
       resources :bogo_deals, only: [ :create, :show, :edit, :update, :destroy ]
-      resources :happy_hour_days, only: [ :create, :destroy ]
+      resources :happy_hour_days, only: [ :create, :show, :edit, :update, :destroy ]
     end
 
     resources :venues, only: [ :index, :show, :new, :create, :edit, :update, :destroy ] do
