@@ -22,7 +22,11 @@
       <% if happy_hour.happy_hour_days.any? %>
         <div class="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-sm text-gray-600">
           <% happy_hour.happy_hour_days.sort_by { |d| d.day_of_week || 0 }.each do |day| %>
-            <span><span class="font-medium"><%= day.day_name %></span> <span class="text-gray-400"><%= day.hours_label %></span></span>
+            <span>
+              <span class="font-medium"><%= day.day_name %></span>
+              <span class="text-gray-400"><%= day.hours_label %></span>
+              <% if day.note.present? %><span class="text-gray-400 italic">(<%= day.note %>)</span><% end %>
+            </span>
           <% end %>
         </div>
         <p class="text-xs text-gray-400 mt-1"><%= pluralize(happy_hour.deals.size, "deal") %></p>

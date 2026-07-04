@@ -106,6 +106,19 @@ RSpec.describe "Admin deal management", type: :request do
       }.to change { happy_hour.happy_hour_days.count }.by(1)
     end
 
+    it "supports two entries for the same weekday with a note" do
+      post admin_happy_hour_happy_hour_days_path(happy_hour),
+        params: { happy_hour_day: { day_of_week: 1, start_time: "15:00", end_time: "18:00" } }, as: :turbo_stream
+      post admin_happy_hour_happy_hour_days_path(happy_hour),
+        params: { happy_hour_day: { day_of_week: 1, all_day: "1", note: "For service industry workers" } },
+        as: :turbo_stream
+
+      mondays = happy_hour.happy_hour_days.where(day_of_week: 1)
+      expect(mondays.count).to eq(2)
+      expect(mondays.find_by(all_day: true).note).to eq("For service industry workers")
+      expect(response.body).to include("For service industry workers")
+    end
+
     it "removes a day" do
       day = create(:happy_hour_day, happy_hour: happy_hour, day_of_week: 3)
       expect {

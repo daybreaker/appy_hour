@@ -33,7 +33,7 @@ module Admin
     end
 
     def day_params
-      params.require(:happy_hour_day).permit(:day_of_week, :all_day, :start_time, :end_time)
+      params.require(:happy_hour_day).permit(:day_of_week, :all_day, :start_time, :end_time, :note)
     end
   end
 end

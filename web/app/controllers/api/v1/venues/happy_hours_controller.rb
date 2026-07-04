@@ -29,7 +29,7 @@ module Api
         def happy_hour_params
           params.require(:happy_hour).permit(
             :notes, :source_url,
-            happy_hour_days_attributes: [ :day_of_week, :all_day, :start_time, :end_time ]
+            happy_hour_days_attributes: [ :day_of_week, :all_day, :start_time, :end_time, :note ]
           )
         end
       end

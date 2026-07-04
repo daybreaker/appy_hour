@@ -6,6 +6,9 @@
       <span class="text-sm">
         <span class="font-semibold text-gray-900"><%= day.day_name %></span>
         <span class="text-amber-700 font-medium ml-1"><%= day.hours_label %></span>
+        <% if day.note.present? %>
+          <span class="text-gray-500 italic ml-1">(<%= day.note %>)</span>
+        <% end %>
       </span>
     <% end %>
   </div>

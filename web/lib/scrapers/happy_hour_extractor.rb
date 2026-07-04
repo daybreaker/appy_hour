@@ -25,7 +25,8 @@ module Scrapers
         "source_url": string | null,
         "days": [
           { "day_of_week": 0-6, "all_day": boolean,
-            "start_time": "HH:MM" | null, "end_time": "HH:MM" | null }
+            "start_time": "HH:MM" | null, "end_time": "HH:MM" | null,
+            "note": string | null }
         ],
         "generic_deals": [
           { "applies_to": string, "discount_type": "percentage|dollar_off|fixed_price",

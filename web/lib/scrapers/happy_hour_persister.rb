@@ -48,7 +48,8 @@ module Scrapers
         day_of_week: day_data["day_of_week"].to_i,
         all_day: ActiveModel::Type::Boolean.new.cast(day_data["all_day"]) || false,
         start_time: day_data["start_time"],
-        end_time: day_data["end_time"]
+        end_time: day_data["end_time"],
+        note: day_data["note"].presence
       )
     end
 

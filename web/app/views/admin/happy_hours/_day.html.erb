@@ -3,6 +3,9 @@
   <div class="text-sm">
     <span class="font-semibold text-gray-900"><%= day.day_name %></span>
     <span class="text-amber-700 ml-2"><%= day.hours_label %></span>
+    <% if day.note.present? %>
+      <span class="text-gray-500 ml-2 italic">— <%= day.note %></span>
+    <% end %>
   </div>
   <%= button_to admin_happy_hour_happy_hour_day_path(day.happy_hour, day), method: :delete,
         form: { data: { turbo_confirm: "Remove this day?" } },

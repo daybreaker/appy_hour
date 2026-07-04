@@ -3,7 +3,7 @@ module Api
     # A day is now purely a schedule entry — the deals live on the happy hour.
     class HappyHourDaySerializer < Blueprinter::Base
       identifier :id
-      fields :day_of_week, :specific_date, :all_day
+      fields :day_of_week, :specific_date, :all_day, :note
 
       field :day_name do |day|
         day.day_name
