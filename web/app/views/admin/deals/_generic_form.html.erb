@@ -1,27 +1,11 @@
 <%# locals: deal, happy_hour %>
 <%= turbo_frame_tag "happy_hour_#{happy_hour.id}_generic_form" do %>
-  <%= form_with model: deal, url: admin_happy_hour_generic_deals_path(happy_hour), class: "space-y-2" do |f| %>
+  <%= form_with model: deal, url: admin_happy_hour_generic_deals_path(happy_hour) do |f| %>
     <% if deal.errors.any? %>
-      <p class="text-xs text-red-600"><%= deal.errors.full_messages.to_sentence %></p>
+      <p class="text-xs text-red-600 mb-1"><%= deal.errors.full_messages.to_sentence %></p>
     <% end %>
     <div class="flex flex-wrap items-end gap-2">
-      <div>
-        <label class="block text-xs text-gray-500">Applies to</label>
-        <%= f.text_field :applies_to, placeholder: "e.g. drafts", class: "border rounded px-2 py-1 text-sm w-32" %>
-      </div>
-      <div>
-        <label class="block text-xs text-gray-500">Type</label>
-        <%= f.select :discount_type, HappyHourGeneric.discount_types.keys.map { |k| [ k.humanize, k ] },
-              {}, class: "border rounded px-2 py-1 text-sm" %>
-      </div>
-      <div>
-        <label class="block text-xs text-gray-500">Value</label>
-        <%= f.number_field :discount_value, step: :any, class: "border rounded px-2 py-1 text-sm w-20" %>
-      </div>
-      <div class="flex-1 min-w-[8rem]">
-        <label class="block text-xs text-gray-500">Description</label>
-        <%= f.text_field :description, class: "border rounded px-2 py-1 text-sm w-full" %>
-      </div>
+      <%= render "admin/deals/generic_fields", f: f %>
       <%= f.submit "Add", class: "px-3 py-1 bg-amber-500 text-white text-sm rounded hover:bg-amber-600 cursor-pointer" %>
     </div>
   <% end %>

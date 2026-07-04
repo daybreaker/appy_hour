@@ -1,0 +1,15 @@
+<%# locals: deal, happy_hour — inline edit form for any deal type %>
+<%= turbo_frame_tag dom_id(deal) do %>
+  <%= form_with model: deal, url: admin_deal_path(happy_hour, deal), method: :patch,
+        class: "bg-amber-50 rounded p-2" do |f| %>
+    <% if deal.errors.any? %>
+      <p class="text-xs text-red-600 mb-1"><%= deal.errors.full_messages.to_sentence %></p>
+    <% end %>
+    <div class="flex flex-wrap items-end gap-2">
+      <%= render deal_fields_partial(deal), f: f %>
+      <%= f.submit "Save", class: "px-3 py-1 bg-amber-500 text-white text-sm rounded hover:bg-amber-600 cursor-pointer" %>
+      <%= link_to "Cancel", admin_deal_path(happy_hour, deal),
+            class: "px-3 py-1 text-gray-500 hover:text-gray-700 text-sm" %>
+    </div>
+  <% end %>
+<% end %>

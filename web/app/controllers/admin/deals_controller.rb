@@ -22,14 +22,38 @@ module Admin
       end
     end
 
+    # Renders the read-only deal row back into its frame (used to cancel an edit).
+    def show
+      render partial: "admin/deals/deal", locals: { deal: find_deal, happy_hour: @happy_hour }
+    end
+
+    # Swaps the deal row for an inline edit form (same frame).
+    def edit
+      render partial: "admin/deals/edit_form", locals: { deal: find_deal, happy_hour: @happy_hour }
+    end
+
+    def update
+      @deal = find_deal
+      @deal.assign_attributes(deal_params)
+
+      if @deal.save(context: :admin_entry)
+        render partial: "admin/deals/deal", locals: { deal: @deal, happy_hour: @happy_hour }
+      else
+        render partial: "admin/deals/edit_form", locals: { deal: @deal, happy_hour: @happy_hour },
+               status: :unprocessable_entity
+      end
+    end
+
     def destroy
-      deal = collection.find(params[:id])
+      deal = find_deal
       dom_id = ActionView::RecordIdentifier.dom_id(deal)
       deal.destroy
       render turbo_stream: turbo_stream.remove(dom_id)
     end
 
     private
+
+    def find_deal = collection.find(params[:id])
 
     def set_happy_hour
       @happy_hour = HappyHour.find(params[:happy_hour_id])

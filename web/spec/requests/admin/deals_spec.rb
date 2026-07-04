@@ -34,6 +34,38 @@ RSpec.describe "Admin deal management", type: :request do
         delete admin_happy_hour_generic_deal_path(happy_hour, deal), as: :turbo_stream
       }.to change { happy_hour.happy_hour_generics.count }.by(-1)
     end
+
+    describe "inline edit" do
+      let!(:deal) { create(:happy_hour_generic, happy_hour: happy_hour, applies_to: "drafts", discount_value: 10) }
+
+      it "renders the edit form in the deal's frame" do
+        get edit_admin_happy_hour_generic_deal_path(happy_hour, deal)
+        expect(response).to have_http_status(:ok)
+        expect(response.body).to include("turbo-frame")
+        expect(response.body).to include(ActionView::RecordIdentifier.dom_id(deal))
+      end
+
+      it "updates the deal and renders it back" do
+        patch admin_happy_hour_generic_deal_path(happy_hour, deal),
+          params: { happy_hour_generic: { applies_to: "wine", discount_value: 20 } }
+        expect(response).to have_http_status(:ok)
+        expect(deal.reload.applies_to).to eq("wine")
+        expect(deal.discount_value).to eq(20)
+      end
+
+      it "re-renders the form on invalid input" do
+        patch admin_happy_hour_generic_deal_path(happy_hour, deal),
+          params: { happy_hour_generic: { applies_to: "" } }
+        expect(response).to have_http_status(:unprocessable_content)
+        expect(deal.reload.applies_to).to eq("drafts")
+      end
+
+      it "shows the read-only row (cancel)" do
+        get admin_happy_hour_generic_deal_path(happy_hour, deal)
+        expect(response.body).to include("Edit")
+        expect(response.body).to include("drafts")
+      end
+    end
   end
 
   describe "item deals" do

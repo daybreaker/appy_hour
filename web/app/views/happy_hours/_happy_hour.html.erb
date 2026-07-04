@@ -31,9 +31,9 @@
           <span class="text-amber-500">•</span>
           <span>
             <%= item.name %> —
-            <span class="font-medium text-gray-900">$<%= item.happy_hour_price.to_f.round(2) %></span>
+            <span class="font-medium text-gray-900"><%= money(item.happy_hour_price) %></span>
             <% if item.original_price.present? %>
-              <span class="line-through text-gray-400 text-xs">$<%= item.original_price.to_f.round(2) %></span>
+              <span class="line-through text-gray-400 text-xs"><%= money(item.original_price) %></span>
             <% end %>
           </span>
         </li>
