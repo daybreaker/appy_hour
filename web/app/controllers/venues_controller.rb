@@ -4,9 +4,10 @@ class VenuesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    scope = Venue.kept.includes(:neighborhood).order(:name)
+    scope = Venue.kept.includes(:neighborhood)
     scope = scope.where("name ILIKE ?", "%#{params[:q]}%") if params[:q].present?
     scope = scope.in_neighborhood(params[:neighborhood_id]) if params[:neighborhood_id].present?
+    scope = scope.favorites_first_for(current_user)
 
     @pagy, @venues = pagy(scope, limit: 24)
     @neighborhoods = Neighborhood.ordered

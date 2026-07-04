@@ -33,6 +33,17 @@ class Venue < ApplicationRecord
       .distinct
   }
   scope :in_neighborhood, ->(neighborhood_id) { where(neighborhood_id: neighborhood_id) }
+  # Orders a (non-DISTINCT) relation so the user's favorites come first, then
+  # by name. Used on the paginated venues index.
+  scope :favorites_first_for, ->(user) {
+    next order(:name) if user.nil?
+
+    join = sanitize_sql_array([
+      "LEFT JOIN favorite_venues ON favorite_venues.venue_id = venues.id AND favorite_venues.user_id = ?",
+      user.id
+    ])
+    joins(join).order(Arel.sql("favorite_venues.id IS NULL"), :name)
+  }
   scope :near, ->(lat, lng, radius_meters) {
     where("ST_DWithin(lonlat, ST_MakePoint(?, ?)::geography, ?)", lng, lat, radius_meters)
       .order(Arel.sql("ST_Distance(lonlat, ST_MakePoint(#{lng.to_f}, #{lat.to_f})::geography)"))

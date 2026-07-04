@@ -6,6 +6,16 @@ module ApplicationHelper
     DAY_NAMES[day_of_week]
   end
 
+  # Venue ids the current user has favorited (memoized per request).
+  def favorite_venue_ids
+    @favorite_venue_ids ||=
+      user_signed_in? ? current_user.favorite_venues.pluck(:venue_id).to_set : Set.new
+  end
+
+  def favorited?(venue)
+    favorite_venue_ids.include?(venue.id)
+  end
+
   def day_abbr(day_of_week)
     DAY_ABBR[day_of_week]
   end

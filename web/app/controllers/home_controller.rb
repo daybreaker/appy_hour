@@ -8,7 +8,10 @@ class HomeController < ApplicationController
     venues = Venue.with_happy_hours_on(@day_of_week).includes(:neighborhood)
     venues = venues.in_neighborhood(params[:neighborhood_id]) if params[:neighborhood_id].present?
 
-    @venues = venues
+    # Favorites float to the top, then alphabetical. (Unpaginated + DISTINCT
+    # scope, so we order in Ruby rather than SQL.)
+    favorites = current_user ? current_user.favorite_venues.pluck(:venue_id).to_set : Set.new
+    @venues = venues.to_a.sort_by { |v| [ favorites.include?(v.id) ? 0 : 1, v.name.to_s.downcase ] }
   end
 
   private

@@ -9,6 +9,18 @@ RSpec.describe "Venues", type: :request do
       expect(response.body).to include("Alpha Bar")
     end
 
+    it "floats the signed-in user's favorites to the top" do
+      user = create(:user)
+      create(:venue, name: "Aaa Bar")           # alphabetically first
+      faved = create(:venue, name: "Zzz Bar")   # alphabetically last, but favorited
+      create(:favorite_venue, user: user, venue: faved)
+      sign_in user
+
+      get venues_path
+
+      expect(response.body.index("Zzz Bar")).to be < response.body.index("Aaa Bar")
+    end
+
     it "excludes discarded venues" do
       create(:venue, name: "Gone Bar", discarded_at: Time.current)
       get venues_path

@@ -21,6 +21,7 @@
           <%= link_to "Browse", root_path, class: "text-gray-600 hover:text-gray-900" %>
           <%= link_to "Venues", venues_path, class: "text-gray-600 hover:text-gray-900" %>
           <% if user_signed_in? %>
+            <%= link_to "★ Favorites", favorites_path, class: "text-gray-600 hover:text-gray-900" %>
             <% if current_user.admin? %>
               <%= link_to "Admin", admin_root_path, class: "text-gray-600 hover:text-gray-900" %>
             <% end %>

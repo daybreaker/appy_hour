@@ -61,6 +61,8 @@ Rails.application.routes.draw do
   # Web UI (Hotwire)
   root to: "home#index"
 
+  get "favorites", to: "favorites#index", as: :favorites
+
   resources :venues, only: [ :index, :show ] do
     resources :happy_hours, only: [ :new, :create ], module: :venues
     resource :favorite, only: [ :create, :destroy ], module: :venues
