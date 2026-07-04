@@ -26,7 +26,11 @@
     <ul class="space-y-1 pl-1">
       <% generics.each do |deal| %>
         <li class="text-sm text-gray-600 flex items-start gap-2">
-          <span class="text-amber-500">•</span> <%= generic_deal_label(deal) %>
+          <span class="text-amber-500">•</span>
+          <span>
+            <%= generic_deal_label(deal) %>
+            <% if deal.description.present? %><span class="text-gray-400">— <%= deal.description %></span><% end %>
+          </span>
         </li>
       <% end %>
       <% items.each do |item| %>
@@ -38,12 +42,17 @@
             <% if item.original_price.present? %>
               <span class="line-through text-gray-400 text-xs"><%= money(item.original_price) %></span>
             <% end %>
+            <% if item.description.present? %><span class="text-gray-400">— <%= item.description %></span><% end %>
           </span>
         </li>
       <% end %>
       <% bogos.each do |bogo| %>
         <li class="text-sm text-gray-600 flex items-start gap-2">
-          <span class="text-amber-500">•</span> <%= bogo_deal_label(bogo) %>
+          <span class="text-amber-500">•</span>
+          <span>
+            <%= bogo_deal_label(bogo) %>
+            <% if bogo.description.present? %><span class="text-gray-400">— <%= bogo.description %></span><% end %>
+          </span>
         </li>
       <% end %>
     </ul>

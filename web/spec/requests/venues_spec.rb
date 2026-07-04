@@ -48,6 +48,23 @@ RSpec.describe "Venues", type: :request do
       expect(response.body).to include("Show Venue")
     end
 
+    it "shows deal descriptions and day notes in the menu" do
+      venue = create(:venue)
+      hh = create(:happy_hour, :approved, venue: venue)
+      create(:happy_hour_day, happy_hour: hh, day_of_week: 5, start_time: "16:00", end_time: "18:00",
+             note: "Service industry")
+      create(:happy_hour_item, happy_hour: hh, name: "Margarita", happy_hour_price: 7,
+             description: "Fresh lime")
+      create(:happy_hour_generic, happy_hour: hh, applies_to: "drafts", discount_type: :dollar_off,
+             discount_value: 2, description: "Local pours only")
+
+      get venue_path(venue)
+
+      expect(response.body).to include("Fresh lime")
+      expect(response.body).to include("Local pours only")
+      expect(response.body).to include("Service industry")
+    end
+
     it "returns 404 for a discarded venue" do
       venue = create(:venue, discarded_at: Time.current)
       get venue_path(venue)

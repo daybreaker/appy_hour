@@ -5,7 +5,9 @@
       <span class="text-xs uppercase tracking-wide text-gray-400 w-16 flex-shrink-0">
         <%= deal.is_a?(HappyHourBogo) ? "BOGO" : deal.model_name.human.sub("Happy hour ", "") %>
       </span>
-      <span class="text-gray-700 truncate"><%= deal_summary(deal) %></span>
+      <span class="text-gray-700 truncate">
+        <%= deal_summary(deal) %><% if deal.description.present? %><span class="text-gray-400"> — <%= deal.description %></span><% end %>
+      </span>
     </div>
     <div class="flex items-center gap-2 flex-shrink-0">
       <%= link_to "Edit", edit_admin_deal_path(happy_hour, deal), class: "text-amber-600 hover:text-amber-700 text-xs leading-none" %>
