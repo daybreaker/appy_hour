@@ -18,6 +18,10 @@ module Scrapers
       deals are shared, listed once at the top level. Set "all_day": true for a
       day with no time restriction (then start_time/end_time may be null).
 
+      generic_deals are RELATIVE discounts only (a percentage or dollar amount
+      off a group). A specific named item at a set price (e.g. "Margarita $7")
+      goes in item_deals with happy_hour_price — never in generic_deals.
+
       JSON shape:
       {
         "has_happy_hour": boolean,
@@ -29,7 +33,7 @@ module Scrapers
             "note": string | null }
         ],
         "generic_deals": [
-          { "applies_to": string, "discount_type": "percentage|dollar_off|fixed_price",
+          { "applies_to": string, "discount_type": "percentage|dollar_off",
             "discount_value": number, "description": string | null }
         ],
         "item_deals": [

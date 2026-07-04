@@ -34,7 +34,6 @@ module ApplicationHelper
     case deal.discount_type
     when "percentage" then "#{deal.discount_value.to_i}% off #{deal.applies_to}"
     when "dollar_off" then "#{money(deal.discount_value)} off #{deal.applies_to}"
-    when "fixed_price" then "#{deal.applies_to} for #{money(deal.discount_value)}"
     else deal.applies_to
     end
   end

@@ -1,7 +1,9 @@
 class HappyHourGeneric < ApplicationRecord
   belongs_to :happy_hour
 
-  enum :discount_type, { percentage: 0, dollar_off: 1, fixed_price: 2 }, validate: true
+  # Discounts are relative reductions only. A set price on a specific thing is
+  # a HappyHourItem, not a discount.
+  enum :discount_type, { percentage: 0, dollar_off: 1 }, validate: true
   enum :status, { pending: 0, approved: 1, rejected: 2, flagged: 3, pending_deletion: 4, deleted: 5 }, validate: true
 
   validates :applies_to, presence: true
