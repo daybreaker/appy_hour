@@ -18,13 +18,11 @@ Rails.application.routes.draw do
         patch :approve
         patch :reject
       end
-    end
-
-    # Per-day deal management (dynamic add/remove via Turbo Streams)
-    resources :happy_hour_days, only: [ :destroy ] do
+      # Menu-level deals + schedule days (dynamic add/remove via Turbo Streams)
       resources :generic_deals, only: [ :create, :destroy ]
       resources :item_deals, only: [ :create, :destroy ]
       resources :bogo_deals, only: [ :create, :destroy ]
+      resources :happy_hour_days, only: [ :create, :destroy ]
     end
 
     resources :venues, only: [ :index, :show, :new, :create, :edit, :update, :destroy ] do

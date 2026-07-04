@@ -1,6 +1,6 @@
-<%# locals: deal, day %>
-<%= turbo_frame_tag "day_#{day.id}_generic_form" do %>
-  <%= form_with model: deal, url: admin_happy_hour_day_generic_deals_path(day), class: "space-y-2" do |f| %>
+<%# locals: deal, happy_hour %>
+<%= turbo_frame_tag "happy_hour_#{happy_hour.id}_generic_form" do %>
+  <%= form_with model: deal, url: admin_happy_hour_generic_deals_path(happy_hour), class: "space-y-2" do |f| %>
     <% if deal.errors.any? %>
       <p class="text-xs text-red-600"><%= deal.errors.full_messages.to_sentence %></p>
     <% end %>

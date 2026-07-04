@@ -21,7 +21,7 @@
     </div>
 
     <div class="flex flex-col gap-2 flex-shrink-0">
-      <%= link_to "Edit details / days", edit_admin_happy_hour_path(@happy_hour),
+      <%= link_to "Edit details", edit_admin_happy_hour_path(@happy_hour),
             class: "px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded hover:bg-gray-200 text-center" %>
       <% unless @happy_hour.approved? %>
         <%= button_to "Approve", approve_admin_happy_hour_path(@happy_hour), method: :patch,
@@ -34,17 +34,53 @@
   </div>
 </div>
 
-<h2 class="text-lg font-semibold mb-3">Days &amp; Deals</h2>
+<%# Deals — the menu, entered once for all of this happy hour's days %>
+<div class="bg-white rounded-lg shadow p-6 mb-6">
+  <h2 class="text-lg font-semibold mb-1">Menu / Deals</h2>
+  <p class="text-sm text-gray-400 mb-4">These deals apply on every day scheduled below.</p>
 
-<% if @happy_hour.happy_hour_days.any? %>
-  <div class="space-y-4">
+  <div id="happy_hour_<%= @happy_hour.id %>_deals" class="space-y-1.5 mb-4">
+    <% @happy_hour.deals.each do |deal| %>
+      <%= render "admin/deals/deal", deal: deal, happy_hour: @happy_hour %>
+    <% end %>
+  </div>
+
+  <div data-controller="deal-picker" class="border-t border-gray-100 pt-4">
+    <div class="flex gap-2 mb-3">
+      <% [ %w[Discount generic], %w[Item item], %w[BOGO bogo] ].each do |label, type| %>
+        <button type="button"
+                data-action="deal-picker#show"
+                data-deal-picker-type-param="<%= type %>"
+                data-deal-picker-target="tab"
+                class="px-3 py-1 rounded text-sm bg-gray-100 text-gray-600 hover:bg-gray-200">
+          + <%= label %>
+        </button>
+      <% end %>
+    </div>
+
+    <div data-deal-picker-target="form" data-type="generic" class="hidden">
+      <%= render "admin/deals/generic_form", deal: @happy_hour.happy_hour_generics.new, happy_hour: @happy_hour %>
+    </div>
+    <div data-deal-picker-target="form" data-type="item" class="hidden">
+      <%= render "admin/deals/item_form", deal: @happy_hour.happy_hour_items.new, happy_hour: @happy_hour %>
+    </div>
+    <div data-deal-picker-target="form" data-type="bogo" class="hidden">
+      <%= render "admin/deals/bogo_form", deal: @happy_hour.happy_hour_bogos.new, happy_hour: @happy_hour %>
+    </div>
+  </div>
+</div>
+
+<%# Schedule — which days / hours this menu runs %>
+<div class="bg-white rounded-lg shadow p-6">
+  <h2 class="text-lg font-semibold mb-4">Schedule</h2>
+
+  <div id="happy_hour_<%= @happy_hour.id %>_days" class="space-y-2 mb-4">
     <% @happy_hour.happy_hour_days.order(:day_of_week).each do |day| %>
       <%= render "admin/happy_hours/day", day: day %>
     <% end %>
   </div>
-<% else %>
-  <div class="bg-white rounded-lg border border-gray-200 p-8 text-center text-gray-400">
-    <p>No days yet.</p>
-    <%= link_to "Add days", edit_admin_happy_hour_path(@happy_hour), class: "text-amber-600 hover:underline text-sm" %>
+
+  <div class="border-t border-gray-100 pt-4">
+    <%= render "admin/happy_hours/day_form", happy_hour: @happy_hour, day: @happy_hour.happy_hour_days.new %>
   </div>
-<% end %>
+</div>

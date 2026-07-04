@@ -7,7 +7,7 @@ module Admin
     def index
       @pagy, @happy_hours = pagy(
         HappyHour.needs_review
-          .includes(:venue, :submitted_by, happy_hour_days: [ :happy_hour_generics, :happy_hour_items, :happy_hour_bogos ])
+          .includes(:venue, :submitted_by, :happy_hour_days, :happy_hour_generics, :happy_hour_items, :happy_hour_bogos)
           .order(created_at: :asc),
         limit: 25
       )

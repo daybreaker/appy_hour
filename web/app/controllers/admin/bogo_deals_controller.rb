@@ -2,7 +2,7 @@ module Admin
   class BogoDealsController < DealsController
     private
 
-    def collection = @day.happy_hour_bogos
+    def collection = @happy_hour.happy_hour_bogos
 
     def deal_params
       params.require(:happy_hour_bogo).permit(
@@ -12,6 +12,6 @@ module Admin
     end
 
     def form_partial = "admin/deals/bogo_form"
-    def form_dom_id = "day_#{@day.id}_bogo_form"
+    def form_dom_id = "happy_hour_#{@happy_hour.id}_bogo_form"
   end
 end

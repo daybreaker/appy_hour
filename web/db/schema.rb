@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_03_222320) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_03_225150) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "postgis"
@@ -44,11 +44,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_222320) do
     t.integer "get_discount_type"
     t.decimal "get_discount_value"
     t.integer "get_quantity"
-    t.bigint "happy_hour_day_id", null: false
+    t.bigint "happy_hour_id", null: false
     t.string "item_name"
     t.integer "status"
     t.datetime "updated_at", null: false
-    t.index ["happy_hour_day_id"], name: "index_happy_hour_bogos_on_happy_hour_day_id"
+    t.index ["happy_hour_id"], name: "index_happy_hour_bogos_on_happy_hour_id"
   end
 
   create_table "happy_hour_days", force: :cascade do |t|
@@ -69,23 +69,23 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_222320) do
     t.text "description"
     t.integer "discount_type"
     t.decimal "discount_value"
-    t.bigint "happy_hour_day_id", null: false
+    t.bigint "happy_hour_id", null: false
     t.integer "status"
     t.datetime "updated_at", null: false
-    t.index ["happy_hour_day_id"], name: "index_happy_hour_generics_on_happy_hour_day_id"
+    t.index ["happy_hour_id"], name: "index_happy_hour_generics_on_happy_hour_id"
   end
 
   create_table "happy_hour_items", force: :cascade do |t|
     t.string "category"
     t.datetime "created_at", null: false
     t.text "description"
-    t.bigint "happy_hour_day_id", null: false
+    t.bigint "happy_hour_id", null: false
     t.decimal "happy_hour_price"
     t.string "name"
     t.decimal "original_price"
     t.integer "status"
     t.datetime "updated_at", null: false
-    t.index ["happy_hour_day_id"], name: "index_happy_hour_items_on_happy_hour_day_id"
+    t.index ["happy_hour_id"], name: "index_happy_hour_items_on_happy_hour_id"
   end
 
   create_table "happy_hours", force: :cascade do |t|
@@ -228,10 +228,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_03_222320) do
   add_foreign_key "comments", "users"
   add_foreign_key "favorite_venues", "users"
   add_foreign_key "favorite_venues", "venues"
-  add_foreign_key "happy_hour_bogos", "happy_hour_days"
+  add_foreign_key "happy_hour_bogos", "happy_hours"
   add_foreign_key "happy_hour_days", "happy_hours"
-  add_foreign_key "happy_hour_generics", "happy_hour_days"
-  add_foreign_key "happy_hour_items", "happy_hour_days"
+  add_foreign_key "happy_hour_generics", "happy_hours"
+  add_foreign_key "happy_hour_items", "happy_hours"
   add_foreign_key "happy_hours", "users", column: "approved_by_id"
   add_foreign_key "happy_hours", "users", column: "submitted_by_id"
   add_foreign_key "happy_hours", "venues"

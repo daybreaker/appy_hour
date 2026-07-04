@@ -21,14 +21,15 @@ RSpec.describe "Admin::HappyHours", type: :request do
   end
 
   describe "GET /admin/happy_hours/:id (editor)" do
-    it "renders the editor with days and the deal picker" do
+    it "renders the editor with the deal picker and schedule" do
       happy_hour = create(:happy_hour, status: :pending, venue: venue)
-      day = create(:happy_hour_day, happy_hour: happy_hour, day_of_week: 3)
-      create(:happy_hour_generic, happy_hour_day: day, applies_to: "drafts")
+      create(:happy_hour_day, happy_hour: happy_hour, day_of_week: 3)
+      create(:happy_hour_generic, happy_hour: happy_hour, applies_to: "drafts")
       get admin_happy_hour_path(happy_hour)
       expect(response).to have_http_status(:ok)
-      expect(response.body).to include("day_#{day.id}_deals")
+      expect(response.body).to include("happy_hour_#{happy_hour.id}_deals")
       expect(response.body).to include("deal-picker")
+      expect(response.body).to include("drafts")
     end
   end
 

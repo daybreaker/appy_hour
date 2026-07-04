@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :happy_hour_bogo do
-    association :happy_hour_day
+    association :happy_hour
     buy_quantity { 1 }
     get_quantity { 1 }
     get_discount_type { :free }

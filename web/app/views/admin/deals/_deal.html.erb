@@ -1,4 +1,4 @@
-<%# locals: deal, day %>
+<%# locals: deal, happy_hour %>
 <div id="<%= dom_id(deal) %>" class="flex items-center justify-between gap-3 py-1.5 px-3 rounded bg-gray-50 text-sm">
   <div class="flex items-center gap-2 min-w-0">
     <span class="text-xs uppercase tracking-wide text-gray-400 w-16 flex-shrink-0">
@@ -6,7 +6,7 @@
     </span>
     <span class="text-gray-700 truncate"><%= deal_summary(deal) %></span>
   </div>
-  <%= button_to admin_deal_path(day, deal), method: :delete, form: { data: { turbo_confirm: "Remove this deal?" } },
+  <%= button_to admin_deal_path(happy_hour, deal), method: :delete, form: { data: { turbo_confirm: "Remove this deal?" } },
         class: "text-red-500 hover:text-red-700 text-xs flex-shrink-0" do %>
     Remove
   <% end %>

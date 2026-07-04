@@ -14,7 +14,7 @@ module Admin
     end
 
     def show
-      @happy_hours = @venue.happy_hours.includes(happy_hour_days: [ :happy_hour_generics, :happy_hour_items, :happy_hour_bogos ])
+      @happy_hours = @venue.happy_hours.includes(:happy_hour_days, :happy_hour_generics, :happy_hour_items, :happy_hour_bogos)
       @recent_runs = @venue.scraper_runs.order(run_at: :desc).limit(5)
     end
 

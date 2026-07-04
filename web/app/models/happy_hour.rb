@@ -4,6 +4,10 @@ class HappyHour < ApplicationRecord
   belongs_to :approved_by, class_name: "User", optional: true
 
   has_many :happy_hour_days, dependent: :destroy
+  # Deals belong to the menu (this happy hour) and apply across all its days.
+  has_many :happy_hour_generics, dependent: :destroy
+  has_many :happy_hour_items, dependent: :destroy
+  has_many :happy_hour_bogos, dependent: :destroy
   has_many :ratings, as: :rateable, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :reports, as: :reportable, dependent: :destroy
@@ -43,6 +47,15 @@ class HappyHour < ApplicationRecord
 
   def auto_approve!(approver)
     update!(status: :approved, approved_by: approver, approved_at: Time.current)
+  end
+
+  # All deals on this menu, across the three deal types.
+  def deals
+    happy_hour_generics.to_a + happy_hour_items.to_a + happy_hour_bogos.to_a
+  end
+
+  def approved_deals
+    happy_hour_generics.approved.to_a + happy_hour_items.approved.to_a + happy_hour_bogos.approved.to_a
   end
 
   # Link to the actual happy hour menu (a page, IG post, etc.).

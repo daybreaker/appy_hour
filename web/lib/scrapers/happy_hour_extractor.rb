@@ -13,34 +13,38 @@ module Scrapers
     SYSTEM
 
     SCHEMA_HINT = <<~SCHEMA.freeze
+      A happy hour is one menu of deals that runs on one or more days. The same
+      deals apply across every day listed. "days" is just the schedule; the
+      deals are shared, listed once at the top level. Set "all_day": true for a
+      day with no time restriction (then start_time/end_time may be null).
+
       JSON shape:
       {
         "has_happy_hour": boolean,
         "notes": string | null,
         "source_url": string | null,
         "days": [
-          {
-            "day_of_week": 0-6,
-            "start_time": "HH:MM",
-            "end_time": "HH:MM",
-            "generic_deals": [
-              { "applies_to": string, "discount_type": "percentage|dollar_off|fixed_price",
-                "discount_value": number, "description": string | null }
-            ],
-            "item_deals": [
-              { "name": string, "category": "food|drink", "original_price": number | null,
-                "happy_hour_price": number, "description": string | null }
-            ],
-            "bogo_deals": [
-              { "buy_quantity": integer, "get_quantity": integer,
-                "get_discount_type": "free|percentage|dollar_off",
-                "get_discount_value": number | null, "applies_to": string,
-                "item_name": string | null, "description": string | null }
-            ]
-          }
+          { "day_of_week": 0-6, "all_day": boolean,
+            "start_time": "HH:MM" | null, "end_time": "HH:MM" | null }
+        ],
+        "generic_deals": [
+          { "applies_to": string, "discount_type": "percentage|dollar_off|fixed_price",
+            "discount_value": number, "description": string | null }
+        ],
+        "item_deals": [
+          { "name": string, "category": "food|drink", "original_price": number | null,
+            "happy_hour_price": number, "description": string | null }
+        ],
+        "bogo_deals": [
+          { "buy_quantity": integer, "get_quantity": integer,
+            "get_discount_type": "free|percentage|dollar_off",
+            "get_discount_value": number | null, "applies_to": string,
+            "item_name": string | null, "description": string | null }
         ]
       }
-      If there is no happy hour, return {"has_happy_hour": false, "days": []}.
+      If the deals genuinely differ by day, that is fine — still return one menu
+      with all deals; an admin will split it. If there is no happy hour, return
+      {"has_happy_hour": false, "days": []}.
     SCHEMA
 
     def initialize(claude: ClaudeClient.new)

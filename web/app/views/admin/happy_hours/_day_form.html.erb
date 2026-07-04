@@ -1,0 +1,31 @@
+<%# locals: happy_hour, day %>
+<%= turbo_frame_tag "happy_hour_#{happy_hour.id}_day_form" do %>
+  <%= form_with model: day, url: admin_happy_hour_happy_hour_days_path(happy_hour),
+        data: { controller: "all-day" }, class: "flex flex-wrap items-end gap-3" do |f| %>
+    <% if day.errors.any? %>
+      <p class="w-full text-xs text-red-600"><%= day.errors.full_messages.to_sentence %></p>
+    <% end %>
+    <div>
+      <label class="block text-xs text-gray-500 mb-1">Day</label>
+      <%= f.select :day_of_week,
+            options_for_select((0..6).map { |d| [ Date::DAYNAMES[d], d ] }, day.day_of_week),
+            {}, class: "border border-gray-300 rounded px-3 py-2 text-sm" %>
+    </div>
+    <div>
+      <label class="block text-xs text-gray-500 mb-1">Start</label>
+      <%= f.time_field :start_time, data: { all_day_target: "time" },
+            class: "border border-gray-300 rounded px-3 py-2 text-sm" %>
+    </div>
+    <div>
+      <label class="block text-xs text-gray-500 mb-1">End</label>
+      <%= f.time_field :end_time, data: { all_day_target: "time" },
+            class: "border border-gray-300 rounded px-3 py-2 text-sm" %>
+    </div>
+    <label class="flex items-center gap-1.5 text-sm text-gray-600 pb-2">
+      <%= f.check_box :all_day, data: { all_day_target: "checkbox", action: "all-day#toggle" },
+            class: "rounded border-gray-300 text-amber-500 focus:ring-amber-400" %>
+      All day
+    </label>
+    <%= f.submit "Add day", class: "px-3 py-2 bg-amber-500 text-white text-sm rounded hover:bg-amber-600 cursor-pointer" %>
+  <% end %>
+<% end %>

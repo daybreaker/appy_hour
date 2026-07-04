@@ -1,7 +1,8 @@
 module Scrapers
-  # Turns the extractor's normalized Hash into a HappyHour with its days and
-  # deals. Everything is created with status :pending so it lands in the admin
-  # approval queue — the scraper never publishes directly.
+  # Turns the extractor's normalized Hash into a HappyHour (the menu) with its
+  # schedule days and menu-level deals. Everything is created with status
+  # :pending so it lands in the admin approval queue — the scraper never
+  # publishes directly.
   class HappyHourPersister
     GENERIC_DISCOUNT_TYPES = HappyHourGeneric.discount_types.keys.freeze
     BOGO_DISCOUNT_TYPES = HappyHourBogo.get_discount_types.keys.freeze
@@ -23,6 +24,11 @@ module Scrapers
         )
 
         days.each { |day_data| build_day(happy_hour, day_data) }
+
+        Array(extracted["generic_deals"]).each { |d| build_generic(happy_hour, d) }
+        Array(extracted["item_deals"]).each { |d| build_item(happy_hour, d) }
+        Array(extracted["bogo_deals"]).each { |d| build_bogo(happy_hour, d) }
+
         happy_hour
       end
     end
@@ -30,30 +36,28 @@ module Scrapers
     private
 
     def valid_day?(day)
-      day.is_a?(Hash) &&
-        (0..6).cover?(day["day_of_week"].to_i) &&
-        day["start_time"].present? &&
-        day["end_time"].present?
+      return false unless day.is_a?(Hash)
+      return false unless (0..6).cover?(day["day_of_week"].to_i)
+
+      all_day = ActiveModel::Type::Boolean.new.cast(day["all_day"])
+      all_day || (day["start_time"].present? && day["end_time"].present?)
     end
 
     def build_day(happy_hour, day_data)
-      day = happy_hour.happy_hour_days.create!(
+      happy_hour.happy_hour_days.create!(
         day_of_week: day_data["day_of_week"].to_i,
+        all_day: ActiveModel::Type::Boolean.new.cast(day_data["all_day"]) || false,
         start_time: day_data["start_time"],
         end_time: day_data["end_time"]
       )
-
-      Array(day_data["generic_deals"]).each { |d| build_generic(day, d) }
-      Array(day_data["item_deals"]).each { |d| build_item(day, d) }
-      Array(day_data["bogo_deals"]).each { |d| build_bogo(day, d) }
     end
 
-    def build_generic(day, deal)
+    def build_generic(happy_hour, deal)
       type = deal["discount_type"].to_s
       return unless GENERIC_DISCOUNT_TYPES.include?(type)
       return if deal["applies_to"].blank? || deal["discount_value"].blank?
 
-      day.happy_hour_generics.create!(
+      happy_hour.happy_hour_generics.create!(
         status: :pending,
         applies_to: deal["applies_to"],
         discount_type: type,
@@ -62,10 +66,10 @@ module Scrapers
       )
     end
 
-    def build_item(day, deal)
+    def build_item(happy_hour, deal)
       return if deal["name"].blank? || deal["happy_hour_price"].blank?
 
-      day.happy_hour_items.create!(
+      happy_hour.happy_hour_items.create!(
         status: :pending,
         name: deal["name"],
         category: deal["category"].presence,
@@ -75,12 +79,12 @@ module Scrapers
       )
     end
 
-    def build_bogo(day, deal)
+    def build_bogo(happy_hour, deal)
       type = deal["get_discount_type"].to_s
       return unless BOGO_DISCOUNT_TYPES.include?(type)
       return if deal["applies_to"].blank?
 
-      day.happy_hour_bogos.create!(
+      happy_hour.happy_hour_bogos.create!(
         status: :pending,
         buy_quantity: deal["buy_quantity"] || 1,
         get_quantity: deal["get_quantity"] || 1,

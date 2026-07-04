@@ -56,20 +56,24 @@ RSpec.describe "Api::V1::Venues", type: :request do
     it "returns the venue with its approved happy hours (detail view)" do
       venue = create(:venue, name: "Detail Bar")
       hh = create(:happy_hour, :approved, venue: venue, notes: "Cheap beer")
-      day = create(:happy_hour_day, happy_hour: hh, day_of_week: 5, start_time: "16:00", end_time: "18:00")
-      create(:happy_hour_generic, happy_hour_day: day, applies_to: "drafts", discount_type: :percentage, discount_value: 20)
+      create(:happy_hour_day, happy_hour: hh, day_of_week: 5, start_time: "16:00", end_time: "18:00")
+      create(:happy_hour_generic, happy_hour: hh, applies_to: "drafts", discount_type: :percentage, discount_value: 20)
 
       get "/api/v1/venues/#{venue.id}"
 
       expect(response).to have_http_status(:ok)
       expect(json["name"]).to eq("Detail Bar")
-      expect(json["happy_hours"].first["notes"]).to eq("Cheap beer")
-      expect(json["happy_hours"].first).to have_key("source_url")
-      expect(json["happy_hours"].first).to have_key("link")
-      day_json = json["happy_hours"].first["days"].first
+      hh_json = json["happy_hours"].first
+      expect(hh_json["notes"]).to eq("Cheap beer")
+      expect(hh_json).to have_key("source_url")
+      expect(hh_json).to have_key("link")
+
+      day_json = hh_json["days"].first
       expect(day_json["day_name"]).to eq("Friday")
       expect(day_json["start_time"]).to eq("16:00")
-      expect(day_json["generic_deals"].first["applies_to"]).to eq("drafts")
+
+      # Deals now live on the happy hour (the menu), not the day.
+      expect(hh_json["generic_deals"].first["applies_to"]).to eq("drafts")
     end
 
     it "includes the venue's social links in the detail view" do

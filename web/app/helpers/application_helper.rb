@@ -24,11 +24,11 @@ module ApplicationHelper
   end
 
   # Admin destroy path for a deal, resolved by its type.
-  def admin_deal_path(day, deal)
+  def admin_deal_path(happy_hour, deal)
     case deal
-    when HappyHourGeneric then admin_happy_hour_day_generic_deal_path(day, deal)
-    when HappyHourItem then admin_happy_hour_day_item_deal_path(day, deal)
-    when HappyHourBogo then admin_happy_hour_day_bogo_deal_path(day, deal)
+    when HappyHourGeneric then admin_happy_hour_generic_deal_path(happy_hour, deal)
+    when HappyHourItem then admin_happy_hour_item_deal_path(happy_hour, deal)
+    when HappyHourBogo then admin_happy_hour_bogo_deal_path(happy_hour, deal)
     end
   end
 

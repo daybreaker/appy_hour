@@ -1,5 +1,5 @@
 class HappyHourBogo < ApplicationRecord
-  belongs_to :happy_hour_day
+  belongs_to :happy_hour
 
   enum :get_discount_type, { free: 0, percentage: 1, dollar_off: 2 }, validate: true
   enum :status, { pending: 0, approved: 1, rejected: 2, flagged: 3, pending_deletion: 4, deleted: 5 }, validate: true

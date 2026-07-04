@@ -56,11 +56,15 @@ SocialLink          venue_id, platform:enum(instagram/twitter/facebook/tiktok/
                     Nokogiri URL recognition (no AI); aids happy hour investigation
 HappyHour           venue_id, status:enum, submitted_by_id, approved_by_id, approved_at, notes,
                     source_url (link to actual menu/IG post; falls back to venue.website_url via #link)
-HappyHourDay        happy_hour_id, day_of_week:int(0-6), start_time, end_time, specific_date(nullable)
-HappyHourGeneric    happy_hour_day_id, applies_to, discount_type:enum, discount_value, description, status:enum
-HappyHourItem       happy_hour_day_id, name, category, original_price, happy_hour_price, description, status:enum
-HappyHourBogo       happy_hour_day_id, buy_quantity, get_quantity, get_discount_type:enum,
+                    ── THE MENU: owns the deals below; runs on its HappyHourDays. A venue can have
+                       multiple HappyHours (different menus for different days; extensible to Brunch etc.)
+HappyHourDay        happy_hour_id, day_of_week:int(0-6), all_day:bool, start_time, end_time, specific_date(nullable)
+                    ── pure SCHEDULE (when the menu runs); no longer owns deals
+HappyHourGeneric    happy_hour_id, applies_to, discount_type:enum, discount_value, description, status:enum
+HappyHourItem       happy_hour_id, name, category, original_price, happy_hour_price, description, status:enum
+HappyHourBogo       happy_hour_id, buy_quantity, get_quantity, get_discount_type:enum,
                     get_discount_value(nullable), applies_to, item_name, description, status:enum
+                    ── deals belong to the HappyHour (menu-level), shared across all its days
 User                email, role:enum(user/editor/admin), [Devise fields]
 FavoriteVenue       user_id, venue_id
 Rating              rateable:polymorphic(Venue|HappyHour), user_id, value:int(1-5)

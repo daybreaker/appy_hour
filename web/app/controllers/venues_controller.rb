@@ -15,7 +15,7 @@ class VenuesController < ApplicationController
   def show
     @venue = Venue.kept.find(params[:id])
     @happy_hours = @venue.happy_hours.approved
-      .includes(happy_hour_days: [ :happy_hour_generics, :happy_hour_items, :happy_hour_bogos ])
+      .includes(:happy_hour_days, :happy_hour_generics, :happy_hour_items, :happy_hour_bogos)
     @comments = @venue.comments.approved.includes(:user).order(created_at: :desc)
     @favorited = current_user&.favorites&.exists?(id: @venue.id)
   end

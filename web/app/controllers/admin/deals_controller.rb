@@ -1,16 +1,17 @@
 module Admin
-  # Base for per-day deal management. Subclasses define the collection, the
+  # Base for menu-level deal management. Subclasses define the collection, the
   # permitted params, and which form partial to render. Adds/removes happen
   # dynamically via Turbo Streams. Admin-created deals are approved immediately.
   class DealsController < BaseController
-    before_action :set_day
+    before_action :set_happy_hour
 
     def create
       @deal = collection.new(deal_params.merge(status: :approved))
 
       if @deal.save
         render turbo_stream: [
-          turbo_stream.append("day_#{@day.id}_deals", partial: "admin/deals/deal", locals: { deal: @deal, day: @day }),
+          turbo_stream.append("happy_hour_#{@happy_hour.id}_deals",
+            partial: "admin/deals/deal", locals: { deal: @deal, happy_hour: @happy_hour }),
           turbo_stream.replace(form_dom_id, partial: form_partial, locals: form_locals(collection.new))
         ]
       else
@@ -28,8 +29,8 @@ module Admin
 
     private
 
-    def set_day
-      @day = HappyHourDay.find(params[:happy_hour_day_id])
+    def set_happy_hour
+      @happy_hour = HappyHour.find(params[:happy_hour_id])
     end
 
     # Subclasses override the following:
@@ -37,6 +38,6 @@ module Admin
     def deal_params = raise NotImplementedError
     def form_partial = raise NotImplementedError
     def form_dom_id = raise NotImplementedError
-    def form_locals(deal) = { deal: deal, day: @day }
+    def form_locals(deal) = { deal: deal, happy_hour: @happy_hour }
   end
 end

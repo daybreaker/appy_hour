@@ -1,5 +1,6 @@
 module Api
   module V1
+    # A day is now purely a schedule entry — the deals live on the happy hour.
     class HappyHourDaySerializer < Blueprinter::Base
       identifier :id
       fields :day_of_week, :specific_date, :all_day
@@ -14,18 +15,6 @@ module Api
 
       field :end_time do |day|
         day.end_time&.strftime("%H:%M")
-      end
-
-      association :generic_deals, blueprint: GenericDealSerializer do |day|
-        day.happy_hour_generics.select { |d| d.status == "approved" }
-      end
-
-      association :item_deals, blueprint: ItemDealSerializer do |day|
-        day.happy_hour_items.select { |d| d.status == "approved" }
-      end
-
-      association :bogo_deals, blueprint: BogoDealSerializer do |day|
-        day.happy_hour_bogos.select { |d| d.status == "approved" }
       end
     end
   end

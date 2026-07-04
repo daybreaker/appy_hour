@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :happy_hour_item do
-    association :happy_hour_day
+    association :happy_hour
     name { "House Margarita" }
     category { "drink" }
     original_price { "12.00" }

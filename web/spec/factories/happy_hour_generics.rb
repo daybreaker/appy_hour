@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :happy_hour_generic do
-    association :happy_hour_day
+    association :happy_hour
     applies_to { "drinks" }
     discount_type { :percentage }
     discount_value { "25.0" }

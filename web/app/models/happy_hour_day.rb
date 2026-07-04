@@ -1,10 +1,6 @@
 class HappyHourDay < ApplicationRecord
   belongs_to :happy_hour
 
-  has_many :happy_hour_generics, dependent: :destroy
-  has_many :happy_hour_items, dependent: :destroy
-  has_many :happy_hour_bogos, dependent: :destroy
-
   DAYS = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday].freeze
 
   validates :day_of_week, presence: true, inclusion: { in: 0..6 }, unless: :specific_date?
@@ -21,10 +17,6 @@ class HappyHourDay < ApplicationRecord
   def day_name
     return specific_date.strftime("%A, %b %-d") if specific_date?
     DAYS[day_of_week]
-  end
-
-  def deals
-    happy_hour_generics.to_a + happy_hour_items.to_a + happy_hour_bogos.to_a
   end
 
   # "All day" or the formatted time range, e.g. "4:00 PM – 6:00 PM".
