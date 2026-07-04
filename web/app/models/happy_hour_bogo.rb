@@ -10,6 +10,9 @@ class HappyHourBogo < ApplicationRecord
   validates :get_discount_value, numericality: { greater_than: 0 }, allow_nil: true
   validates :applies_to, presence: true
   validates :status, presence: true
+  # Required on hand entry; scraper (default context) may omit these.
+  validates :item_name, presence: true, on: :admin_entry
+  validates :description, presence: true, on: :admin_entry
 
   validate :discount_value_required_unless_free
 

@@ -23,12 +23,19 @@
         <%= f.number_field :get_discount_value, step: :any, placeholder: "if not free", class: "border rounded px-2 py-1 text-sm w-24" %>
       </div>
       <div>
+        <label class="block text-xs text-gray-500">Name</label>
+        <%= f.text_field :item_name, placeholder: "e.g. Boneless Wings", class: "border rounded px-2 py-1 text-sm w-36" %>
+      </div>
+      <div>
         <label class="block text-xs text-gray-500">Applies to</label>
         <%= f.text_field :applies_to, placeholder: "e.g. wings", class: "border rounded px-2 py-1 text-sm w-28" %>
       </div>
-      <div>
-        <label class="block text-xs text-gray-500">Item name</label>
-        <%= f.text_field :item_name, class: "border rounded px-2 py-1 text-sm w-28" %>
+    </div>
+    <div class="flex items-end gap-2">
+      <div class="flex-1">
+        <label class="block text-xs text-gray-500">Description</label>
+        <%= f.text_field :description, placeholder: "e.g. Buy one order, get one free",
+              class: "border rounded px-2 py-1 text-sm w-full" %>
       </div>
       <%= f.submit "Add", class: "px-3 py-1 bg-amber-500 text-white text-sm rounded hover:bg-amber-600 cursor-pointer" %>
     </div>

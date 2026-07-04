@@ -8,7 +8,9 @@ module Admin
     def create
       @deal = collection.new(deal_params.merge(status: :approved))
 
-      if @deal.save
+      # :admin_entry enforces the fuller set of fields (name/description) that
+      # hand-entered deals require but the scraper may not have.
+      if @deal.save(context: :admin_entry)
         render turbo_stream: [
           turbo_stream.append("happy_hour_#{@happy_hour.id}_deals",
             partial: "admin/deals/deal", locals: { deal: @deal, happy_hour: @happy_hour }),
