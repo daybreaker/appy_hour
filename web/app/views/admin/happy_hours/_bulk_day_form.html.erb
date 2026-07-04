@@ -1,0 +1,55 @@
+<%# locals: happy_hour, day — quick "add several days at once" form %>
+<%= turbo_frame_tag "happy_hour_#{happy_hour.id}_bulk_day_form" do %>
+  <%= form_with model: day, url: bulk_admin_happy_hour_happy_hour_days_path(happy_hour),
+        scope: :happy_hour_day, data: { controller: "all-day bulk-days" }, class: "space-y-3" do |f| %>
+
+    <% if day.errors.any? %>
+      <p class="text-xs text-red-600"><%= day.errors.full_messages.to_sentence %></p>
+    <% end %>
+
+    <%# Weekday pills %>
+    <div class="flex flex-wrap items-center gap-1.5">
+      <% (0..6).each do |dow| %>
+        <label>
+          <%= check_box_tag "days_of_week[]", dow, Array(params[:days_of_week]).include?(dow.to_s),
+                id: "bulk_dow_#{happy_hour.id}_#{dow}", data: { bulk_days_target: "day" }, class: "peer sr-only" %>
+          <span class="inline-block px-3 py-1.5 rounded-full text-sm border border-gray-300 text-gray-600 cursor-pointer select-none
+                       peer-checked:bg-amber-500 peer-checked:text-white peer-checked:border-amber-500 hover:bg-gray-50">
+            <%= Date::ABBR_DAYNAMES[dow] %>
+          </span>
+        </label>
+      <% end %>
+
+      <span class="mx-1 text-gray-300">|</span>
+      <button type="button" data-action="bulk-days#weekdays" class="text-xs text-amber-600 hover:text-amber-700">Mon–Fri</button>
+      <button type="button" data-action="bulk-days#weekend" class="text-xs text-amber-600 hover:text-amber-700">Weekend</button>
+      <button type="button" data-action="bulk-days#all" class="text-xs text-amber-600 hover:text-amber-700">Every day</button>
+      <button type="button" data-action="bulk-days#clear" class="text-xs text-gray-400 hover:text-gray-600">Clear</button>
+    </div>
+
+    <%# Shared time / all-day / note %>
+    <div class="flex flex-wrap items-end gap-3">
+      <div>
+        <label class="block text-xs text-gray-500 mb-1">Start</label>
+        <%= f.time_field :start_time, data: { all_day_target: "time" },
+              class: "border border-gray-300 rounded px-3 py-2 text-sm" %>
+      </div>
+      <div>
+        <label class="block text-xs text-gray-500 mb-1">End</label>
+        <%= f.time_field :end_time, data: { all_day_target: "time" },
+              class: "border border-gray-300 rounded px-3 py-2 text-sm" %>
+      </div>
+      <label class="flex items-center gap-1.5 text-sm text-gray-600 pb-2">
+        <%= f.check_box :all_day, data: { all_day_target: "checkbox", action: "all-day#toggle" },
+              class: "rounded border-gray-300 text-amber-500 focus:ring-amber-400" %>
+        All day
+      </label>
+      <div class="flex-1 min-w-[10rem]">
+        <label class="block text-xs text-gray-500 mb-1">Note <span class="text-gray-400">(optional)</span></label>
+        <%= f.text_field :note, placeholder: "e.g. For service industry workers",
+              class: "border border-gray-300 rounded px-3 py-2 text-sm w-full" %>
+      </div>
+      <%= f.submit "Add days", class: "px-3 py-2 bg-amber-500 text-white text-sm rounded hover:bg-amber-600 cursor-pointer" %>
+    </div>
+  <% end %>
+<% end %>

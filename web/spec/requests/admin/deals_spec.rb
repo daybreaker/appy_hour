@@ -106,6 +106,43 @@ RSpec.describe "Admin deal management", type: :request do
       }.to change { happy_hour.happy_hour_days.count }.by(1)
     end
 
+    it "bulk-adds one day per selected weekday sharing the same time" do
+      expect {
+        post bulk_admin_happy_hour_happy_hour_days_path(happy_hour),
+          params: { days_of_week: [ "1", "2", "3", "4", "5" ],
+                    happy_hour_day: { start_time: "16:00", end_time: "18:00" } },
+          as: :turbo_stream
+      }.to change { happy_hour.happy_hour_days.count }.by(5)
+
+      expect(happy_hour.happy_hour_days.pluck(:day_of_week)).to match_array([ 1, 2, 3, 4, 5 ])
+      expect(happy_hour.happy_hour_days.map(&:hours_label).uniq).to eq([ "4:00 PM – 6:00 PM" ])
+    end
+
+    it "bulk-adds all-day entries with a note" do
+      post bulk_admin_happy_hour_happy_hour_days_path(happy_hour),
+        params: { days_of_week: [ "0", "6" ],
+                  happy_hour_day: { all_day: "1", note: "Weekend special" } }, as: :turbo_stream
+      days = happy_hour.happy_hour_days
+      expect(days.count).to eq(2)
+      expect(days.all?(&:all_day?)).to be true
+      expect(days.map(&:note).uniq).to eq([ "Weekend special" ])
+    end
+
+    it "bulk create rejects no days selected" do
+      post bulk_admin_happy_hour_happy_hour_days_path(happy_hour),
+        params: { days_of_week: [], happy_hour_day: { all_day: "1" } }, as: :turbo_stream
+      expect(response).to have_http_status(:unprocessable_content)
+      expect(happy_hour.happy_hour_days.count).to eq(0)
+    end
+
+    it "bulk create rejects invalid times without creating anything" do
+      post bulk_admin_happy_hour_happy_hour_days_path(happy_hour),
+        params: { days_of_week: [ "1", "2" ], happy_hour_day: { start_time: "18:00", end_time: "16:00" } },
+        as: :turbo_stream
+      expect(response).to have_http_status(:unprocessable_content)
+      expect(happy_hour.happy_hour_days.count).to eq(0)
+    end
+
     it "supports two entries for the same weekday with a note" do
       post admin_happy_hour_happy_hour_days_path(happy_hour),
         params: { happy_hour_day: { day_of_week: 1, start_time: "15:00", end_time: "18:00" } }, as: :turbo_stream
