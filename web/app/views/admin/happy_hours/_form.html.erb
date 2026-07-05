@@ -1,6 +1,5 @@
 <%# locals: happy_hour, url, method %>
-<%= form_with model: happy_hour, url: url, method: method,
-      data: { controller: "nested-form" }, class: "space-y-6" do |f| %>
+<%= form_with model: happy_hour, url: url, method: method, class: "space-y-6" do |f| %>
 
   <% if happy_hour.errors.any? %>
     <div class="bg-red-50 border border-red-200 text-red-800 rounded px-4 py-3 text-sm">
@@ -37,26 +36,13 @@
     <%= f.url_field :source_url, placeholder: "https://…", class: "w-full border border-gray-300 rounded px-3 py-2 text-sm" %>
   </div>
 
-  <div>
-    <label class="block text-sm font-medium text-gray-700 mb-2">Days &amp; Times</label>
-    <div class="space-y-3" data-nested-form-target="rows">
-      <%= f.fields_for :happy_hour_days do |day_fields| %>
-        <%= render "admin/happy_hours/day_fields", f: day_fields %>
-      <% end %>
-    </div>
-
-    <template data-nested-form-target="template">
-      <%= f.fields_for :happy_hour_days, HappyHourDay.new, child_index: "NEW_RECORD" do |day_fields| %>
-        <%= render "admin/happy_hours/day_fields", f: day_fields %>
-      <% end %>
-    </template>
-
-    <button type="button" data-action="nested-form#add"
-            class="mt-3 text-sm text-amber-600 hover:text-amber-700 font-medium">+ Add another day</button>
-  </div>
+  <% if happy_hour.new_record? %>
+    <p class="text-sm text-gray-400">You'll add the schedule (days &amp; times) and the deals on the next screen.</p>
+  <% end %>
 
   <div class="flex gap-3">
-    <%= f.submit class: "px-5 py-2.5 bg-amber-500 text-white rounded-lg hover:bg-amber-600 cursor-pointer" %>
+    <%= f.submit(happy_hour.new_record? ? "Create & add schedule" : "Save",
+          class: "px-5 py-2.5 bg-amber-500 text-white rounded-lg hover:bg-amber-600 cursor-pointer") %>
     <%= link_to "Cancel", (happy_hour.persisted? ? admin_happy_hour_path(happy_hour) : admin_happy_hours_path),
           class: "px-5 py-2.5 text-gray-600 hover:text-gray-900" %>
   </div>

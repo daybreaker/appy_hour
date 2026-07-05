@@ -19,20 +19,22 @@ module Admin
 
     def new
       @happy_hour = HappyHour.new(venue_id: params[:venue_id])
-      @happy_hour.happy_hour_days.build(day_of_week: Date.current.wday)
     end
 
+    # Admins create the shell (venue + notes) here, then build the schedule and
+    # deals on the editor. Auto-approved since admins are staff; no day is
+    # required up front (unlike public submissions).
     def create
-      @happy_hour = HappyHours::SubmissionService.new(
-        venue: Venue.find(happy_hour_params[:venue_id]),
-        submitter: current_user,
-        params: happy_hour_params.except(:venue_id)
-      ).call
+      @happy_hour = HappyHour.new(happy_hour_params.except(:venue_id))
+      @happy_hour.venue = Venue.kept.find_by(id: happy_hour_params[:venue_id])
+      @happy_hour.submitted_by = current_user
+      @happy_hour.status = :approved
+      @happy_hour.approved_by = current_user
+      @happy_hour.approved_at = Time.current
 
-      if @happy_hour.persisted?
-        redirect_to admin_happy_hour_path(@happy_hour), notice: "Happy hour created. Now add the deals."
+      if @happy_hour.save
+        redirect_to admin_happy_hour_path(@happy_hour), notice: "Happy hour created — now add the schedule and deals."
       else
-        @happy_hour.happy_hour_days.build if @happy_hour.happy_hour_days.empty?
         render :new, status: :unprocessable_entity
       end
     end

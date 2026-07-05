@@ -37,7 +37,6 @@ RSpec.describe "Admin::HappyHours", type: :request do
     it "renders the new form with the venue search widget" do
       get new_admin_happy_hour_path
       expect(response).to have_http_status(:ok)
-      expect(response.body).to include("nested-form")
       expect(response.body).to include("venue-search")
     end
 
@@ -57,16 +56,10 @@ RSpec.describe "Admin::HappyHours", type: :request do
 
   describe "POST /admin/happy_hours" do
     let(:valid_params) do
-      {
-        happy_hour: {
-          venue_id: venue.id,
-          notes: "House specials",
-          happy_hour_days_attributes: { "0" => { day_of_week: "3", start_time: "16:00", end_time: "18:00" } }
-        }
-      }
+      { happy_hour: { venue_id: venue.id, notes: "House specials" } }
     end
 
-    it "creates a happy hour, auto-approved for admin" do
+    it "creates the shell (no days required up front), auto-approved, and redirects to the editor" do
       expect {
         post admin_happy_hours_path, params: valid_params
       }.to change(HappyHour, :count).by(1)
@@ -74,11 +67,12 @@ RSpec.describe "Admin::HappyHours", type: :request do
       hh = HappyHour.last
       expect(hh.status).to eq("approved")
       expect(hh.venue).to eq(venue)
+      expect(hh.happy_hour_days).to be_empty
       expect(response).to redirect_to(admin_happy_hour_path(hh))
     end
 
-    it "re-renders on invalid input" do
-      post admin_happy_hours_path, params: { happy_hour: { venue_id: venue.id, happy_hour_days_attributes: {} } }
+    it "re-renders when no venue is selected" do
+      post admin_happy_hours_path, params: { happy_hour: { venue_id: "", notes: "x" } }
       expect(response).to have_http_status(:unprocessable_content)
       expect(HappyHour.count).to eq(0)
     end
