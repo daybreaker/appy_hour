@@ -1,12 +1,17 @@
+require "pdf/reader"
+
 module Scrapers
-  # Fetches a venue website and extracts readable text plus candidate
-  # "menu" / "happy hour" links. Network and parsing failures are surfaced
-  # as nil / empty results rather than raised, so the orchestrator can record
-  # a ScraperRun and move on.
+  # Fetches a venue website (HTML or PDF) and extracts readable text plus
+  # candidate menu / info links to follow. Network and parsing failures are
+  # surfaced as nil / empty results rather than raised, so the orchestrator can
+  # record a ScraperRun and move on.
   class WebsiteFetcher
     USER_AGENT = "AppyHourBot/1.0 (+https://appyhour.example.com)"
-    MENU_KEYWORDS = /happy\s*hour|menu|specials|drinks?|deals?/i
+    # Links worth following to find happy hour info — menus, specials, and the
+    # common "landing" pages restaurants put hours/deals on.
+    LINK_KEYWORDS = /happy\s*hour|menu|special|drink|food|deal|brewpub|taproom|\bpub\b|eat|dine/i
     MAX_TEXT_LENGTH = 20_000
+    MAX_LINKS = 6
 
     Result = Struct.new(:html, :text, :menu_links, :social_links, :error, keyword_init: true) do
       def failed? = error.present?
@@ -22,15 +27,19 @@ module Scrapers
       response = @connection.get(url)
       return Result.new(error: "http #{response.status}") unless response.success?
 
-      html = response.body.to_s
-      doc = Nokogiri::HTML(html)
+      body = response.body.to_s
 
-      Result.new(
-        html: html,
-        text: extract_text(doc),
-        menu_links: menu_links(doc, url),
-        social_links: SocialLinkDetector.detect(doc)
-      )
+      if pdf?(url, response.headers["content-type"])
+        Result.new(html: nil, text: extract_pdf_text(body), menu_links: [], social_links: [])
+      else
+        doc = Nokogiri::HTML(body)
+        Result.new(
+          html: body,
+          text: extract_text(doc),
+          menu_links: menu_links(doc, url),
+          social_links: SocialLinkDetector.detect(doc)
+        )
+      end
     rescue Faraday::Error => e
       Result.new(error: "faraday: #{e.message}")
     rescue StandardError => e
@@ -38,6 +47,19 @@ module Scrapers
     end
 
     private
+
+    def pdf?(url, content_type)
+      content_type.to_s.include?("application/pdf") ||
+        url.to_s.split("?").first.to_s.downcase.end_with?(".pdf")
+    end
+
+    def extract_pdf_text(bytes)
+      reader = PDF::Reader.new(StringIO.new(bytes))
+      text = reader.pages.map(&:text).join(" ")
+      text.gsub(/\s+/, " ").strip.truncate(MAX_TEXT_LENGTH, omission: "")
+    rescue StandardError
+      "" # unreadable / encrypted PDF — treat as no text
+    end
 
     def extract_text(doc)
       doc.search("script, style, noscript, svg").remove
@@ -51,10 +73,12 @@ module Scrapers
         text = a.text.to_s.strip
         href = a["href"].to_s.strip
         next if href.blank?
-        next unless text.match?(MENU_KEYWORDS) || href.match?(MENU_KEYWORDS)
+
+        pdf = href.split("?").first.to_s.downcase.end_with?(".pdf")
+        next unless pdf || text.match?(LINK_KEYWORDS) || href.match?(LINK_KEYWORDS)
 
         absolutize(href, base)
-      end.uniq.first(10)
+      end.uniq.first(MAX_LINKS)
     end
 
     def absolutize(href, base)
@@ -71,7 +95,7 @@ module Scrapers
         f.request :retry, max: 2, interval: 0.5
         f.response :follow_redirects, limit: 5 # http->https and other 3xx
         f.headers["User-Agent"] = USER_AGENT
-        f.options.timeout = 10
+        f.options.timeout = 15
         f.options.open_timeout = 5
       end
     end

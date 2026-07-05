@@ -7,8 +7,10 @@ module Scrapers
   # Deliberately separate from the AI pipeline (VenueDiscoveryScraper, which
   # creates every venue, + HappyHourScraper, which uses Claude to extract deals).
   class HappyHourDiscoveryScraper
-    HAPPY_HOUR_HINT = /happy\s*-?\s*hour/i
-    MAX_MENU_LINKS = 3
+    # A site "has happy hour" if it mentions happy hour, daily specials, or
+    # weekly specials.
+    HAPPY_HOUR_HINT = /happy\s*-?\s*hour|daily\s+specials?|weekly\s+specials?/i
+    MAX_MENU_LINKS = 6
 
     Result = Struct.new(:created, :scanned, :skipped_no_website, :detail_lookups, keyword_init: true)
 

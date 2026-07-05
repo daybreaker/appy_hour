@@ -39,6 +39,26 @@ RSpec.describe Scrapers::WebsiteFetcher do
       expect(result.menu_links).not_to include(a_string_matching(/about/))
     end
 
+    it "follows PDF links even when the link text isn't menu-ish" do
+      pdf_html = '<html><body><a href="/menus/summer.pdf">Download</a></body></html>'
+      stub_request(:get, "https://joesbar.com/").to_return(status: 200, body: pdf_html)
+
+      result = fetcher.fetch("https://joesbar.com/")
+      expect(result.menu_links).to include("https://joesbar.com/menus/summer.pdf")
+    end
+
+    it "extracts text from a PDF response instead of parsing it as HTML" do
+      stub_request(:get, "https://joesbar.com/menu.pdf")
+        .to_return(status: 200, body: "raw-pdf-bytes", headers: { "Content-Type" => "application/pdf" })
+
+      # PDF::Reader is exercised for real against a live PDF in scraper runs;
+      # here we just confirm PDF responses take the extract-text path (bad bytes
+      # yield empty text rather than an exception or HTML parse).
+      result = fetcher.fetch("https://joesbar.com/menu.pdf")
+      expect(result).not_to be_failed
+      expect(result.text).to eq("")
+    end
+
     it "detects social links on the page" do
       social_html = <<~HTML
         <html><body>

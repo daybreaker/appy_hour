@@ -38,6 +38,7 @@ gem "blueprinter"           # serializers for api/v1 JSON responses
 gem "faraday"
 gem "faraday-retry"
 gem "faraday-follow_redirects"   # follow http->https and other 3xx when scraping
+gem "pdf-reader"                 # extract text from PDF menus
 gem "anthropic"             # Claude API for LLM-assisted menu parsing
 
 # Search / Pagination
