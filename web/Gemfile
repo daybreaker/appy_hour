@@ -37,6 +37,7 @@ gem "blueprinter"           # serializers for api/v1 JSON responses
 # Scraper
 gem "faraday"
 gem "faraday-retry"
+gem "faraday-follow_redirects"   # follow http->https and other 3xx when scraping
 gem "anthropic"             # Claude API for LLM-assisted menu parsing
 
 # Search / Pagination

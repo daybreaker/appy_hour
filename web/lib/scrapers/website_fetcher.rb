@@ -69,6 +69,7 @@ module Scrapers
     def build_connection
       Faraday.new do |f|
         f.request :retry, max: 2, interval: 0.5
+        f.response :follow_redirects, limit: 5 # http->https and other 3xx
         f.headers["User-Agent"] = USER_AGENT
         f.options.timeout = 10
         f.options.open_timeout = 5
