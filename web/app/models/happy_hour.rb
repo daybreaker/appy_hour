@@ -1,3 +1,31 @@
+# == Schema Information
+#
+# Table name: happy_hours
+#
+#  id              :bigint           not null, primary key
+#  approved_at     :datetime
+#  notes           :text
+#  source_url      :string
+#  status          :integer          default("pending"), not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  approved_by_id  :bigint
+#  submitted_by_id :bigint
+#  venue_id        :bigint           not null
+#
+# Indexes
+#
+#  index_happy_hours_on_approved_by_id   (approved_by_id)
+#  index_happy_hours_on_status           (status)
+#  index_happy_hours_on_submitted_by_id  (submitted_by_id)
+#  index_happy_hours_on_venue_id         (venue_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (approved_by_id => users.id)
+#  fk_rails_...  (submitted_by_id => users.id)
+#  fk_rails_...  (venue_id => venues.id)
+#
 class HappyHour < ApplicationRecord
   belongs_to :venue
   belongs_to :submitted_by, class_name: "User", optional: true

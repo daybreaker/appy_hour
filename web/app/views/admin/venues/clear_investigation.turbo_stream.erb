@@ -1,0 +1,9 @@
+<%# When reviewing from the investigation queue, drop the whole row. On any
+    other page (the "All" list or the venue show page) the row must stay, so we
+    just clear the "needs investigation" badge and the Mark-reviewed button in
+    place — Turbo ignores removes whose target isn't on the page. %>
+<% if params[:filter] == "investigation" %>
+  <%= turbo_stream.remove dom_id(@venue) %>
+<% end %>
+<%= turbo_stream.remove "#{dom_id(@venue)}_investigation_badge" %>
+<%= turbo_stream.remove "#{dom_id(@venue)}_review_form" %>

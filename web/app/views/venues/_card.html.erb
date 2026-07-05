@@ -18,7 +18,7 @@
         <% days.each do |day| %>
           <div class="text-sm text-amber-700 font-medium">
             <%= day.hours_label %>
-            <% if day.note.present? %><span class="text-gray-400 font-normal italic">— <%= day.note %></span><% end %>
+            <%= day.happy_hour&.notes %><% if day.note.present? %><span class="text-gray-400 font-normal italic"> — <%= day.note %></span><% end %>
           </div>
         <% end %>
       </div>

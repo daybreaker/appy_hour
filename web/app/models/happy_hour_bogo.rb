@@ -1,3 +1,28 @@
+# == Schema Information
+#
+# Table name: happy_hour_bogos
+#
+#  id                 :bigint           not null, primary key
+#  applies_to         :string
+#  buy_quantity       :integer
+#  description        :text
+#  get_discount_type  :integer
+#  get_discount_value :decimal(, )
+#  get_quantity       :integer
+#  item_name          :string
+#  status             :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  happy_hour_id      :bigint           not null
+#
+# Indexes
+#
+#  index_happy_hour_bogos_on_happy_hour_id  (happy_hour_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (happy_hour_id => happy_hours.id)
+#
 class HappyHourBogo < ApplicationRecord
   belongs_to :happy_hour
 

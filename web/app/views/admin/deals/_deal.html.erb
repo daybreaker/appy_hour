@@ -3,7 +3,7 @@
   <div class="flex items-center justify-between gap-3 py-1.5 px-3 rounded bg-gray-50 text-sm">
     <div class="flex items-center gap-2 min-w-0">
       <span class="text-xs uppercase tracking-wide text-gray-400 w-16 flex-shrink-0">
-        <%= deal.is_a?(HappyHourBogo) ? "BOGO" : deal.model_name.human.sub("Happy hour ", "") %>
+        <%= deal_type_label(deal) %>
       </span>
       <span class="text-gray-700 truncate">
         <%= deal_summary(deal) %><% if deal.description.present? %><span class="text-gray-400"> — <%= deal.description %></span><% end %>

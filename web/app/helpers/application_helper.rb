@@ -65,6 +65,16 @@ module ApplicationHelper
     end
   end
 
+  # Short type badge for a deal. Items show their category (Food/Drink),
+  # falling back to "Item" only when no category is set.
+  def deal_type_label(deal)
+    case deal
+    when HappyHourBogo then "BOGO"
+    when HappyHourItem then deal.category.presence&.capitalize || "Item"
+    else deal.model_name.human.sub("Happy hour ", "")
+    end
+  end
+
   # One-line human summary for any deal type.
   def deal_summary(deal)
     case deal

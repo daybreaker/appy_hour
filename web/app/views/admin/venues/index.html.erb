@@ -33,7 +33,7 @@
         <div class="min-w-0">
           <%= link_to venue.name, admin_venue_path(venue), class: "font-medium text-gray-900 hover:text-amber-600" %>
           <% if venue.needs_investigation? %>
-            <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs bg-orange-100 text-orange-700">needs investigation</span>
+            <span id="<%= dom_id(venue) %>_investigation_badge" class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs bg-orange-100 text-orange-700">needs investigation</span>
           <% end %>
           <p class="text-sm text-gray-500 truncate">
             <%= venue.address %><%= " · #{venue.neighborhood.name}" if venue.neighborhood %>
@@ -42,6 +42,8 @@
         <div class="flex items-center gap-2 flex-shrink-0 text-sm">
           <% if venue.needs_investigation? %>
             <%= button_to "Mark reviewed", clear_investigation_admin_venue_path(venue), method: :patch,
+                  params: { filter: params[:filter] },
+                  form: { id: "#{dom_id(venue)}_review_form" },
                   class: "px-3 py-1.5 bg-green-600 text-white rounded hover:bg-green-700" %>
           <% end %>
           <%= link_to "Edit", edit_admin_venue_path(venue),

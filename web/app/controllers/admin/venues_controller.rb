@@ -65,7 +65,7 @@ module Admin
     def clear_investigation
       @venue.update!(needs_investigation: false)
       respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.remove(@venue) }
+        format.turbo_stream # clear_investigation.turbo_stream.erb
         format.html { redirect_to admin_venues_path(filter: "investigation"), notice: "Marked as reviewed." }
       end
     end

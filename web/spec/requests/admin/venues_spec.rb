@@ -166,5 +166,26 @@ RSpec.describe "Admin::Venues", type: :request do
       patch clear_investigation_admin_venue_path(venue)
       expect(response).to redirect_to(admin_venues_path(filter: "investigation"))
     end
+
+    context "as a turbo_stream request" do
+      let(:turbo_headers) { { "Accept" => "text/vnd.turbo-stream.html" } }
+
+      it "removes the row when reviewed from the investigation queue" do
+        patch clear_investigation_admin_venue_path(venue, filter: "investigation"), headers: turbo_headers
+        expect(response.media_type).to eq("text/vnd.turbo-stream.html")
+        expect(response.body).to include(%(action="remove" target="#{helper_dom_id(venue)}"))
+      end
+
+      it "clears the badge and button in place when not filtering the queue" do
+        patch clear_investigation_admin_venue_path(venue), headers: turbo_headers
+        expect(response.body).to include(%(target="#{helper_dom_id(venue)}_investigation_badge"))
+        expect(response.body).to include(%(target="#{helper_dom_id(venue)}_review_form"))
+        expect(response.body).not_to include(%(action="remove" target="#{helper_dom_id(venue)}"))
+      end
+    end
+  end
+
+  def helper_dom_id(record)
+    ActionView::RecordIdentifier.dom_id(record)
   end
 end
