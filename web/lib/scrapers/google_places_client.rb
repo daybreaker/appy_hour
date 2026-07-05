@@ -4,16 +4,17 @@ module Scrapers
   # persistence and dedup are the discovery scraper's job.
   class GooglePlacesClient
     ENDPOINT = "https://places.googleapis.com/v1/places:searchNearby"
+    DETAILS_ENDPOINT = "https://places.googleapis.com/v1/places/%<id>s"
     INCLUDED_TYPES = %w[bar restaurant].freeze
-    FIELD_MASK = [
-      "places.id",
-      "places.displayName",
-      "places.formattedAddress",
-      "places.addressComponents",
-      "places.location",
-      "places.nationalPhoneNumber",
-      "places.websiteUri"
-    ].join(",").freeze
+
+    # Field names without the "places." prefix — used for both search (prefixed)
+    # and the single-place details endpoint (unprefixed).
+    FIELDS = %w[
+      id displayName formattedAddress addressComponents location
+      nationalPhoneNumber websiteUri
+    ].freeze
+    FIELD_MASK = FIELDS.map { |f| "places.#{f}" }.join(",").freeze
+    DETAILS_FIELD_MASK = FIELDS.join(",").freeze
 
     Place = Struct.new(
       :google_place_id, :name, :address, :city, :state, :zip_code,
@@ -55,6 +56,22 @@ module Scrapers
       parse_places(response.body)
     end
 
+    # Fetches one place's details (used as a fallback to fill in a missing
+    # website). Returns a Place or nil.
+    def place_details(place_id)
+      return nil if place_id.blank?
+
+      url = format(DETAILS_ENDPOINT, id: place_id)
+      response = @connection.get(url) do |req|
+        req.headers["X-Goog-Api-Key"] = @api_key
+        req.headers["X-Goog-FieldMask"] = DETAILS_FIELD_MASK
+      end
+
+      return nil unless response.success?
+
+      parse_place(JSON.parse(response.body))
+    end
+
     def self.api_key
       Rails.application.credentials.dig(:google, :places_api_key) || ENV["GOOGLE_PLACES_API_KEY"]
     end
@@ -63,21 +80,23 @@ module Scrapers
 
     def parse_places(body)
       data = body.is_a?(String) ? JSON.parse(body) : body
-      Array(data["places"]).map do |place|
-        components = Array(place["addressComponents"])
-        Place.new(
-          google_place_id: place["id"],
-          name: place.dig("displayName", "text"),
-          address: place["formattedAddress"],
-          city: address_component(components, "locality"),
-          state: address_component(components, "administrative_area_level_1", short: true),
-          zip_code: address_component(components, "postal_code"),
-          phone: place["nationalPhoneNumber"],
-          website_url: place["websiteUri"],
-          latitude: place.dig("location", "latitude"),
-          longitude: place.dig("location", "longitude")
-        )
-      end
+      Array(data["places"]).map { |place| parse_place(place) }
+    end
+
+    def parse_place(place)
+      components = Array(place["addressComponents"])
+      Place.new(
+        google_place_id: place["id"],
+        name: place.dig("displayName", "text"),
+        address: place["formattedAddress"],
+        city: address_component(components, "locality"),
+        state: address_component(components, "administrative_area_level_1", short: true),
+        zip_code: address_component(components, "postal_code"),
+        phone: place["nationalPhoneNumber"],
+        website_url: place["websiteUri"],
+        latitude: place.dig("location", "latitude"),
+        longitude: place.dig("location", "longitude")
+      )
     end
 
     # Pulls a value out of Google's addressComponents by type. State uses the
